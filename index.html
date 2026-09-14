@@ -108,6 +108,10 @@ a{color:inherit}
 .btn:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 .btn[disabled]{opacity:.6;cursor:progress}
 .fineprint{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);text-align:center;margin:12px 0 0;letter-spacing:.04em}
+.altline{text-align:center;margin-top:18px;padding-top:15px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-faint)}
+.linkish{background:none;border:0;padding:0;font:inherit;color:var(--amber);text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.linkish:hover{color:var(--ink)}
+.linkish:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 .err{color:#B4402B;font-size:13.5px;margin-top:10px;min-height:1px}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .err{color:#F09080}}
 :root[data-theme="dark"] .err{color:#F09080}
@@ -234,9 +238,10 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
       </div>
 
       <form class="card form-card" id="gateForm" novalidate>
-        <h2>Get the guide</h2>
-        <p class="lede">Free, instant, no download. Takes about twenty seconds.</p>
+        <h2 id="formTitle">Get the guide</h2>
+        <p class="lede" id="formLede">Free, instant, no download. Takes about twenty seconds.</p>
 
+        <div id="mainFields">
         <div class="field">
           <label for="f-name">Your name</label>
           <input id="f-name" name="name" type="text" autocomplete="name" placeholder="First and last">
@@ -280,6 +285,23 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
         <button class="btn" type="submit" id="submitBtn">Open the guide &rarr;</button>
         <div class="err" id="formErr" role="alert"></div>
         <p class="fineprint">Your info goes to me, not a lead pool.</p>
+        </div>
+
+        <div class="altline" id="altToReturn">
+          Been here before? <button type="button" class="linkish" id="showReturn">Skip the form</button>
+        </div>
+
+        <div id="returnPanel" hidden>
+          <div class="field">
+            <label for="f-return">The email you used</label>
+            <input id="f-return" type="email" autocomplete="email" placeholder="you@email.com">
+          </div>
+          <button class="btn" type="button" id="returnBtn">Open the guide &rarr;</button>
+          <div class="err" id="returnErr" role="alert"></div>
+          <div class="altline">
+            First time here? <button type="button" class="linkish" id="showFull">Get access</button>
+          </div>
+        </div>
       </form>
     </div>
   </div>
@@ -561,6 +583,38 @@ var LEADS_ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
   var form = document.getElementById('gateForm');
   var errEl = document.getElementById('formErr');
   var btn = document.getElementById('submitBtn');
+  var mainFields = document.getElementById('mainFields');
+  var altToReturn = document.getElementById('altToReturn');
+  var returnPanel = document.getElementById('returnPanel');
+  var returnInput = document.getElementById('f-return');
+  var returnBtn = document.getElementById('returnBtn');
+  var returnErr = document.getElementById('returnErr');
+  var formTitle = document.getElementById('formTitle');
+  var formLede = document.getElementById('formLede');
+
+  // Tag each YouTube description link like ?v=data-center so you can see
+  // which video actually produces leads.
+  var VIDEO_TAG = '';
+  try { VIDEO_TAG = new URLSearchParams(location.search).get('v') || ''; } catch (e) {}
+
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function send(fields){
+    if (LEADS_ENDPOINT.indexOf('script.google.com') === -1) {
+      console.warn('Leads endpoint not configured — submission was not recorded.');
+      return Promise.resolve();
+    }
+    fields.video = VIDEO_TAG;
+    fields.source = location.hostname + location.pathname;
+    fields.referrer = document.referrer || 'direct';
+    fields.submittedAt = new Date().toISOString();
+    return fetch(LEADS_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(fields).toString()
+    });
+  }
 
   function unlock(){
     gate.style.display = 'none';
@@ -592,6 +646,16 @@ var LEADS_ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
     return '';
   }
 
+  function opener(){
+    var done = false;
+    return function(){
+      if (done) return;
+      done = true;
+      try { localStorage.setItem('lsi_unlocked', '1'); } catch (e) {}
+      unlock();
+    };
+  }
+
   form.addEventListener('submit', function(ev){
     ev.preventDefault();
     var problem = problemWith();
@@ -604,41 +668,52 @@ var LEADS_ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
     btn.disabled = true;
     btn.textContent = 'Opening…';
 
-    var payload = new URLSearchParams({
+    var open = opener();
+    setTimeout(open, 2500);   // never make a visitor wait on the network
+
+    send({
+      type: 'new lead',
       name: form.name.value.trim(),
       email: form.email.value.trim(),
       phone: form.phone.value.trim(),
       movingFrom: form.movingFrom.value.trim(),
       timeline: form.timeline.value,
-      consent: 'yes',
-      source: location.hostname + location.pathname,
-      referrer: document.referrer || 'direct',
-      submittedAt: new Date().toISOString()
-    });
+      consent: 'yes'
+    }).then(open, open);
+  });
 
-    var opened = false;
-    function open(){
-      if (opened) return;
-      opened = true;
-      try { localStorage.setItem('lsi_unlocked', '1'); } catch (e) {}
-      unlock();
-    }
+  // ---- Returning readers: they already gave you their info once. ----
+  function showPanel(isReturning){
+    mainFields.hidden = isReturning;
+    altToReturn.hidden = isReturning;
+    returnPanel.hidden = !isReturning;
+    formTitle.textContent = isReturning ? 'Welcome back' : 'Get the guide';
+    formLede.textContent = isReturning
+      ? 'Just your email — no need to fill it out again.'
+      : 'Free, instant, no download. Takes about twenty seconds.';
+    if (isReturning) returnInput.focus();
+  }
 
-    // Never make a visitor wait on the network.
-    setTimeout(open, 2500);
+  document.getElementById('showReturn').addEventListener('click', function(){ showPanel(true); });
+  document.getElementById('showFull').addEventListener('click', function(){ showPanel(false); });
 
-    if (LEADS_ENDPOINT.indexOf('script.google.com') === -1) {
-      console.warn('Leads endpoint not configured — submission was not recorded.');
-      open();
+  returnInput.addEventListener('keydown', function(ev){
+    if (ev.key === 'Enter') { ev.preventDefault(); returnBtn.click(); }
+  });
+
+  returnBtn.addEventListener('click', function(){
+    var email = returnInput.value.trim();
+    if (!EMAIL_RE.test(email)) {
+      returnErr.textContent = 'That email address doesn’t look complete.';
       return;
     }
+    returnErr.textContent = '';
+    returnBtn.disabled = true;
+    returnBtn.textContent = 'Opening…';
 
-    fetch(LEADS_ENDPOINT, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: payload.toString()
-    }).then(open, open);
+    var open = opener();
+    setTimeout(open, 2500);
+    send({ type: 'returning reader', email: email }).then(open, open);
   });
 })();
 </script>
