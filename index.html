@@ -577,6 +577,13 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
 ------------------------------------------------------------------ */
 var LEADS_ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
 
+/* ------------------------------------------------------------------
+   The gate is OFF while we work on the guide itself.
+   Flip this to true (and fill in LEADS_ENDPOINT above) to turn the
+   sign-up form back on. Nothing else has to change.
+------------------------------------------------------------------ */
+var GATE_ENABLED = false;
+
 (function(){
   var gate = document.getElementById('gate');
   var guide = document.getElementById('guide');
@@ -622,7 +629,11 @@ var LEADS_ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
     window.scrollTo(0, 0);
   }
 
-  try { if (localStorage.getItem('lsi_unlocked') === '1') unlock(); } catch (e) {}
+  if (!GATE_ENABLED) {
+    unlock();
+  } else {
+    try { if (localStorage.getItem('lsi_unlocked') === '1') unlock(); } catch (e) {}
+  }
 
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
   tabs.forEach(function(t){
