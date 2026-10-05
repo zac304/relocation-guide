@@ -222,6 +222,10 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
 .bl span{font-size:15.5px}
 .bl em{font-style:normal;color:var(--ink-faint);font-size:14px;display:block;margin-top:1px}
 .bl input:checked ~ span{color:var(--ink-faint)}
+.bl .loc{display:block;margin-top:4px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--amber);text-decoration:none;width:fit-content;border-bottom:1px solid transparent}
+.bl .loc:hover{border-bottom-color:var(--amber)}
+.bl .loc:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.bl input:checked ~ span .loc{opacity:.55}
 .bl-progress{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);background:var(--surface-2);border-left:3px solid var(--amber);padding:13px 16px;margin-bottom:36px}
 
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
@@ -669,17 +673,17 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
       <h3>Get outside</h3>
       <p class="bl-note">The actual reason people stay. Most of this is fifteen to forty minutes from your driveway.</p>
       <div class="bl-items">
-        <label class="bl"><input type="checkbox" data-k="o1"><span>Watch the sunrise from the Pillars on Red Hill <em>Ten minutes from downtown. Worth the alarm.</em></span></label>
-        <label class="bl"><input type="checkbox" data-k="o2"><span>Soak at Lava Hot Springs in February <em>Steam and falling snow at the same time.</em></span></label>
-        <label class="bl"><input type="checkbox" data-k="o3"><span>Tube the Portneuf through Lava in July</span></label>
-        <label class="bl"><input type="checkbox" data-k="o4"><span>Ski Pebble Creek on a weekday <em>No lift line. Ever.</em></span></label>
-        <label class="bl"><input type="checkbox" data-k="o5"><span>Cross-country ski or snowshoe at the Mink Creek Nordic Center</span></label>
-        <label class="bl"><input type="checkbox" data-k="o6"><span>Mountain bike to Elk Meadow</span></label>
-        <label class="bl"><input type="checkbox" data-k="o7"><span>Camp a night on Scout Mountain</span></label>
-        <label class="bl"><input type="checkbox" data-k="o8"><span>Drive Buckskin Road just to see where it goes</span></label>
-        <label class="bl"><input type="checkbox" data-k="o9"><span>Float or kayak the Portneuf</span></label>
-        <label class="bl"><input type="checkbox" data-k="o10"><span>Play a round of disc golf at the Nordic Center</span></label>
-        <label class="bl"><input type="checkbox" data-k="o11"><span>Finish the Portneuf Peaks Club <em>Three summits, one summer.</em></span></label>
+        <label class="bl"><input type="checkbox" data-k="o1"><span>Watch the sunrise from the Pillars on Red Hill <em>Ten minutes from downtown. Worth the alarm.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Red%20Hill%20Trail%20Pocatello%20ID" target="_blank" rel="noopener">Red Hill trailhead &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o2"><span>Soak at Lava Hot Springs in February <em>Steam and falling snow at the same time.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Lava%20Hot%20Springs%20Foundation%20Lava%20Hot%20Springs%20ID" target="_blank" rel="noopener">Lava Hot Springs · 40 min &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o3"><span>Tube the Portneuf through Lava in July<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Portneuf%20River%20tubing%20Lava%20Hot%20Springs%20ID" target="_blank" rel="noopener">Lava Hot Springs &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o4"><span>Ski Pebble Creek on a weekday <em>No lift line. Ever.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Pebble%20Creek%20Ski%20Area%20Inkom%20ID" target="_blank" rel="noopener">Inkom · 30 min &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o5"><span>Cross-country ski or snowshoe at the Mink Creek Nordic Center<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=East%20Mink%20Creek%20Nordic%20Center%20Pocatello%20ID" target="_blank" rel="noopener">East Mink Creek · 20 min &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o6"><span>Mountain bike to Elk Meadow<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Gibson%20Jack%20Trailhead%20Pocatello%20ID" target="_blank" rel="noopener">Gibson Jack trailhead &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o7"><span>Camp a night on Scout Mountain<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Scout%20Mountain%20Campground%20Pocatello%20ID" target="_blank" rel="noopener">Mink Creek Rec Area &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o8"><span>Drive Buckskin Road just to see where it goes<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Buckskin%20Road%20Pocatello%20ID" target="_blank" rel="noopener">Buckskin Road &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o9"><span>Float or kayak the Portneuf<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Portneuf%20River%20Pocatello%20ID" target="_blank" rel="noopener">Portneuf River &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o10"><span>Play a round of disc golf at the Nordic Center<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=East%20Mink%20Creek%20Nordic%20Center%20Pocatello%20ID" target="_blank" rel="noopener">East Mink Creek Nordic Center &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o11"><span>Finish the Portneuf Peaks Club <em>Three summits, one summer.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Chinese%20Peak%20Pocatello%20ID" target="_blank" rel="noopener">Scout Mtn · Chinese Peak · Sterling Justice &rarr;</a></span></label>
       </div>
     </div>
 
@@ -687,14 +691,14 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
       <h3>Eat like you live here</h3>
       <p class="bl-note">Nobody who has been here five years has missed all of these.</p>
       <div class="bl-items">
-        <label class="bl"><input type="checkbox" data-k="e1"><span>Drink a bottle of Reed's Dairy chocolate milk <em>The one thing the whole town agrees on.</em></span></label>
-        <label class="bl"><input type="checkbox" data-k="e2"><span>Order a Buddy's salad</span></label>
-        <label class="bl"><input type="checkbox" data-k="e3"><span>Get the taco spaghetti at the Ross Park Drive-In <em>Yes, that's the real name. Yes, it works.</em></span></label>
-        <label class="bl"><input type="checkbox" data-k="e4"><span>Eat at Bigfoot Pizza</span></label>
-        <label class="bl"><input type="checkbox" data-k="e5"><span>Work your way through the Himalayan Flavor menu</span></label>
-        <label class="bl"><input type="checkbox" data-k="e6"><span>Have a pint at Portneuf Valley Brewing</span></label>
-        <label class="bl"><input type="checkbox" data-k="e7"><span>Hit Jungle Retreat or Scoops &amp; Sliders on a hot afternoon</span></label>
-        <label class="bl"><input type="checkbox" data-k="e8"><span>Save Sandpiper for something worth celebrating</span></label>
+        <label class="bl"><input type="checkbox" data-k="e1"><span>Drink a bottle of Reed's Dairy chocolate milk <em>The one thing the whole town agrees on.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Reeds%20Dairy%20Pocatello%20ID" target="_blank" rel="noopener">Reed's Dairy &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="e2"><span>Order a Buddy's salad<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Buddys%20Italian%20Restaurant%20Pocatello%20ID" target="_blank" rel="noopener">Buddy's &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="e3"><span>Get the taco spaghetti at the Ross Park Drive-In <em>Yes, that's the real name. Yes, it works.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Ross%20Park%20Drive%20In%20Pocatello%20ID" target="_blank" rel="noopener">Ross Park Drive-In &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="e4"><span>Eat at Bigfoot Pizza<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Bigfoot%20Pizza%20Pocatello%20ID" target="_blank" rel="noopener">Bigfoot Pizza &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="e5"><span>Work your way through the Himalayan Flavor menu<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Himalayan%20Flavor%20Pocatello%20ID" target="_blank" rel="noopener">Himalayan Flavor &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="e6"><span>Have a pint at Portneuf Valley Brewing<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Portneuf%20Valley%20Brewing%20Pocatello%20ID" target="_blank" rel="noopener">Portneuf Valley Brewing &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="e7"><span>Hit Jungle Retreat or Scoops &amp; Sliders on a hot afternoon<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Jungle%20Retreat%20Pocatello%20ID" target="_blank" rel="noopener">Jungle Retreat &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="e8"><span>Save Sandpiper for something worth celebrating<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Sandpiper%20Restaurant%20Pocatello%20ID" target="_blank" rel="noopener">Sandpiper &rarr;</a></span></label>
       </div>
     </div>
 
@@ -702,14 +706,14 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
       <h3>Weekends with kids</h3>
       <p class="bl-note">The rotation that gets you through a long winter and a longer summer.</p>
       <div class="bl-items">
-        <label class="bl"><input type="checkbox" data-k="k1"><span>Swim at the Ross Park Aquatic Complex</span></label>
-        <label class="bl"><input type="checkbox" data-k="k2"><span>Meet the grizzlies at Zoo Idaho</span></label>
-        <label class="bl"><input type="checkbox" data-k="k3"><span>Spend an afternoon at the Museum of Clean <em>Sounds like a joke. Isn't one.</em></span></label>
-        <label class="bl"><input type="checkbox" data-k="k4"><span>Find the rope swing at Edson Fichter</span></label>
-        <label class="bl"><input type="checkbox" data-k="k5"><span>Go skating at Deleta</span></label>
-        <label class="bl"><input type="checkbox" data-k="k6"><span>Ice block down Bartz Field</span></label>
-        <label class="bl"><input type="checkbox" data-k="k7"><span>Swore Farms in October</span></label>
-        <label class="bl"><input type="checkbox" data-k="k8"><span>Rock climbing at Ross Park or the ISU Rec Center</span></label>
+        <label class="bl"><input type="checkbox" data-k="k1"><span>Swim at the Ross Park Aquatic Complex<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Ross%20Park%20Aquatic%20Complex%20Pocatello%20ID" target="_blank" rel="noopener">Ross Park &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="k2"><span>Meet the grizzlies at Zoo Idaho<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Zoo%20Idaho%20Pocatello%20ID" target="_blank" rel="noopener">Ross Park &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="k3"><span>Spend an afternoon at the Museum of Clean <em>Sounds like a joke. Isn't one.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Museum%20of%20Clean%20Pocatello%20ID" target="_blank" rel="noopener">Downtown &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="k4"><span>Find the rope swing at Edson Fichter<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Edson%20Fichter%20Nature%20Area%20Pocatello%20ID" target="_blank" rel="noopener">South Pocatello &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="k5"><span>Go skating at Deleta<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Deleta%20Skate%20Center%20Pocatello%20ID" target="_blank" rel="noopener">Deleta Skate Center &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="k6"><span>Ice block down Bartz Field<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Bartz%20Field%20Pocatello%20ID" target="_blank" rel="noopener">Bartz Field &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="k7"><span>Swore Farms in October<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Swore%20Farms%20Pocatello%20ID" target="_blank" rel="noopener">Swore Farms &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="k8"><span>Rock climbing at Ross Park or the ISU Rec Center<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Ross%20Park%20Pocatello%20ID" target="_blank" rel="noopener">Ross Park &amp; the ISU Rec Center &rarr;</a></span></label>
       </div>
     </div>
 
@@ -717,16 +721,16 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
       <h3>Show up where the town shows up</h3>
       <p class="bl-note">This is the part transplants skip, and it's the part that decides whether you make friends here.</p>
       <div class="bl-items">
-        <label class="bl"><input type="checkbox" data-k="t1"><span>Saturday morning farmers market</span></label>
-        <label class="bl"><input type="checkbox" data-k="t2"><span>Revive at 5 downtown</span></label>
-        <label class="bl"><input type="checkbox" data-k="t3"><span>First Friday Art Walk</span></label>
-        <label class="bl"><input type="checkbox" data-k="t4"><span>The Eastern Idaho State Fair</span></label>
-        <label class="bl"><input type="checkbox" data-k="t5"><span>The Shoshone-Bannock Indian Festival</span></label>
-        <label class="bl"><input type="checkbox" data-k="t6"><span>A Spud Kings or Chukars game</span></label>
-        <label class="bl"><input type="checkbox" data-k="t7"><span>Something loud at the ICCU Arena</span></label>
-        <label class="bl"><input type="checkbox" data-k="t8"><span>A concert at the Portneuf Amphitheatre</span></label>
-        <label class="bl"><input type="checkbox" data-k="t9"><span>A play at a local theatre</span></label>
-        <label class="bl"><input type="checkbox" data-k="t10"><span>A movie at the Reel Theatre</span></label>
+        <label class="bl"><input type="checkbox" data-k="t1"><span>Saturday morning farmers market<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Pocatello%20Farmers%20Market%20Pocatello%20ID" target="_blank" rel="noopener">Old Town &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t2"><span>Revive at 5 downtown<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Pocatello%20ID" target="_blank" rel="noopener">Old Town &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t3"><span>First Friday Art Walk<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Pocatello%20ID" target="_blank" rel="noopener">Old Town &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t4"><span>The Eastern Idaho State Fair<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Eastern%20Idaho%20State%20Fair%20Blackfoot%20ID" target="_blank" rel="noopener">Blackfoot · 25 min &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t5"><span>The Shoshone-Bannock Indian Festival<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Fort%20Hall%20Idaho" target="_blank" rel="noopener">Fort Hall &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t6"><span>A Spud Kings or Chukars game<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Mountain%20America%20Center%20Idaho%20Falls%20ID" target="_blank" rel="noopener">Idaho Falls · 50 min &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t7"><span>Something loud at the ICCU Dome<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=ICCU%20Dome%20Pocatello%20ID" target="_blank" rel="noopener">ISU campus &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t8"><span>A concert at the Portneuf Amphitheatre<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Portneuf%20Health%20Trust%20Amphitheatre%20Pocatello%20ID" target="_blank" rel="noopener">Portneuf Wellness Complex &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t9"><span>A play at a local theatre<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Pocatello%20ID" target="_blank" rel="noopener">Old Town &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t10"><span>A movie at the Reel Theatre<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Reel%20Theatre%20Pocatello%20ID" target="_blank" rel="noopener">Pocatello Reel Theatre &rarr;</a></span></label>
       </div>
     </div>
 
@@ -734,12 +738,12 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
       <h3>Worth the drive</h3>
       <p class="bl-note">Day trips and long weekends. Living here means these are ordinary, not vacations.</p>
       <div class="bl-items">
-        <label class="bl"><input type="checkbox" data-k="d1"><span>Craters of the Moon <em>Nothing else in the country looks like it.</em></span></label>
-        <label class="bl"><input type="checkbox" data-k="d2"><span>Shoshone Falls at spring runoff <em>Taller than Niagara.</em></span></label>
-        <label class="bl"><input type="checkbox" data-k="d3"><span>Massacre Rocks and Register Rock</span></label>
-        <label class="bl"><input type="checkbox" data-k="d4"><span>Cherry Springs or City Creek when the leaves turn</span></label>
-        <label class="bl"><input type="checkbox" data-k="d5"><span>Yellowstone for a long weekend</span></label>
-        <label class="bl"><input type="checkbox" data-k="d6"><span>The Tetons</span></label>
+        <label class="bl"><input type="checkbox" data-k="d1"><span>Craters of the Moon <em>Nothing else in the country looks like it.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Craters%20of%20the%20Moon%20National%20Monument%20Idaho" target="_blank" rel="noopener">Arco · about 2 hrs &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="d2"><span>Shoshone Falls at spring runoff <em>Taller than Niagara.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Shoshone%20Falls%20Twin%20Falls%20ID" target="_blank" rel="noopener">Twin Falls · about 2 hrs &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="d3"><span>Massacre Rocks and Register Rock<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Massacre%20Rocks%20State%20Park%20American%20Falls%20ID" target="_blank" rel="noopener">American Falls · 35 min &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="d4"><span>Cherry Springs or City Creek when the leaves turn<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Cherry%20Springs%20Nature%20Area%20Pocatello%20ID" target="_blank" rel="noopener">Mink Creek &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="d5"><span>Yellowstone for a long weekend<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=West%20Yellowstone%20Montana" target="_blank" rel="noopener">West entrance · about 3 hrs &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="d6"><span>The Tetons<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Grand%20Teton%20National%20Park" target="_blank" rel="noopener">Jackson · about 3 hrs &rarr;</a></span></label>
       </div>
     </div>
 
@@ -863,6 +867,10 @@ var GATE_ENABLED = false;
     });
   });
   paintProgress();
+  // A map link inside a <label> would also toggle the checkbox. Don't let it.
+  document.querySelectorAll('.bl .loc').forEach(function(a){
+    a.addEventListener('click', function(ev){ ev.stopPropagation(); });
+  });
 
   function problemWith(){
     var name = form.name.value.trim();
