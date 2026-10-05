@@ -222,6 +222,16 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
 .bl span{font-size:15.5px}
 .bl em{font-style:normal;color:var(--ink-faint);font-size:14px;display:block;margin-top:1px}
 .bl input:checked ~ span{color:var(--ink-faint)}
+.fun .loc,.eat .loc{display:block;margin-top:10px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--amber);text-decoration:none;width:fit-content;border-bottom:1px solid transparent}
+.fun .loc:hover,.eat .loc:hover{border-bottom-color:var(--amber)}
+.fun .loc:focus-visible,.eat .loc:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.news{margin-top:56px;background:var(--warn-bg);border:1px solid var(--line-strong);border-left:3px solid var(--amber);padding:30px 32px;border-radius:3px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+@media(max-width:720px){.news{grid-template-columns:1fr;gap:20px}}
+.news h3{font-size:22px;margin:9px 0 10px}
+.news p{color:var(--ink-soft);font-size:16px;max-width:56ch}
+.news .cta-btn{white-space:nowrap;text-align:center}
+footer a{color:var(--amber);text-decoration:none;border-bottom:1px solid transparent}
+footer a:hover{border-bottom-color:var(--amber)}
 .bl .loc{display:block;margin-top:4px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--amber);text-decoration:none;width:fit-content;border-bottom:1px solid transparent}
 .bl .loc:hover{border-bottom-color:var(--amber)}
 .bl .loc:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
@@ -545,14 +555,14 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
 
     <div class="section-label">Outside</div>
     <div class="fun-grid">
-      <div class="fun"><span class="kind">Winter</span><h4>Pebble Creek</h4><p>The local ski hill on Mount Bonneville, about half an hour southeast. Small, steep, and no lift lines &mdash; the trade most transplants from bigger resorts are happy to make.</p></div>
-      <div class="fun"><span class="kind">Winter</span><h4>East Mink Creek Nordic Center</h4><p>Groomed cross-country skiing, snowshoeing and yurt rentals in the canyon south of town. The best-kept secret on this list.</p></div>
-      <div class="fun"><span class="kind">Year round</span><h4>City Creek trail system</h4><p>Hiking and mountain biking that starts essentially inside the city. You can be on singletrack twelve minutes after leaving downtown.</p></div>
-      <div class="fun"><span class="kind">Year round</span><h4>Lava Hot Springs</h4><p>Natural mineral pools forty minutes up the canyon, open all winter. Tubing the Portneuf through town is the summer version.</p></div>
-      <div class="fun"><span class="kind">Summer</span><h4>Ross Park Aquatic Complex</h4><p>Waterslides, lazy river and diving well &mdash; the default answer to "what do we do with the kids today" from June to August.</p></div>
-      <div class="fun"><span class="kind">Summer</span><h4>Edson Fichter Nature Area</h4><p>Easy riverside loop and a stocked pond on the south end. Where half of Pocatello learned to fish.</p></div>
-      <div class="fun"><span class="kind">Day trip</span><h4>Massacre Rocks State Park</h4><p>Oregon Trail ruts, basalt and Snake River canyon west of town toward American Falls. Good hiking and better history.</p></div>
-      <div class="fun"><span class="kind">Day trip</span><h4>Yellowstone &amp; the Tetons</h4><p>You're inside a comfortable half-day of both. That proximity is genuinely part of the value of living here.</p></div>
+      <div class="fun"><span class="kind">Winter</span><h4>Pebble Creek</h4><p>The local ski hill on Mount Bonneville, about half an hour southeast. Small, steep, and no lift lines &mdash; the trade most transplants from bigger resorts are happy to make.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Pebble%20Creek%20Ski%20Area%20Inkom%20ID" target="_blank" rel="noopener">Inkom · 30 min &rarr;</a></div>
+      <div class="fun"><span class="kind">Winter</span><h4>East Mink Creek Nordic Center</h4><p>Groomed cross-country skiing, snowshoeing and yurt rentals in the canyon south of town. The best-kept secret on this list.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=East%20Mink%20Creek%20Nordic%20Center%20Pocatello%20ID" target="_blank" rel="noopener">East Mink Creek · 20 min &rarr;</a></div>
+      <div class="fun"><span class="kind">Year round</span><h4>City Creek trail system</h4><p>Hiking and mountain biking that starts essentially inside the city. You can be on singletrack twelve minutes after leaving downtown.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=City%20Creek%20Trailhead%20Pocatello%20ID" target="_blank" rel="noopener">West edge of town &rarr;</a></div>
+      <div class="fun"><span class="kind">Year round</span><h4>Lava Hot Springs</h4><p>Natural mineral pools forty minutes up the canyon, open all winter. Tubing the Portneuf through town is the summer version.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Lava%20Hot%20Springs%20Foundation%20Lava%20Hot%20Springs%20ID" target="_blank" rel="noopener">Lava Hot Springs · 40 min &rarr;</a></div>
+      <div class="fun"><span class="kind">Summer</span><h4>Ross Park Aquatic Complex</h4><p>Waterslides, lazy river and diving well &mdash; the default answer to "what do we do with the kids today" from June to August.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Ross%20Park%20Aquatic%20Complex%20Pocatello%20ID" target="_blank" rel="noopener">Ross Park &rarr;</a></div>
+      <div class="fun"><span class="kind">Summer</span><h4>Edson Fichter Nature Area</h4><p>Easy riverside loop and a stocked pond on the south end. Where half of Pocatello learned to fish.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Edson%20Fichter%20Nature%20Area%20Pocatello%20ID" target="_blank" rel="noopener">South Pocatello &rarr;</a></div>
+      <div class="fun"><span class="kind">Day trip</span><h4>Massacre Rocks State Park</h4><p>Oregon Trail ruts, basalt and Snake River canyon west of town toward American Falls. Good hiking and better history.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Massacre%20Rocks%20State%20Park%20American%20Falls%20ID" target="_blank" rel="noopener">American Falls · 35 min &rarr;</a></div>
+      <div class="fun"><span class="kind">Day trip</span><h4>Yellowstone &amp; the Tetons</h4><p>You're inside a comfortable half-day of both. That proximity is genuinely part of the value of living here.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Yellowstone%20National%20Park%20West%20Entrance" target="_blank" rel="noopener">about 3 hrs northeast &rarr;</a></div>
     </div>
 
     <div class="section-label">Where to hike</div>
@@ -630,24 +640,24 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
 
     <div class="section-label">Inside, and with kids</div>
     <div class="fun-grid">
-      <div class="fun"><span class="kind">Museums</span><h4>Idaho Museum of Natural History</h4><p>On the Idaho State campus, with rotating exhibits alongside the permanent natural history collection.</p></div>
-      <div class="fun"><span class="kind">Only here</span><h4>Museum of Clean</h4><p>Six floors devoted to the history of cleaning. It sounds like a joke and it is genuinely one of the most memorable places in the state.</p></div>
-      <div class="fun"><span class="kind">Animals</span><h4>Zoo Idaho</h4><p>A native-species zoo in Ross Park &mdash; grizzlies, bison, elk. Small, walkable, and built around animals that actually live here.</p></div>
-      <div class="fun"><span class="kind">History</span><h4>Fort Hall Replica</h4><p>Reconstruction of the 1830s trading post that put this valley on the map, plus the Bannock County Historical Museum next door.</p></div>
-      <div class="fun"><span class="kind">Arts</span><h4>Stephens Performing Arts Center</h4><p>Idaho State's concert hall brings in touring productions and hosts the local symphony &mdash; a bigger room than a town this size usually gets.</p></div>
-      <div class="fun"><span class="kind">Rainy day</span><h4>Old Town Pocatello</h4><p>The historic downtown: galleries, coffee, live music, the farmers market in season, and the best block of independent business in the region.</p></div>
+      <div class="fun"><span class="kind">Museums</span><h4>Idaho Museum of Natural History</h4><p>On the Idaho State campus, with rotating exhibits alongside the permanent natural history collection.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Idaho%20Museum%20of%20Natural%20History%20Pocatello%20ID" target="_blank" rel="noopener">ISU campus &rarr;</a></div>
+      <div class="fun"><span class="kind">Only here</span><h4>Museum of Clean</h4><p>Six floors devoted to the history of cleaning. It sounds like a joke and it is genuinely one of the most memorable places in the state.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Museum%20of%20Clean%20Pocatello%20ID" target="_blank" rel="noopener">Downtown &rarr;</a></div>
+      <div class="fun"><span class="kind">Animals</span><h4>Zoo Idaho</h4><p>A native-species zoo in Ross Park &mdash; grizzlies, bison, elk. Small, walkable, and built around animals that actually live here.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Zoo%20Idaho%20Pocatello%20ID" target="_blank" rel="noopener">Ross Park &rarr;</a></div>
+      <div class="fun"><span class="kind">History</span><h4>Fort Hall Replica</h4><p>Reconstruction of the 1830s trading post that put this valley on the map, plus the Bannock County Historical Museum next door.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Fort%20Hall%20Replica%20Pocatello%20ID" target="_blank" rel="noopener">Upper Ross Park &rarr;</a></div>
+      <div class="fun"><span class="kind">Arts</span><h4>Stephens Performing Arts Center</h4><p>Idaho State's concert hall brings in touring productions and hosts the local symphony &mdash; a bigger room than a town this size usually gets.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Stephens%20Performing%20Arts%20Center%20Pocatello%20ID" target="_blank" rel="noopener">ISU campus &rarr;</a></div>
+      <div class="fun"><span class="kind">Rainy day</span><h4>Old Town Pocatello</h4><p>The historic downtown: galleries, coffee, live music, the farmers market in season, and the best block of independent business in the region.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Pocatello%20ID" target="_blank" rel="noopener">Old Town &rarr;</a></div>
     </div>
 
     <div class="section-label">Where locals actually eat</div>
     <div class="eats">
-      <div class="eat"><div><h4>Sandpiper</h4><div class="desc">The special-occasion steakhouse. Where people go for anniversaries and closing dinners.</div></div><span class="type">Steak &amp; seafood</span></div>
-      <div class="eat"><div><h4>Himalayan Flavor</h4><div class="desc">The highest-rated kitchen in town and the one that most surprises people who assumed a small Idaho city couldn't do it.</div></div><span class="type">Himalayan &amp; Indian</span></div>
-      <div class="eat"><div><h4>Jeri's Jumbo's Cafe</h4><div class="desc">Breakfast institution. Hash browns, no pretense, and a line on Saturday morning for a reason.</div></div><span class="type">Diner</span></div>
-      <div class="eat"><div><h4>Butter Burrs</h4><div class="desc">Longtime local sit-down spot with the kind of service that keeps three generations of the same family coming in.</div></div><span class="type">American</span></div>
-      <div class="eat"><div><h4>Portneuf Valley Brewing</h4><div class="desc">The local brewery, in a converted building near downtown, with a kitchen worth going for on its own.</div></div><span class="type">Brewpub</span></div>
-      <div class="eat"><div><h4>El Herradero</h4><div class="desc">The lunch answer. Fast, cheap, consistently good Mexican.</div></div><span class="type">Mexican</span></div>
-      <div class="eat"><div><h4>Cafe Tuscano</h4><div class="desc">Italian downtown, and the easiest date night in Pocatello.</div></div><span class="type">Italian</span></div>
-      <div class="eat"><div><h4>Jakers Bar &amp; Grill</h4><div class="desc">Reliable steak and seafood with a salad bar people are weirdly loyal to. Good for a group with mixed opinions.</div></div><span class="type">Steak &amp; seafood</span></div>
+      <div class="eat"><div><h4>Sandpiper</h4><div class="desc">The special-occasion steakhouse. Where people go for anniversaries and closing dinners.</div><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Sandpiper%20Restaurant%20Pocatello%20ID" target="_blank" rel="noopener">Sandpiper &rarr;</a></div><span class="type">Steak &amp; seafood</span></div>
+      <div class="eat"><div><h4>Himalayan Flavor</h4><div class="desc">The highest-rated kitchen in town and the one that most surprises people who assumed a small Idaho city couldn't do it.</div><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Himalayan%20Flavor%20Pocatello%20ID" target="_blank" rel="noopener">Himalayan Flavor &rarr;</a></div><span class="type">Himalayan &amp; Indian</span></div>
+      <div class="eat"><div><h4>Jeri's Jumbo's Cafe</h4><div class="desc">Breakfast institution. Hash browns, no pretense, and a line on Saturday morning for a reason.</div><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Jeris%20Jumbos%20Cafe%20Pocatello%20ID" target="_blank" rel="noopener">Jeri's Jumbo's &rarr;</a></div><span class="type">Diner</span></div>
+      <div class="eat"><div><h4>Butter Burrs</h4><div class="desc">Longtime local sit-down spot with the kind of service that keeps three generations of the same family coming in.</div><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Butter%20Burrs%20Restaurant%20Pocatello%20ID" target="_blank" rel="noopener">Butter Burrs &rarr;</a></div><span class="type">American</span></div>
+      <div class="eat"><div><h4>Portneuf Valley Brewing</h4><div class="desc">The local brewery, in a converted building near downtown, with a kitchen worth going for on its own.</div><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Portneuf%20Valley%20Brewing%20Pocatello%20ID" target="_blank" rel="noopener">Portneuf Valley Brewing &rarr;</a></div><span class="type">Brewpub</span></div>
+      <div class="eat"><div><h4>El Herradero</h4><div class="desc">The lunch answer. Fast, cheap, consistently good Mexican.</div><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=El%20Herradero%20Pocatello%20ID" target="_blank" rel="noopener">El Herradero &rarr;</a></div><span class="type">Mexican</span></div>
+      <div class="eat"><div><h4>Cafe Tuscano</h4><div class="desc">Italian downtown, and the easiest date night in Pocatello.</div><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Cafe%20Tuscano%20Pocatello%20ID" target="_blank" rel="noopener">Cafe Tuscano &rarr;</a></div><span class="type">Italian</span></div>
+      <div class="eat"><div><h4>Jakers Bar &amp; Grill</h4><div class="desc">Reliable steak and seafood with a salad bar people are weirdly loyal to. Good for a group with mixed opinions.</div><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Jakers%20Bar%20and%20Grill%20Pocatello%20ID" target="_blank" rel="noopener">Jakers &rarr;</a></div><span class="type">Steak &amp; seafood</span></div>
     </div>
 
     <div class="cta">
@@ -663,7 +673,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
   <div class="panel wrap" id="p-list" role="tabpanel">
     <div class="panel-head">
       <div class="eyebrow">Section four</div>
-      <h2>The first-year list</h2>
+      <h2>The Pocatello Bucket List</h2>
       <p>Forty-three things that'll make you a local faster than anything I can tell you. Tick them off as you go &mdash; this page remembers where you're at.</p>
     </div>
 
@@ -747,6 +757,15 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
       </div>
     </div>
 
+    <div class="news">
+      <div>
+        <div class="eyebrow">Free, every week</div>
+        <h3>What's actually happening around here</h3>
+        <p>Local events, open houses, home value reports, and the coupon book for businesses around town &mdash; real discounts at places you'll actually go. It's the fastest way to feel plugged in, and plenty of people sign up months before they move.</p>
+      </div>
+      <a class="cta-btn" href="https://lp.constantcontactpages.com/sl/Rq5bI6d/ZacDavisBusinessCard" target="_blank" rel="noopener">Sign me up</a>
+    </div>
+
     <div class="cta">
       <h3>Doing these with someone who lives here helps</h3>
       <p>I've done every one of these, most of them more than once, and I'm happy to tell you which are worth building a weekend around and which can wait. That's a conversation, not a sales call.</p>
@@ -760,7 +779,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
   <div class="wrap">
     <footer>
       <div>Zac Davis &middot; SilverCreek Realty Group &middot; homesinpocatello.com</div>
-      <div>208-244-2554 &middot; zac@homesinpocatello.com</div>
+      <div>208-244-2554 &middot; zac@homesinpocatello.com &middot; <a href="https://lp.constantcontactpages.com/sl/Rq5bI6d/ZacDavisBusinessCard" target="_blank" rel="noopener">Weekly newsletter</a></div>
     </footer>
   </div>
 </section>
