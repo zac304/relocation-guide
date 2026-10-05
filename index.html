@@ -203,6 +203,27 @@ a{color:inherit}
 
 footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-faint);font-size:13.5px;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 
+/* trails */
+.trails{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.trail{background:var(--surface);padding:18px 22px;display:grid;grid-template-columns:1.25fr auto 2fr;gap:22px;align-items:baseline}
+@media(max-width:780px){.trail{grid-template-columns:1fr;gap:6px}}
+.trail h4{font-size:18px}
+.trail .stats{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--amber);white-space:nowrap;font-variant-numeric:tabular-nums}
+.trail p{color:var(--ink-soft);font-size:15.5px}
+
+/* bucket list */
+.bl-group{margin-bottom:42px}
+.bl-group h3{font-size:21px;margin-bottom:5px}
+.bl-note{color:var(--ink-faint);font-size:14.5px;margin-bottom:16px;max-width:62ch}
+.bl-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:2px}
+.bl{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;padding:9px 12px;border-radius:3px;cursor:pointer}
+.bl:hover{background:var(--surface-2)}
+.bl input{margin-top:5px;width:15px;height:15px;accent-color:var(--amber);cursor:pointer}
+.bl span{font-size:15.5px}
+.bl em{font-style:normal;color:var(--ink-faint);font-size:14px;display:block;margin-top:1px}
+.bl input:checked ~ span{color:var(--ink-faint)}
+.bl-progress{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);background:var(--surface-2);border-left:3px solid var(--amber);padding:13px 16px;margin-bottom:36px}
+
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -322,6 +343,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
         <button class="tab" role="tab" aria-selected="true" data-panel="p-hoods">Neighborhoods</button>
         <button class="tab" role="tab" aria-selected="false" data-panel="p-move">The move</button>
         <button class="tab" role="tab" aria-selected="false" data-panel="p-fun">Eat &amp; explore</button>
+        <button class="tab" role="tab" aria-selected="false" data-panel="p-list">Bucket list</button>
       </div>
     </div>
   </div>
@@ -529,6 +551,79 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
       <div class="fun"><span class="kind">Day trip</span><h4>Yellowstone &amp; the Tetons</h4><p>You're inside a comfortable half-day of both. That proximity is genuinely part of the value of living here.</p></div>
     </div>
 
+    <div class="section-label">Where to hike</div>
+    <p class="read" style="color:var(--ink-soft);margin-bottom:26px;">Eleven trails worth knowing, roughly easiest first. All of them are inside a half-hour drive, and the first few start close enough to town that you can do them before work.</p>
+
+    <div class="trails">
+      <div class="trail">
+        <h4>Edson Fichter loop</h4>
+        <span class="stats">FLAT &middot; ~1 MI &middot; RIVERSIDE</span>
+        <p>Barely a hike, and that's the point &mdash; it's the one you do your first weekend with a stroller or a dog. Pond, ducks, a stocked fishing hole, and a rope swing the kids will find before you do.</p>
+      </div>
+      <div class="trail">
+        <h4>City Creek</h4>
+        <span class="stats">EASY&ndash;MODERATE &middot; IN TOWN</span>
+        <p>The one everybody starts with. Trailhead minutes from downtown, forgiving grade, and wildflowers in late spring worth the trip on their own. Crowded on Saturdays, which tells you what locals think of it.</p>
+      </div>
+      <div class="trail">
+        <h4>Red Hill to the Pillars</h4>
+        <span class="stats">SHORT &middot; STEEP &middot; SUNRISE</span>
+        <p>Straight up the hill above the university. It's over quickly and it earns its reputation at either end of the day &mdash; this is the view of the valley people put on their wall. Also counts toward Petite Peaks.</p>
+      </div>
+      <div class="trail">
+        <h4>Corral Creek</h4>
+        <span class="stats">MODERATE &middot; CREEKSIDE</span>
+        <p>Follows the water, gentle for the first stretch, well maintained. A good second hike once City Creek stops feeling like a workout.</p>
+      </div>
+      <div class="trail">
+        <h4>Gibson Jack</h4>
+        <span class="stats">MODERATE &middot; SHADED</span>
+        <p>Creek the whole way and real tree cover, which makes it the August answer when everything else is baking. Keeps going if you want it to &mdash; see Elk Meadow below.</p>
+      </div>
+      <div class="trail">
+        <h4>Cusick Creek</h4>
+        <span class="stats">MODERATE</span>
+        <p>Opens in grassland and climbs into shaded forest, steady the whole way with some rocky stretches. Connects into the network heading toward Kinport.</p>
+      </div>
+      <div class="trail">
+        <h4>Kinport Peak</h4>
+        <span class="stats">MODERATE&ndash;HARD &middot; VIA CITY CREEK</span>
+        <p>Up the Sap Tree Loop to the radio towers. You'll see them from town for months before you stand next to them, and the whole valley opens up underneath you when you do.</p>
+      </div>
+      <div class="trail">
+        <h4>Chinese Peak</h4>
+        <span class="stats">2.9 MI &middot; 1,719 FT GAIN &middot; 6,791 FT</span>
+        <p>Dirt road from the gate at the top of Barton, steady grade almost the whole way, no navigation required. The last half mile faces north and holds snow into May &mdash; plan around that, not through it.</p>
+      </div>
+      <div class="trail">
+        <h4>Scout Mountain</h4>
+        <span class="stats">MODERATE&ndash;HARD &middot; MINK CREEK</span>
+        <p>Further out and quieter for it. Campsites up top if you want to make a night of it, and the kind of sunset that explains why people put up with February here.</p>
+      </div>
+      <div class="trail">
+        <h4>Elk Meadow via Gibson Jack</h4>
+        <span class="stats">12.9 MI &middot; LOOP AT THE TOP</span>
+        <p>The big day. Three rocky pitches on the way up and a winter warming hut waiting at the end. Start early, bring lunch, and tell someone where you went.</p>
+      </div>
+      <div class="trail">
+        <h4>Mountaintop Road</h4>
+        <span class="stats">~5 HRS &middot; NO SHADE</span>
+        <p>Desert floor up into pine, steep in places, and genuinely exposed once you're on the road itself. Carry more water than you think you need &mdash; this is the one that humbles people.</p>
+      </div>
+    </div>
+
+    <div class="idaho-box" style="margin-top:28px;">
+      <h4>A good excuse for your first summer: the Portneuf Peaks Club</h4>
+      <dl>
+        <dt>The three</dt>
+        <dd>Scout Mountain, Chinese Peak, and Sterling Justice Overlook &mdash; any time after May 1, at your own pace, finished before the first snow.</dd>
+        <dt>Kids' version</dt>
+        <dd>Petite Peaks: the Red Hill Pillars trail, Wiggle Worm, and any Greenway trail.</dd>
+        <dt>How it works</dt>
+        <dd>Summit photo with you actually in it, all three posted to the Healthy City USA page. There are prizes. More to the point, you'll have seen this valley from three directions before Labor Day, which is a faster way to feel at home than anything I could tell you.</dd>
+      </dl>
+    </div>
+
     <div class="section-label">Inside, and with kids</div>
     <div class="fun-grid">
       <div class="fun"><span class="kind">Museums</span><h4>Idaho Museum of Natural History</h4><p>On the Idaho State campus, with rotating exhibits alongside the permanent natural history collection.</p></div>
@@ -554,6 +649,103 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
     <div class="cta">
       <h3>Come see it on a weekday</h3>
       <p>I'll build you a scouting itinerary around the two areas that fit your budget &mdash; the schools, the commute at the hour you'd actually drive it, and lunch somewhere off this list. Locals-only tour, no listing pressure.</p>
+      <div class="cta-actions">
+        <a class="cta-btn" href="tel:+12082442554">Call or text 208-244-2554</a>
+        <a class="cta-btn ghost" href="mailto:zac@homesinpocatello.com">Email me</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel wrap" id="p-list" role="tabpanel">
+    <div class="panel-head">
+      <div class="eyebrow">Section four</div>
+      <h2>The first-year list</h2>
+      <p>Forty-three things that'll make you a local faster than anything I can tell you. Tick them off as you go &mdash; this page remembers where you're at.</p>
+    </div>
+
+    <div class="bl-progress" id="blProgress">Loading&hellip;</div>
+
+    <div class="bl-group">
+      <h3>Get outside</h3>
+      <p class="bl-note">The actual reason people stay. Most of this is fifteen to forty minutes from your driveway.</p>
+      <div class="bl-items">
+        <label class="bl"><input type="checkbox" data-k="o1"><span>Watch the sunrise from the Pillars on Red Hill <em>Ten minutes from downtown. Worth the alarm.</em></span></label>
+        <label class="bl"><input type="checkbox" data-k="o2"><span>Soak at Lava Hot Springs in February <em>Steam and falling snow at the same time.</em></span></label>
+        <label class="bl"><input type="checkbox" data-k="o3"><span>Tube the Portneuf through Lava in July</span></label>
+        <label class="bl"><input type="checkbox" data-k="o4"><span>Ski Pebble Creek on a weekday <em>No lift line. Ever.</em></span></label>
+        <label class="bl"><input type="checkbox" data-k="o5"><span>Cross-country ski or snowshoe at the Mink Creek Nordic Center</span></label>
+        <label class="bl"><input type="checkbox" data-k="o6"><span>Mountain bike to Elk Meadow</span></label>
+        <label class="bl"><input type="checkbox" data-k="o7"><span>Camp a night on Scout Mountain</span></label>
+        <label class="bl"><input type="checkbox" data-k="o8"><span>Drive Buckskin Road just to see where it goes</span></label>
+        <label class="bl"><input type="checkbox" data-k="o9"><span>Float or kayak the Portneuf</span></label>
+        <label class="bl"><input type="checkbox" data-k="o10"><span>Play a round of disc golf at the Nordic Center</span></label>
+        <label class="bl"><input type="checkbox" data-k="o11"><span>Finish the Portneuf Peaks Club <em>Three summits, one summer.</em></span></label>
+      </div>
+    </div>
+
+    <div class="bl-group">
+      <h3>Eat like you live here</h3>
+      <p class="bl-note">Nobody who has been here five years has missed all of these.</p>
+      <div class="bl-items">
+        <label class="bl"><input type="checkbox" data-k="e1"><span>Drink a bottle of Reed's Dairy chocolate milk <em>The one thing the whole town agrees on.</em></span></label>
+        <label class="bl"><input type="checkbox" data-k="e2"><span>Order a Buddy's salad</span></label>
+        <label class="bl"><input type="checkbox" data-k="e3"><span>Get the taco spaghetti at the Ross Park Drive-In <em>Yes, that's the real name. Yes, it works.</em></span></label>
+        <label class="bl"><input type="checkbox" data-k="e4"><span>Eat at Bigfoot Pizza</span></label>
+        <label class="bl"><input type="checkbox" data-k="e5"><span>Work your way through the Himalayan Flavor menu</span></label>
+        <label class="bl"><input type="checkbox" data-k="e6"><span>Have a pint at Portneuf Valley Brewing</span></label>
+        <label class="bl"><input type="checkbox" data-k="e7"><span>Hit Jungle Retreat or Scoops &amp; Sliders on a hot afternoon</span></label>
+        <label class="bl"><input type="checkbox" data-k="e8"><span>Save Sandpiper for something worth celebrating</span></label>
+      </div>
+    </div>
+
+    <div class="bl-group">
+      <h3>Weekends with kids</h3>
+      <p class="bl-note">The rotation that gets you through a long winter and a longer summer.</p>
+      <div class="bl-items">
+        <label class="bl"><input type="checkbox" data-k="k1"><span>Swim at the Ross Park Aquatic Complex</span></label>
+        <label class="bl"><input type="checkbox" data-k="k2"><span>Meet the grizzlies at Zoo Idaho</span></label>
+        <label class="bl"><input type="checkbox" data-k="k3"><span>Spend an afternoon at the Museum of Clean <em>Sounds like a joke. Isn't one.</em></span></label>
+        <label class="bl"><input type="checkbox" data-k="k4"><span>Find the rope swing at Edson Fichter</span></label>
+        <label class="bl"><input type="checkbox" data-k="k5"><span>Go skating at Deleta</span></label>
+        <label class="bl"><input type="checkbox" data-k="k6"><span>Ice block down Bartz Field</span></label>
+        <label class="bl"><input type="checkbox" data-k="k7"><span>Swore Farms in October</span></label>
+        <label class="bl"><input type="checkbox" data-k="k8"><span>Rock climbing at Ross Park or the ISU Rec Center</span></label>
+      </div>
+    </div>
+
+    <div class="bl-group">
+      <h3>Show up where the town shows up</h3>
+      <p class="bl-note">This is the part transplants skip, and it's the part that decides whether you make friends here.</p>
+      <div class="bl-items">
+        <label class="bl"><input type="checkbox" data-k="t1"><span>Saturday morning farmers market</span></label>
+        <label class="bl"><input type="checkbox" data-k="t2"><span>Revive at 5 downtown</span></label>
+        <label class="bl"><input type="checkbox" data-k="t3"><span>First Friday Art Walk</span></label>
+        <label class="bl"><input type="checkbox" data-k="t4"><span>The Eastern Idaho State Fair</span></label>
+        <label class="bl"><input type="checkbox" data-k="t5"><span>The Shoshone-Bannock Indian Festival</span></label>
+        <label class="bl"><input type="checkbox" data-k="t6"><span>A Spud Kings or Chukars game</span></label>
+        <label class="bl"><input type="checkbox" data-k="t7"><span>Something loud at the ICCU Arena</span></label>
+        <label class="bl"><input type="checkbox" data-k="t8"><span>A concert at the Portneuf Amphitheatre</span></label>
+        <label class="bl"><input type="checkbox" data-k="t9"><span>A play at a local theatre</span></label>
+        <label class="bl"><input type="checkbox" data-k="t10"><span>A movie at the Reel Theatre</span></label>
+      </div>
+    </div>
+
+    <div class="bl-group">
+      <h3>Worth the drive</h3>
+      <p class="bl-note">Day trips and long weekends. Living here means these are ordinary, not vacations.</p>
+      <div class="bl-items">
+        <label class="bl"><input type="checkbox" data-k="d1"><span>Craters of the Moon <em>Nothing else in the country looks like it.</em></span></label>
+        <label class="bl"><input type="checkbox" data-k="d2"><span>Shoshone Falls at spring runoff <em>Taller than Niagara.</em></span></label>
+        <label class="bl"><input type="checkbox" data-k="d3"><span>Massacre Rocks and Register Rock</span></label>
+        <label class="bl"><input type="checkbox" data-k="d4"><span>Cherry Springs or City Creek when the leaves turn</span></label>
+        <label class="bl"><input type="checkbox" data-k="d5"><span>Yellowstone for a long weekend</span></label>
+        <label class="bl"><input type="checkbox" data-k="d6"><span>The Tetons</span></label>
+      </div>
+    </div>
+
+    <div class="cta">
+      <h3>Doing these with someone who lives here helps</h3>
+      <p>I've done every one of these, most of them more than once, and I'm happy to tell you which are worth building a weekend around and which can wait. That's a conversation, not a sales call.</p>
       <div class="cta-actions">
         <a class="cta-btn" href="tel:+12082442554">Call or text 208-244-2554</a>
         <a class="cta-btn ghost" href="mailto:zac@homesinpocatello.com">Email me</a>
@@ -645,6 +837,32 @@ var GATE_ENABLED = false;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
+
+  // Bucket list. Ticks are remembered per browser; nothing leaves the page.
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.bl input'));
+  var progressEl = document.getElementById('blProgress');
+  var BL_STORE = 'lsi_bucket';
+  var ticked = {};
+  try { ticked = JSON.parse(localStorage.getItem(BL_STORE) || '{}'); } catch (e) {}
+
+  function paintProgress(){
+    if (!progressEl) return;
+    var n = 0;
+    boxes.forEach(function(b){ if (b.checked) n++; });
+    progressEl.textContent = n === 0
+      ? boxes.length + ' things to do \u2014 tick them off as you go, this page remembers'
+      : n + ' of ' + boxes.length + ' done' + (n === boxes.length ? ' \u2014 you live here now' : '');
+  }
+
+  boxes.forEach(function(b){
+    if (ticked[b.dataset.k]) b.checked = true;
+    b.addEventListener('change', function(){
+      ticked[b.dataset.k] = b.checked;
+      try { localStorage.setItem(BL_STORE, JSON.stringify(ticked)); } catch (e) {}
+      paintProgress();
+    });
+  });
+  paintProgress();
 
   function problemWith(){
     var name = form.name.value.trim();
