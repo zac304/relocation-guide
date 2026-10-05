@@ -119,7 +119,7 @@ a{color:inherit}
 #guide{display:none}
 #guide.on{display:block}
 .topbar{position:sticky;top:0;z-index:20;background:var(--ground);border-bottom:1px solid var(--line)}
-.topbar-in{display:flex;align-items:center;gap:20px;padding:12px 24px;max-width:1080px;margin:0 auto}
+.topbar-in{display:flex;align-items:center;gap:16px;padding:12px 24px;max-width:1080px;margin:0 auto;flex-wrap:wrap}
 .topbar .mark{width:30px;height:30px;font-size:12px}
 .tabs{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
 .tab{font-family:var(--display);font-weight:600;font-size:14px;background:transparent;border:1px solid transparent;color:var(--ink-soft);padding:7px 13px;border-radius:999px;cursor:pointer}
@@ -225,10 +225,19 @@ footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-fain
 .fun .loc,.eat .loc{display:block;margin-top:10px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--amber);text-decoration:none;width:fit-content;border-bottom:1px solid transparent}
 .fun .loc:hover,.eat .loc:hover{border-bottom-color:var(--amber)}
 .fun .loc:focus-visible,.eat .loc:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
-.news{margin-top:56px;background:var(--warn-bg);border:1px solid var(--line-strong);border-left:3px solid var(--amber);padding:30px 32px;border-radius:3px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.news-btn{font-family:var(--display);font-weight:600;font-size:13.5px;text-decoration:none;background:var(--amber-bright);color:#16130C;padding:8px 15px;border-radius:999px;white-space:nowrap}
+.news-btn:hover{filter:brightness(1.08)}
+.news-btn:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+@media(max-width:860px){.news-btn{font-size:12.5px;padding:7px 12px}}
+.news{margin-top:56px;background:var(--amber);color:#16130C;border-radius:4px;padding:38px 36px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;box-shadow:var(--shadow)}
+.news .eyebrow{color:#16130C;opacity:.72}
+.news h3{color:#16130C}
+.news p{color:#16130C;opacity:.86}
+.news .cta-btn{background:#16130C;color:var(--amber-bright);font-size:17px;padding:14px 24px}
 @media(max-width:720px){.news{grid-template-columns:1fr;gap:20px}}
 .news h3{font-size:22px;margin:9px 0 10px}
-.news p{color:var(--ink-soft);font-size:16px;max-width:56ch}
+.news p{font-size:16.5px;max-width:56ch}
+.news h3{font-size:25px;margin:9px 0 11px}
 .news .cta-btn{white-space:nowrap;text-align:center}
 footer a{color:var(--amber);text-decoration:none;border-bottom:1px solid transparent}
 footer a:hover{border-bottom-color:var(--amber)}
@@ -359,6 +368,7 @@ footer a:hover{border-bottom-color:var(--amber)}
         <button class="tab" role="tab" aria-selected="false" data-panel="p-fun">Eat &amp; explore</button>
         <button class="tab" role="tab" aria-selected="false" data-panel="p-list">Bucket list</button>
       </div>
+      <a class="news-btn" href="https://lp.constantcontactpages.com/sl/Rq5bI6d/ZacDavisBusinessCard" target="_blank" rel="noopener">Free weekly newsletter</a>
     </div>
   </div>
 
@@ -646,6 +656,26 @@ footer a:hover{border-bottom-color:var(--amber)}
       <div class="fun"><span class="kind">History</span><h4>Fort Hall Replica</h4><p>Reconstruction of the 1830s trading post that put this valley on the map, plus the Bannock County Historical Museum next door.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Fort%20Hall%20Replica%20Pocatello%20ID" target="_blank" rel="noopener">Upper Ross Park &rarr;</a></div>
       <div class="fun"><span class="kind">Arts</span><h4>Stephens Performing Arts Center</h4><p>Idaho State's concert hall brings in touring productions and hosts the local symphony &mdash; a bigger room than a town this size usually gets.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Stephens%20Performing%20Arts%20Center%20Pocatello%20ID" target="_blank" rel="noopener">ISU campus &rarr;</a></div>
       <div class="fun"><span class="kind">Rainy day</span><h4>Old Town Pocatello</h4><p>The historic downtown: galleries, coffee, live music, the farmers market in season, and the best block of independent business in the region.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Pocatello%20ID" target="_blank" rel="noopener">Old Town &rarr;</a></div>
+    </div>
+
+        <div class="section-label">Local businesses worth knowing</div>
+    <p class="read" style="color:var(--ink-soft);margin-bottom:26px;">Full disclosure: these are the businesses I partner with for my coupon book, so my newsletter subscribers get a real discount at every one of them. That's also why I can vouch for them &mdash; I know the owners. All independent, all Pocatello and Chubbuck, no chains. A couple of the restaurants further down are on it too.</p>
+
+    <div class="fun-grid">
+      <div class="fun"><span class="kind">Moving in</span><h4>Sudz N&#39; Bubblz</h4><p>Move-in and move-out cleaning, which is the single most useful phone number on this page if you are relocating. Residential and commercial, licensed and insured, and they will do the deep clean before your furniture lands.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Sudz%20N%20Bubblz%20Pocatello%20ID" target="_blank" rel="noopener">Mobile &middot; serves the valley &rarr;</a></div>
+      <div class="fun"><span class="kind">Treats</span><h4>The Sodamix</h4><p>Dirty sodas and cookies out on Pole Line. Southeast Idaho runs on these and you will understand why inside a month.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Sodamix%204185%20Pole%20Line%20Rd%20Pocatello%20ID" target="_blank" rel="noopener">4185 Pole Line Rd &rarr;</a></div>
+      <div class="fun"><span class="kind">Treats</span><h4>Knots &amp; Nibbles</h4><p>Soft pretzels and frozen lemonade on Yellowstone. The lemonade is the move in July.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Knots%20and%20Nibbles%201444%20Yellowstone%20Ave%20Pocatello%20ID" target="_blank" rel="noopener">1444 Yellowstone Ave &rarr;</a></div>
+      <div class="fun"><span class="kind">Treats</span><h4>The Popcorn Shop</h4><p>Flavored popcorn by the bag on East Oak. Becomes the thing you bring to every party you get invited to.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Popcorn%20Shop%20421%20E%20Oak%20St%20Pocatello%20ID" target="_blank" rel="noopener">421 E Oak St &rarr;</a></div>
+      <div class="fun"><span class="kind">Nights out</span><h4>Deleta</h4><p>Roller skating, arcade and escape rooms under one roof on Yellowstone. The rainy-Saturday answer, and good for a date night too.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Deleta%20Skate%20Center%20520%20Yellowstone%20Ave%20Pocatello%20ID" target="_blank" rel="noopener">520 Yellowstone Ave &rarr;</a></div>
+      <div class="fun"><span class="kind">Home</span><h4>Crystal Electrical Solutions</h4><p>Licensed electrician. Worth having in your phone before you buy an older bench house and discover what is behind the wall.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Crystal%20Electrical%20Solutions%20Pocatello%20ID" target="_blank" rel="noopener">Pocatello &rarr;</a></div>
+      <div class="fun"><span class="kind">Tech</span><h4>Gem State Tech &amp; Gaming Repair</h4><p>Phone, tablet and console repair, with locations at Pine Ridge Mall and up in Chubbuck.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Gem%20State%20Tech%20and%20Gaming%20Repair%20Pocatello%20ID" target="_blank" rel="noopener">Pine Ridge Mall &amp; Chubbuck &rarr;</a></div>
+      <div class="fun"><span class="kind">Auto</span><h4>New Day Auto Detailing</h4><p>Interior and exterior detailing on North Main. A good first stop after a long drive across three states with kids in the back.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=New%20Day%20Auto%20Detailing%201704%20N%20Main%20St%20Pocatello%20ID" target="_blank" rel="noopener">1704 N Main St &rarr;</a></div>
+      <div class="fun"><span class="kind">Barber</span><h4>Wildflower Beauty &amp; Barbering</h4><p>Cuts and straight-razor shaves on West Center. Finding a barber is one of those things that quietly makes a place feel like home.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Wildflower%20Beauty%20and%20Barbering%20845%20W%20Center%20St%20Pocatello%20ID" target="_blank" rel="noopener">845 W Center St &rarr;</a></div>
+      <div class="fun"><span class="kind">Spa</span><h4>Sunsations Day Spa &amp; Tanning</h4><p>Tanning, red light and spa treatments on Flandro. February is longer here than you think it will be.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Sunsations%20Day%20Spa%20and%20Tanning%201800%20Flandro%20Dr%20Pocatello%20ID" target="_blank" rel="noopener">1800 Flandro Dr #310 &rarr;</a></div>
+      <div class="fun"><span class="kind">Pharmacy</span><h4>Shaver Compounding Pharmacy</h4><p>An independent compounding pharmacy on South 4th &mdash; they make what the big chains cannot, and they know their customers by name.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Shaver%20Pharmacy%20235%20S%204th%20Ave%20Pocatello%20ID" target="_blank" rel="noopener">235 S 4th Ave &rarr;</a></div>
+      <div class="fun"><span class="kind">Specialty care</span><h4>Beyond the Scars</h4><p>Post-op and scar care on South Main. Niche, but if you need it you will be glad it is here and not two hours away.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Beyond%20the%20Scars%201056%20S%20Main%20St%20Pocatello%20ID" target="_blank" rel="noopener">1056 S Main St &rarr;</a></div>
+      <div class="fun"><span class="kind">Shops</span><h4>The Orange and Black Store</h4><p>Bengals gear on South Main. You will own something orange and black by your second autumn here whether you plan to or not.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Orange%20and%20Black%20Store%20103%20S%20Main%20St%20Pocatello%20ID" target="_blank" rel="noopener">103 S Main St &rarr;</a></div>
+      <div class="fun"><span class="kind">Shops</span><h4>Hallmark Pocatello</h4><p>The card and gift shop on South 4th, in the same building as Shaver. Where locals go when they have forgotten something.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Hallmark%20Pocatello%20235%20S%204th%20Ave%20Pocatello%20ID" target="_blank" rel="noopener">235 S 4th Ave &rarr;</a></div>
     </div>
 
     <div class="section-label">Where locals actually eat</div>
