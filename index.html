@@ -163,8 +163,11 @@ a{color:inherit}
 .stage .when{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:4px}
 .stage h3{font-size:22px;margin-bottom:12px}
 .checks{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-.checks li{position:relative;padding-left:26px;font-size:16.5px;line-height:1.6;color:var(--ink-soft)}
-.checks li::before{content:"";position:absolute;left:0;top:6px;width:13px;height:13px;border:1.5px solid var(--line-strong);border-radius:2px}
+.checks li{font-size:16.5px;line-height:1.6;color:var(--ink-soft)}
+.chk{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;cursor:pointer;padding:2px 0}
+.chk input{margin-top:6px;width:15px;height:15px;accent-color:var(--amber);cursor:pointer}
+.chk input:checked ~ span,.chk input:checked ~ span b{color:var(--ink-faint)}
+
 .checks li b{color:var(--ink);font-weight:600}
 
 .idaho-box{background:var(--warn-bg);border:1px solid var(--line-strong);padding:22px 24px;margin-top:8px;border-radius:3px}
@@ -478,45 +481,47 @@ footer a:hover{border-bottom-color:var(--amber)}
       <p>Idaho gives new residents 30 days to become residents on paper, and most people find that out on day 45. Here's the sequence that keeps you ahead of it &mdash; followed by the things I'd want to know before I signed anything.</p>
     </div>
 
+    <div class="bl-progress" id="moveProgress">Loading&hellip;</div>
+
     <div class="timeline">
       <div class="stage">
         <div class="when">90 days out</div>
         <h3>Decide the shape of the move</h3>
         <ul class="checks">
-          <li><b>Pick your two areas, not your seven.</b> Narrow the list above before you shop listings, or you'll burn a trip driving in circles.</li>
-          <li><b>Get pre-approved with a lender who lends here.</b> Out-of-state lenders routinely misjudge rural acreage, septic, and older bench homes.</li>
-          <li><b>Book a scouting trip that includes a weekday.</b> A Saturday tells you nothing about the school run or the commute.</li>
-          <li><b>If you're renting first, start now.</b> Inventory tightens hard in August when Idaho State comes back.</li>
+          <li><label class="chk"><input type="checkbox" data-c="pick-your-two-areas"><span><b>Pick your two areas, not your seven.</b> Narrow the list above before you shop listings, or you'll burn a trip driving in circles.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="get-pre-approved-with"><span><b>Get pre-approved with a lender who lends here.</b> Out-of-state lenders routinely misjudge rural acreage, septic, and older bench homes.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="book-a-scouting-trip"><span><b>Book a scouting trip that includes a weekday.</b> A Saturday tells you nothing about the school run or the commute.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="if-you-re-renting"><span><b>If you're renting first, start now.</b> Inventory tightens hard in August when Idaho State comes back.</span></label></li>
         </ul>
       </div>
       <div class="stage">
         <div class="when">60 days out</div>
         <h3>Lock the housing</h3>
         <ul class="checks">
-          <li><b>Write the offer with local inspection expectations.</b> Ask specifically about radon, sewer scope on older townsite homes, and roof age &mdash; snow load is real here.</li>
-          <li><b>Get quotes from movers early.</b> Southeast Idaho is a long-haul lane for most carriers; late bookings get expensive.</li>
-          <li><b>Confirm internet at the exact address.</b> Service can change street to street, and it matters if you're remote.</li>
-          <li><b>Ask about the well and water rights</b> on anything rural. This is the single most common surprise for out-of-state buyers.</li>
+          <li><label class="chk"><input type="checkbox" data-c="write-the-offer-with"><span><b>Write the offer with local inspection expectations.</b> Ask specifically about radon, sewer scope on older townsite homes, and roof age &mdash; snow load is real here.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="get-quotes-from-movers"><span><b>Get quotes from movers early.</b> Southeast Idaho is a long-haul lane for most carriers; late bookings get expensive.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="confirm-internet-at-the"><span><b>Confirm internet at the exact address.</b> Service can change street to street, and it matters if you're remote.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="ask-about-the-well"><span><b>Ask about the well and water rights</b> on anything rural. This is the single most common surprise for out-of-state buyers.</span></label></li>
         </ul>
       </div>
       <div class="stage">
         <div class="when">30 days out</div>
         <h3>Set up the utilities and the paperwork trail</h3>
         <ul class="checks">
-          <li><b>Line up power, gas, water, trash and internet</b> for the day you close, not the day you arrive.</li>
-          <li><b>Forward your mail</b> and save the USPS confirmation &mdash; it counts as a proof of Idaho residency at the DMV.</li>
-          <li><b>Request school records</b> and check registration windows for your district.</li>
-          <li><b>Price your car insurance for Idaho</b> before you land. Minimums are lower than most states, which usually means your premium drops.</li>
+          <li><label class="chk"><input type="checkbox" data-c="line-up-power-gas"><span><b>Line up power, gas, water, trash and internet</b> for the day you close, not the day you arrive.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="forward-your-mail"><span><b>Forward your mail</b> and save the USPS confirmation &mdash; it counts as a proof of Idaho residency at the DMV.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="request-school-records"><span><b>Request school records</b> and check registration windows for your district.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="price-your-car-insurance"><span><b>Price your car insurance for Idaho</b> before you land. Minimums are lower than most states, which usually means your premium drops.</span></label></li>
         </ul>
       </div>
       <div class="stage">
         <div class="when">Week one</div>
         <h3>Become an Idahoan on paper</h3>
         <ul class="checks">
-          <li><b>Driver's license and vehicle registration: 30-day clock.</b> It starts the day you move, whether or not your old license is still valid.</li>
-          <li><b>Bring the vehicle itself</b> to the county DMV &mdash; they do a VIN inspection on out-of-state cars.</li>
-          <li><b>Bring two different proofs of Idaho residency</b> if you want the Star Card, Idaho's Real ID.</li>
-          <li><b>Register to vote and update your address</b> with the IRS, your bank and your employer.</li>
+          <li><label class="chk"><input type="checkbox" data-c="driver-s-license-and"><span><b>Driver's license and vehicle registration: 30-day clock.</b> It starts the day you move, whether or not your old license is still valid.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="bring-the-vehicle-itself"><span><b>Bring the vehicle itself</b> to the county DMV &mdash; they do a VIN inspection on out-of-state cars.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="bring-two-different-proofs"><span><b>Bring two different proofs of Idaho residency</b> if you want the Star Card, Idaho's Real ID.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="register-to-vote-and"><span><b>Register to vote and update your address</b> with the IRS, your bank and your employer.</span></label></li>
         </ul>
         <div class="idaho-box">
           <h4>The Idaho specifics, in one place</h4>
@@ -921,6 +926,32 @@ var GATE_ENABLED = false;
   document.querySelectorAll('.bl .loc').forEach(function(a){
     a.addEventListener('click', function(ev){ ev.stopPropagation(); });
   });
+
+  // The move checklist. Same deal as the bucket list, separate storage.
+  var mboxes = Array.prototype.slice.call(document.querySelectorAll('.chk input'));
+  var moveEl = document.getElementById('moveProgress');
+  var MV_STORE = 'lsi_move';
+  var mticked = {};
+  try { mticked = JSON.parse(localStorage.getItem(MV_STORE) || '{}'); } catch (e) {}
+
+  function paintMove(){
+    if (!moveEl) return;
+    var n = 0;
+    mboxes.forEach(function(b){ if (b.checked) n++; });
+    moveEl.textContent = n === 0
+      ? mboxes.length + ' steps \u2014 tick them off as you go, this page remembers'
+      : n + ' of ' + mboxes.length + ' done' + (n === mboxes.length ? ' \u2014 welcome to Idaho' : '');
+  }
+
+  mboxes.forEach(function(b){
+    if (mticked[b.dataset.c]) b.checked = true;
+    b.addEventListener('change', function(){
+      mticked[b.dataset.c] = b.checked;
+      try { localStorage.setItem(MV_STORE, JSON.stringify(mticked)); } catch (e) {}
+      paintMove();
+    });
+  });
+  paintMove();
 
   function problemWith(){
     var name = form.name.value.trim();
