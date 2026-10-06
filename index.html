@@ -251,6 +251,15 @@ footer a:hover{border-bottom-color:var(--amber)}
 .bl input:checked ~ span .loc{opacity:.55}
 .bl-progress{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);background:var(--surface-2);border-left:3px solid var(--amber);padding:13px 16px;margin-bottom:36px}
 
+/* District 25 links */
+.sdlinks{display:grid;gap:1px;background:var(--line);border:1px solid var(--line-strong);margin:20px 0 18px}
+.sdlink{background:var(--surface);padding:15px 18px;display:grid;grid-template-columns:1fr auto;gap:5px 18px;align-items:baseline;text-decoration:none}
+.sdlink:hover{background:var(--surface-2)}
+.sdlink b{font-family:var(--display);font-weight:600;font-size:17.5px;color:var(--ink)}
+.sdlink em{font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);white-space:nowrap}
+.sdlink span{grid-column:1/-1;color:var(--ink-faint);font-size:15.5px}
+@media(max-width:600px){.sdlink{grid-template-columns:1fr}.sdlink em{margin-top:2px}}
+
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -392,7 +401,24 @@ footer a:hover{border-bottom-color:var(--amber)}
 
     <div class="section-label">Schools</div>
     <p class="read" style="color:var(--ink-soft);">Pocatello and Chubbuck are Pocatello&ndash;Chubbuck School District 25; the smaller towns further out each have their own district. District 25 draws the attendance boundaries, District 25 redraws them, and District 25 is the only source worth trusting on which school serves which address &mdash; so instead of copying their map onto my page, I will send you to theirs. Put an address in and you get the real answer, current as of today.</p>
-    <p class="read" style="margin:16px 0 8px;"><a class="loc" href="https://www.sd25.us/find-my-enrollment" target="_blank" rel="noopener">District 25 &mdash; find my enrollment &rarr;</a></p>
+    <div class="sdlinks">
+      <a class="sdlink" href="https://www.sd25.us/find-my-enrollment" target="_blank" rel="noopener">
+        <b>Find my enrollment &rarr;</b><em>Start here</em>
+        <span>Put an address in and the district tells you the exact schools that serve it.</span>
+      </a>
+      <a class="sdlink" href="https://experience.arcgis.com/experience/599d6b88eb5b434faf7221bd620b58f8/" target="_blank" rel="noopener">
+        <b>Elementary boundary map &rarr;</b><em>District 25</em>
+        <span>Every elementary area in the district, with the bus stops on it.</span>
+      </a>
+      <a class="sdlink" href="https://experience.arcgis.com/experience/763d7bcc22fa46f1a2efa8b50947c0c5/" target="_blank" rel="noopener">
+        <b>Middle school boundary map &rarr;</b><em>District 25</em>
+        <span>Same thing for the middle schools, bus stops included.</span>
+      </a>
+      <a class="sdlink" href="https://experience.arcgis.com/experience/9344b8aeec31445f999fe877ef587a5b/" target="_blank" rel="noopener">
+        <b>High school boundary map &rarr;</b><em>District 25</em>
+        <span>And the high schools. These open on the district's own site, so what you see is whatever they are showing today.</span>
+      </a>
+    </div>
     <p class="read" style="color:var(--ink-faint);font-size:15px;margin-bottom:34px;">Which school is right for your kid is your call, not mine. If you want numbers to judge by, Idaho publishes a report card for every school in the state and I am glad to walk you through where to find them.</p>
 
     <div class="section-label">Pocatello &amp; Chubbuck</div>
