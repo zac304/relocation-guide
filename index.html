@@ -981,6 +981,15 @@ var GATE_ENABLED = false;
     map.once('focus', function(){ map.scrollWheelZoom.enable(); });
 
     var shapesLayer = L.layerGroup().addTo(map);
+    var refit = null, fitW = -1;
+
+    // Leaflet sizes itself from the container. If the panel was hidden or the
+    // fonts were still settling when the map was built, the first fit is wrong,
+    // so re-fit whenever the container's width is not the one we fitted to.
+    function settle(){
+      map.invalidateSize();
+      if (refit && mapEl.clientWidth !== fitW) refit();
+    }
     var legendEl = document.getElementById('zlegend');
     var statusEl = document.getElementById('zstatus');
 
@@ -1032,7 +1041,13 @@ var GATE_ENABLED = false;
         legendEl.appendChild(b);
       });
 
-      if (drawn.length) map.fitBounds(L.featureGroup(drawn).getBounds(), { padding: [14, 14] });
+      if (drawn.length) {
+        var whole = L.featureGroup(drawn).getBounds();
+        refit = function(){ fitW = mapEl.clientWidth; map.fitBounds(whole, { padding: [14, 14] }); };
+        refit();
+      } else {
+        refit = null;
+      }
       if (statusEl) statusEl.textContent = list.length + ' ' + (NOUN[lvl] || 'areas') + ' \u2014 tap one';
     }
 
@@ -1045,10 +1060,13 @@ var GATE_ENABLED = false;
     });
 
     draw('hs');
-    setTimeout(function(){ map.invalidateSize(); }, 250);
+    settle();
+    setTimeout(settle, 350);
+    setTimeout(settle, 1400);
+    window.addEventListener('load', settle);
     document.querySelectorAll('.tab').forEach(function(t){
       t.addEventListener('click', function(){
-        if (t.dataset.panel === 'p-hoods') setTimeout(function(){ map.invalidateSize(); }, 80);
+        if (t.dataset.panel === 'p-hoods') setTimeout(settle, 90);
       });
     });
   })();
