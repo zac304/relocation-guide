@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Boundary builder &mdash; Living Southeast Idaho</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{
+  --ground:#F2F3EE;--surface:#FBFCF8;--surface-2:#E9EBE3;
+  --ink:#18211E;--ink-soft:#4F5C55;--ink-faint:#7A867E;
+  --line:#D5DACE;--line-strong:#B9C0B2;--amber:#9E6410;--amber-bright:#B5761A;--sage:#4F6B55;
+  --display:"Helvetica Neue",Arial,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#111714;--surface:#19211D;--surface-2:#212B26;
+  --ink:#E7EDE6;--ink-soft:#A3B0A6;--ink-faint:#7C8A80;
+  --line:#2B352F;--line-strong:#3B4941;--amber:#E0A13F;--amber-bright:#EFB65A;--sage:#8FAA92;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.5 var(--display)}
+header{padding:16px 20px;border-bottom:1px solid var(--line);background:var(--surface)}
+h1{margin:0 0 4px;font-size:19px}
+header p{margin:0;color:var(--ink-soft);font-size:14px;max-width:80ch}
+.wrap{display:grid;grid-template-columns:330px 1fr;height:calc(100vh - 86px)}
+@media(max-width:820px){.wrap{grid-template-columns:1fr;height:auto}#map{height:62vh}}
+aside{border-right:1px solid var(--line);overflow-y:auto;background:var(--surface);padding:14px}
+#map{height:100%;min-height:380px}
+.area{border:1px solid var(--line);border-radius:4px;margin-bottom:8px;overflow:hidden}
+.area-head{display:flex;align-items:center;gap:9px;padding:9px 11px;cursor:pointer;background:var(--surface-2)}
+.area.active .area-head{background:var(--amber);color:#16130C}
+.swatch{width:13px;height:13px;border-radius:3px;flex:none}
+.area-name{font-weight:600;font-size:14px;flex:1}
+.badge{font:11px var(--mono);opacity:.75}
+.area-body{display:none;padding:11px;border-top:1px solid var(--line)}
+.area.active .area-body{display:block}
+.area-body label{display:block;font:11px var(--mono);text-transform:uppercase;letter-spacing:.07em;color:var(--ink-faint);margin:8px 0 3px}
+.area-body input{width:100%;padding:7px 9px;border:1px solid var(--line-strong);border-radius:3px;background:var(--ground);color:var(--ink);font:14px var(--display)}
+.row{display:flex;gap:7px;margin-top:10px;flex-wrap:wrap}
+button{font:600 13px var(--display);border:1px solid var(--line-strong);background:var(--ground);color:var(--ink);padding:7px 11px;border-radius:3px;cursor:pointer}
+button:hover{border-color:var(--amber)}
+button.primary{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+button.primary:hover{background:var(--sage);border-color:var(--sage)}
+.hint{font-size:13px;color:var(--ink-soft);background:var(--surface-2);border-left:3px solid var(--amber);padding:10px 12px;border-radius:3px;margin-bottom:12px}
+.hint b{color:var(--ink)}
+#out{width:100%;height:150px;font:11px/1.4 var(--mono);margin-top:8px;border:1px solid var(--line-strong);border-radius:3px;padding:8px;background:var(--ground);color:var(--ink)}
+.done{color:var(--sage);font-weight:700}
+footer{padding:12px 20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-faint);background:var(--surface)}
+</style>
+</head>
+<body>
+<header>
+  <h1>Boundary builder</h1>
+  <p>Internal tool, not linked from the guide. Pick an area on the left, click its corners on the map, close the shape, add your MLS numbers. Everything saves as you go. When you are done, hit Export and send me what is in the box.</p>
+</header>
+
+<div class="wrap">
+  <aside>
+    <div class="hint">
+      <b>Zones</b> (the seven Pocatello and Chubbuck areas): click each corner, then <b>Close shape</b>. Six to ten corners is plenty &mdash; rough is fine, it just needs to be right.<br><br>
+      <b>Towns</b> (Idaho Falls and friends): one click drops a pin. Click again to move it.
+    </div>
+    <div id="areas"></div>
+    <div class="row">
+      <button class="primary" id="export">Export for Zac&rsquo;s guide</button>
+      <button id="reset">Start over</button>
+    </div>
+    <textarea id="out" placeholder="Your boundaries and numbers appear here after you hit Export. Select all, copy, paste it back to me." readonly></textarea>
+  </aside>
+  <div id="map"></div>
+</div>
+
+<footer>Map data &copy; OpenStreetMap contributors. Nothing here is public &mdash; this page is not linked from the guide and is marked no-index.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+var AREAS = [
+  {k:'highland',   n:'Highland',                 c:'#E4572E', t:'zone'},
+  {k:'university', n:'University & Old Town',    c:'#17BEBB', t:'zone'},
+  {k:'west',       n:'West Pocatello',           c:'#4A7BC8', t:'zone'},
+  {k:'north',      n:'North Pocatello',          c:'#7B61FF', t:'zone'},
+  {k:'south',      n:'South Pocatello',          c:'#2E9E4F', t:'zone'},
+  {k:'buckskin',   n:'Buckskin',                 c:'#8B5E3C', t:'zone'},
+  {k:'chubbuck',   n:'Chubbuck',                 c:'#E8A33D', t:'zone'},
+  {k:'idahofalls', n:'Idaho Falls',              c:'#C84A7B', t:'town'},
+  {k:'blackfoot',  n:'Blackfoot',                c:'#5E8C6A', t:'town'},
+  {k:'amfalls',    n:'American Falls',           c:'#3FA7D6', t:'town'},
+  {k:'inkom',      n:'Inkom & Lava Hot Springs', c:'#9B59B6', t:'town'}
+];
+var STORE = 'lsi_boundaries_v1';
+var data = {};
+try { data = JSON.parse(localStorage.getItem(STORE) || '{}'); } catch (e) {}
+AREAS.forEach(function(a){ if (!data[a.k]) data[a.k] = {pts:[], pin:null, median:'', dom:'', psf:''}; });
+
+var map = L.map('map').setView([42.8713, -112.4455], 12);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19, attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+var active = AREAS[0].k;
+var layers = {};
+
+function save(){ try { localStorage.setItem(STORE, JSON.stringify(data)); } catch(e){} }
+function area(k){ for (var i=0;i<AREAS.length;i++) if (AREAS[i].k===k) return AREAS[i]; }
+
+function draw(){
+  Object.keys(layers).forEach(function(k){ map.removeLayer(layers[k]); });
+  layers = {};
+  AREAS.forEach(function(a){
+    var d = data[a.k], g = L.layerGroup();
+    if (a.t === 'zone' && d.pts.length) {
+      if (d.pts.length > 2) {
+        g.addLayer(L.polygon(d.pts, {color:a.c, weight:2, fillOpacity: a.k===active?0.35:0.18}));
+      } else {
+        g.addLayer(L.polyline(d.pts, {color:a.c, weight:2, dashArray:'4,4'}));
+      }
+      d.pts.forEach(function(p){
+        g.addLayer(L.circleMarker(p, {radius:4, color:a.c, fillColor:a.c, fillOpacity:1, weight:1}));
+      });
+    }
+    if (a.t === 'town' && d.pin) {
+      g.addLayer(L.circleMarker(d.pin, {radius:9, color:'#fff', weight:2, fillColor:a.c, fillOpacity:1})
+        .bindTooltip(a.n, {permanent:true, direction:'right', offset:[8,0]}));
+    }
+    g.addTo(map); layers[a.k] = g;
+  });
+}
+
+map.on('click', function(ev){
+  var a = area(active), d = data[active];
+  var p = [ +ev.latlng.lat.toFixed(5), +ev.latlng.lng.toFixed(5) ];
+  if (a.t === 'town') { d.pin = p; } else { d.pts.push(p); }
+  save(); draw(); panel();
+});
+
+function panel(){
+  var host = document.getElementById('areas');
+  host.innerHTML = '';
+  AREAS.forEach(function(a){
+    var d = data[a.k];
+    var done = a.t === 'town' ? !!d.pin : d.pts.length > 2;
+    var el = document.createElement('div');
+    el.className = 'area' + (a.k === active ? ' active' : '');
+    var count = a.t === 'town' ? (d.pin ? 'pin set' : 'no pin') : d.pts.length + ' points';
+    el.innerHTML =
+      '<div class="area-head"><span class="swatch" style="background:' + a.c + '"></span>' +
+      '<span class="area-name">' + a.n + '</span>' +
+      '<span class="badge' + (done ? ' done' : '') + '">' + (done ? '\u2713 ' : '') + count + '</span></div>' +
+      '<div class="area-body">' +
+        '<label>Median sale price</label><input data-f="median" value="' + (d.median||'') + '" placeholder="e.g. $389,000">' +
+        '<label>Days on market</label><input data-f="dom" value="' + (d.dom||'') + '" placeholder="e.g. 24">' +
+        '<label>Price per square foot</label><input data-f="psf" value="' + (d.psf||'') + '" placeholder="e.g. $198">' +
+        '<div class="row">' +
+          (a.t === 'zone' ? '<button data-a="close">Close shape</button><button data-a="undo">Undo point</button>' : '') +
+          '<button data-a="clear">Clear</button>' +
+        '</div>' +
+      '</div>';
+    el.querySelector('.area-head').addEventListener('click', function(){ active = a.k; panel(); draw(); });
+    el.querySelectorAll('input').forEach(function(inp){
+      inp.addEventListener('input', function(){ data[a.k][inp.dataset.f] = inp.value; save(); });
+    });
+    el.querySelectorAll('button[data-a]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var act = b.dataset.a;
+        if (act === 'undo') data[a.k].pts.pop();
+        if (act === 'clear') { data[a.k].pts = []; data[a.k].pin = null; }
+        if (act === 'close' && data[a.k].pts.length > 2) {
+          map.fitBounds(L.polygon(data[a.k].pts).getBounds().pad(0.3));
+        }
+        save(); draw(); panel();
+      });
+    });
+    host.appendChild(el);
+  });
+}
+
+document.getElementById('export').addEventListener('click', function(){
+  var out = {};
+  AREAS.forEach(function(a){
+    var d = data[a.k];
+    out[a.k] = {name:a.n, color:a.c, type:a.t,
+                shape: a.t === 'town' ? d.pin : d.pts,
+                median: d.median, daysOnMarket: d.dom, pricePerSqFt: d.psf};
+  });
+  var ta = document.getElementById('out');
+  ta.value = JSON.stringify(out, null, 1);
+  ta.removeAttribute('readonly');
+  ta.select();
+});
+
+document.getElementById('reset').addEventListener('click', function(){
+  if (!confirm('Clear every boundary and number you have entered?')) return;
+  data = {}; AREAS.forEach(function(a){ data[a.k] = {pts:[], pin:null, median:'', dom:'', psf:''}; });
+  save(); draw(); panel();
+});
+
+panel(); draw();
+</script>
+</body>
+</html>
