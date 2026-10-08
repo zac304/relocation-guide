@@ -20,32 +20,32 @@
 
 <style>
 :root{
-  --ground:#F2F3EE; --surface:#FBFCF8; --surface-2:#E9EBE3;
-  --ink:#18211E; --ink-soft:#4F5C55; --ink-faint:#7A867E;
-  --line:#D5DACE; --line-strong:#B9C0B2;
-  --amber:#9E6410; --amber-bright:#B5761A; --sage:#4F6B55; --river:#2F5F7E;
+  --ground:#F3F6FA; --surface:#FFFFFF; --surface-2:#E7EDF6;
+  --ink:#101D30; --ink-soft:#44566E; --ink-faint:#71849C;
+  --line:#D4DDE9; --line-strong:#B2C1D4;
+  --amber:#9A6207; --amber-bright:#B5761A; --deep:#1D3A5C; --steel:#2F5F7E;
   --warn-bg:#F6EEDF;
-  --shadow:0 1px 2px rgba(24,33,30,.06), 0 8px 28px -18px rgba(24,33,30,.35);
+  --shadow:0 1px 2px rgba(16,29,48,.07), 0 8px 28px -18px rgba(16,29,48,.38);
   --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
   --body:"Source Serif 4",Georgia,"Times New Roman",serif;
   --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --ground:#111714; --surface:#19211D; --surface-2:#212B26;
-    --ink:#E7EDE6; --ink-soft:#A3B0A6; --ink-faint:#7C8A80;
-    --line:#2B352F; --line-strong:#3B4941;
-    --amber:#E0A13F; --amber-bright:#EFB65A; --sage:#8FAA92; --river:#84B2CF;
-    --warn-bg:#26241C;
+    --ground:#0D1726; --surface:#132137; --surface-2:#1B2C46;
+    --ink:#E8EEF7; --ink-soft:#AAB9CE; --ink-faint:#7E90A9;
+    --line:#223450; --line-strong:#334A68;
+    --amber:#E9AB4D; --amber-bright:#F7C166; --deep:#8FB4D6; --steel:#84B2CF;
+    --warn-bg:#1B2537;
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -20px rgba(0,0,0,.9);
   }
 }
 :root[data-theme="dark"]{
-  --ground:#111714; --surface:#19211D; --surface-2:#212B26;
-  --ink:#E7EDE6; --ink-soft:#A3B0A6; --ink-faint:#7C8A80;
-  --line:#2B352F; --line-strong:#3B4941;
-  --amber:#E0A13F; --amber-bright:#EFB65A; --sage:#8FAA92; --river:#84B2CF;
-  --warn-bg:#26241C;
+  --ground:#0D1726; --surface:#132137; --surface-2:#1B2C46;
+  --ink:#E8EEF7; --ink-soft:#AAB9CE; --ink-faint:#7E90A9;
+  --line:#223450; --line-strong:#334A68;
+  --amber:#E9AB4D; --amber-bright:#F7C166; --deep:#8FB4D6; --steel:#84B2CF;
+  --warn-bg:#1B2537;
   --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -20px rgba(0,0,0,.9);
 }
 
@@ -70,7 +70,7 @@ a{color:inherit}
 .ridge svg{display:block;width:100%;height:auto}
 .gate-head{padding:56px 0 40px}
 .brandbar{display:flex;align-items:center;gap:14px;padding:20px 0;border-bottom:1px solid var(--line)}
-.mark{width:38px;height:38px;border-radius:50%;flex:none;background:var(--sage);color:var(--ground);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:15px}
+.mark{width:38px;height:38px;border-radius:50%;flex:none;background:var(--deep);color:var(--ground);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:15px}
 .brandbar .who{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:-.01em}
 .brandbar .where{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase}
 .gate-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
@@ -103,7 +103,7 @@ a{color:inherit}
 .consent span{font-size:12.5px;line-height:1.5;color:var(--ink-faint)}
 .hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
 .btn{font-family:var(--display);font-weight:600;font-size:17px;background:var(--ink);color:var(--ground);border:0;border-radius:3px;padding:14px 18px;width:100%;cursor:pointer;transition:transform .12s ease, background .12s ease}
-.btn:hover{background:var(--sage)}
+.btn:hover{background:var(--deep)}
 .btn:active{transform:translateY(1px)}
 .btn:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 .btn[disabled]{opacity:.6;cursor:progress}
@@ -137,7 +137,7 @@ a{color:inherit}
 .hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
 .hood{background:var(--surface);padding:26px 24px;display:flex;flex-direction:column;gap:12px}
 .hood h3{font-size:21px}
-.hood .tagline{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--sage)}
+.hood .tagline{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--deep)}
 .hood p{color:var(--ink-soft);font-size:16px}
 .hood .fit{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line-strong);font-size:15px}
 .hood .fit b{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:4px;font-weight:500}
@@ -186,7 +186,7 @@ a{color:inherit}
 .fun-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
 .fun{background:var(--surface);border:1px solid var(--line);padding:20px;border-radius:3px;display:grid;gap:8px;align-content:start}
 .fun h4{font-size:20px}
-.fun .kind{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--river)}
+.fun .kind{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--steel)}
 .fun p{font-size:16.5px;color:var(--ink-soft)}
 
 .eats{display:grid}
@@ -260,6 +260,22 @@ footer a:hover{border-bottom-color:var(--amber)}
 .sdlink span{grid-column:1/-1;color:var(--ink-faint);font-size:15.5px}
 @media(max-width:600px){.sdlink{grid-template-columns:1fr}.sdlink em{margin-top:2px}}
 
+/* Zac's mark and brand imagery */
+img.mark{width:38px;height:38px;border-radius:50%;flex:none;background:var(--surface-2);object-fit:cover;object-position:50% 18%;border:1.5px solid var(--line-strong);display:block}
+.topbar img.mark{width:32px;height:32px}
+.cta{position:relative;overflow:hidden}
+.cta-fig{position:absolute;right:16px;bottom:-4px;width:154px;height:auto;pointer-events:none;user-select:none}
+.cta.has-fig{padding-right:196px}
+@media(max-width:860px){.cta.has-fig{padding-right:36px}.cta-fig{display:none}}
+.biz-intro{display:grid;grid-template-columns:1fr auto;gap:8px 28px;align-items:center;margin-bottom:26px}
+.biz-intro p{margin:0}
+.biz-intro img{width:152px;height:auto;justify-self:end}
+@media(max-width:720px){.biz-intro{grid-template-columns:1fr}.biz-intro img{display:none}}
+.footmark{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-top:56px;padding-top:34px;border-top:1px solid var(--line)}
+.footmark .stack{width:148px;height:auto}
+.footmark .brokerage{width:176px;height:auto;background:#fff;padding:10px 14px;border-radius:4px}
+.footmark .fm-say{color:var(--ink-faint);font-size:14.5px;max-width:40ch}
+
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -268,7 +284,7 @@ footer a:hover{border-bottom-color:var(--amber)}
 <section id="gate">
   <div class="wrap">
     <div class="brandbar">
-      <div class="mark">ZD</div>
+      <img class="mark" src="img/zac-head.webp" alt="Zac Davis" width="38" height="38" decoding="async">
       <div>
         <div class="who">Zac Davis &middot; SilverCreek Realty Group</div>
         <div class="where">Pocatello &middot; Chubbuck &middot; Southeast Idaho</div>
@@ -365,8 +381,8 @@ footer a:hover{border-bottom-color:var(--amber)}
 
   <div class="ridge" aria-hidden="true">
     <svg viewBox="0 0 1200 150" preserveAspectRatio="none" role="presentation">
-      <path d="M0,150 L0,96 L84,72 L150,88 L232,44 L318,80 L392,58 L470,92 L560,50 L640,84 L724,62 L812,98 L900,70 L984,100 L1074,76 L1140,104 L1200,86 L1200,150 Z" fill="var(--sage)" opacity="0.18"></path>
-      <path d="M0,150 L0,122 L96,110 L188,126 L286,102 L380,124 L468,112 L566,132 L664,110 L760,128 L858,114 L950,134 L1048,116 L1136,132 L1200,120 L1200,150 Z" fill="var(--sage)" opacity="0.32"></path>
+      <path d="M0,150 L0,96 L84,72 L150,88 L232,44 L318,80 L392,58 L470,92 L560,50 L640,84 L724,62 L812,98 L900,70 L984,100 L1074,76 L1140,104 L1200,86 L1200,150 Z" fill="var(--deep)" opacity="0.18"></path>
+      <path d="M0,150 L0,122 L96,110 L188,126 L286,102 L380,124 L468,112 L566,132 L664,110 L760,128 L858,114 L950,134 L1048,116 L1136,132 L1200,120 L1200,150 Z" fill="var(--deep)" opacity="0.32"></path>
     </svg>
   </div>
 </section>
@@ -374,7 +390,7 @@ footer a:hover{border-bottom-color:var(--amber)}
 <section id="guide">
   <div class="topbar">
     <div class="topbar-in">
-      <div class="mark">ZD</div>
+      <img class="mark" src="img/zac-head.webp" alt="Zac Davis" width="38" height="38" decoding="async">
       <div class="tabs" role="tablist" aria-label="Guide sections">
         <button class="tab" role="tab" aria-selected="true" data-panel="p-hoods">Neighborhoods</button>
         <button class="tab" role="tab" aria-selected="false" data-panel="p-move">The move</button>
@@ -497,7 +513,8 @@ footer a:hover{border-bottom-color:var(--amber)}
       </div>
     </div>
 
-    <div class="cta">
+    <div class="cta has-fig">
+      <img class="cta-fig" src="img/zac.webp" alt="" aria-hidden="true" width="154" height="154" loading="lazy" decoding="async">
       <h3>Which one is actually right for you?</h3>
       <p>Tell me your budget, your commute and whether you need a garage in January, and I'll narrow these eleven down to two. No pressure, no drip campaign &mdash; a straight answer.</p>
       <div class="cta-actions">
@@ -585,7 +602,8 @@ footer a:hover{border-bottom-color:var(--amber)}
       <div class="straight-row"><h4>Older housing stock</h4><p>Big parts of the townsite and West Pocatello were built well before modern insulation, wiring and sewer lines. That's where the character is and where the value is, but budget for updates and never skip the inspection because a house shows well.</p></div>
     </div>
 
-    <div class="cta">
+    <div class="cta has-fig">
+      <img class="cta-fig" src="img/zac.webp" alt="" aria-hidden="true" width="154" height="154" loading="lazy" decoding="async">
       <h3>Want me to pressure-test your plan?</h3>
       <p>Send me your timeline and I'll tell you where it's going to break &mdash; the DMV clock, the August rental crunch, the lender who doesn't understand acreage. It's the cheapest hour of your move.</p>
       <div class="cta-actions">
@@ -698,7 +716,10 @@ footer a:hover{border-bottom-color:var(--amber)}
     </div>
 
         <div class="section-label">Local businesses worth knowing</div>
-    <p class="read" style="color:var(--ink-soft);margin-bottom:26px;">Full disclosure: these are the businesses I partner with for my coupon book, so my newsletter subscribers get a real discount at every one of them. That's also why I can vouch for them &mdash; I know the owners. All independent, all Pocatello and Chubbuck, no chains. A couple of the restaurants further down are on it too.</p>
+    <div class="biz-intro">
+    <p class="read" style="color:var(--ink-soft);">Full disclosure: these are the businesses I partner with for my coupon book, so my newsletter subscribers get a real discount at every one of them. That's also why I can vouch for them &mdash; I know the owners. All independent, all Pocatello and Chubbuck, no chains. A couple of the restaurants further down are on it too.</p>
+      <img src="img/zac-coupon.webp" alt="" aria-hidden="true" width="152" height="151" loading="lazy" decoding="async">
+    </div>
 
     <div class="fun-grid">
       <div class="fun"><span class="kind">Moving in</span><h4>Sudz N&#39; Bubblz</h4><p>Move-in and move-out cleaning, which is the single most useful phone number on this page if you are relocating. Residential and commercial, licensed and insured, and they will do the deep clean before your furniture lands.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Sudz%20N%20Bubblz%20Pocatello%20ID" target="_blank" rel="noopener">Mobile &middot; serves the valley &rarr;</a></div>
@@ -835,7 +856,8 @@ footer a:hover{border-bottom-color:var(--amber)}
       <a class="cta-btn" href="https://lp.constantcontactpages.com/sl/Rq5bI6d/ZacDavisBusinessCard" target="_blank" rel="noopener">Sign me up</a>
     </div>
 
-    <div class="cta">
+    <div class="cta has-fig">
+      <img class="cta-fig" src="img/zac.webp" alt="" aria-hidden="true" width="154" height="154" loading="lazy" decoding="async">
       <h3>Doing these with someone who lives here helps</h3>
       <p>I've done every one of these, most of them more than once, and I'm happy to tell you which are worth building a weekend around and which can wait. That's a conversation, not a sales call.</p>
       <div class="cta-actions">
@@ -846,6 +868,12 @@ footer a:hover{border-bottom-color:var(--amber)}
   </div>
 
   <div class="wrap">
+    <div class="footmark">
+      <img class="stack" src="img/logo.webp" alt="Let me be your #1 Realtor — Zac Davis" width="148" height="186" loading="lazy" decoding="async">
+      <img class="brokerage" src="img/silvercreek.webp" alt="Silvercreek Realty Group" width="176" height="30" loading="lazy" decoding="async">
+      <p class="fm-say">Licensed in Idaho with Silvercreek Realty Group. If this guide saved you a phone call, it did its job.</p>
+    </div>
+
     <footer>
       <div>Zac Davis &middot; SilverCreek Realty Group &middot; homesinpocatello.com</div>
       <div>208-244-2554 &middot; zac@homesinpocatello.com &middot; <a href="https://lp.constantcontactpages.com/sl/Rq5bI6d/ZacDavisBusinessCard" target="_blank" rel="noopener">Weekly newsletter</a></div>
