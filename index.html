@@ -146,6 +146,12 @@ a{color:inherit}
 @media(max-width:420px){.price-tag{font-size:10.5px;letter-spacing:.05em}}
 .hood-meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;justify-content:space-between}
 
+.ladder{margin:0 0 6px;border-top:1px solid var(--line-strong)}
+.lad-row{display:grid;grid-template-columns:1.15fr 1fr .8fr;gap:8px 18px;padding:11px 2px;border-bottom:1px solid var(--line);align-items:baseline}
+.lad-row span{font-size:15.5px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.lad-head span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.lad-row .lad-p{font-family:var(--mono);font-size:13.5px;color:var(--amber);letter-spacing:.01em}
+@media(max-width:560px){.lad-row{gap:6px 10px}.lad-row span{font-size:13.5px}.lad-row .lad-p{font-size:11.5px}.lad-head span{font-size:9px;letter-spacing:.05em}}
 .section-label{font-family:var(--display);font-weight:800;font-size:25px;letter-spacing:-.015em;color:var(--ink);margin:62px 0 22px;padding-bottom:13px;border-bottom:2px solid var(--line-strong)}
 @media(max-width:600px){.section-label{font-size:22px}}
 .section-label:first-of-type{margin-top:0}
@@ -410,10 +416,33 @@ img.mark{height:46px;width:auto;flex:none;display:block;border-radius:0;backgrou
     </div>
 
     <div class="market">
-      <div><div class="m-val">$346,110</div><div class="m-lab">Average Pocatello home value</div></div>
-      <div><div class="m-val">+1.3%</div><div class="m-lab">Change over the past year</div></div>
-      <div><div class="m-val">28 days</div><div class="m-lab">Typical time to go pending</div></div>
-      <p class="market-note">Zillow Home Value Index, Pocatello, as of July 31, 2026. Averages hide a lot &mdash; the bench and the flats are different markets. Text me for the live MLS numbers on any area below.</p>
+      <div><div class="m-val">~$180</div><div class="m-lab">Per square foot, most of the market</div></div>
+      <div><div class="m-val">~$200,000</div><div class="m-lab">Realistic entry point for a house</div></div>
+      <div><div class="m-val">Nearly half</div><div class="m-lab">Of listings have cut their price</div></div>
+      <p class="market-note">Pocatello MLS, 8 October 2026 &mdash; a 185&ndash;listing sample of active single&ndash;family homes. These are <em>asking</em> prices, not sold prices, and they move. Text me for what&rsquo;s actually closing, and for current numbers on any area below.</p>
+    </div>
+
+    <div class="section-label">What your money buys</div>
+    <p class="read" style="color:var(--ink-soft);">Sizes below are the median for homes actually asking that price right now &mdash; half are bigger, half are smaller. It&rsquo;s a better answer to &ldquo;what can I get for my budget&rdquo; than any average.</p>
+
+    <div class="ladder">
+      <div class="lad-row lad-head"><span>Asking price</span><span>Typical size</span><span>Beds / baths</span></div>
+      <div class="lad-row"><span class="lad-p">$140k&ndash;$200k</span><span>1,050 sq ft</span><span>2 / 1</span></div>
+      <div class="lad-row"><span class="lad-p">$205k&ndash;$260k</span><span>1,280 sq ft</span><span>3 / 1</span></div>
+      <div class="lad-row"><span class="lad-p">$300k&ndash;$340k</span><span>1,730 sq ft</span><span>4 / 2</span></div>
+      <div class="lad-row"><span class="lad-p">$400k&ndash;$460k</span><span>2,410 sq ft</span><span>4 / 3</span></div>
+      <div class="lad-row"><span class="lad-p">$500k&ndash;$570k</span><span>3,140 sq ft</span><span>5 / 3</span></div>
+      <div class="lad-row"><span class="lad-p">$600k&ndash;$700k</span><span>3,560 sq ft</span><span>5 / 3</span></div>
+      <div class="lad-row"><span class="lad-p">$725k&ndash;$775k</span><span>3,600 sq ft</span><span>4 / 3</span></div>
+      <div class="lad-row"><span class="lad-p">$805k&ndash;$900k</span><span>3,960 sq ft</span><span>5 / 3</span></div>
+      <div class="lad-row"><span class="lad-p">$900k and up</span><span>4,310 sq ft</span><span>4 / 4</span></div>
+    </div>
+
+    <p class="read" style="color:var(--ink-soft);margin-top:18px;">Here&rsquo;s the part that surprises people moving in from a bigger market: the price per square foot barely moves between $140,000 and $600,000. It sits right around $180 the whole way up. In Pocatello, paying more mostly buys you <em>more house</em> &mdash; not a different class of house. It only starts climbing past $700,000.</p>
+
+    <div class="idaho-box" style="margin-top:26px;margin-bottom:40px;">
+      <h4>Before you get excited about a five&ndash;figure price</h4>
+      <p style="font-size:15.5px;color:var(--ink-soft);margin:0;">Every Pocatello listing I found under $100,000 was a manufactured or mobile home in a park &mdash; usually 540 to 1,000 square feet, with lot rent owed monthly on top of the purchase price. They finance differently than a stick&ndash;built house, so talk to a lender before you fall in love with one. The least expensive conventional house I found was $139,900, and there were only eleven listings in the entire city under $200,000. That&rsquo;s why the honest number to budget is closer to $200,000.</p>
     </div>
 
     <div class="section-label">Schools</div>
@@ -443,43 +472,43 @@ img.mark{height:46px;width:auto;flex:none;display:block;border-radius:0;backgrou
 
     <div class="hood-grid">
       <div class="hood">
-        <div class="hood-meta"><span class="tagline">East bench</span><span class="price-tag"><i>$</i>Priciest</span></div>
+        <div class="hood-meta"><span class="tagline">East bench</span></div>
         <h3>Highland</h3>
         <p>The east-bench suburbia most out-of-state buyers picture when they picture Pocatello: newer subdivisions climbing the hillside, wide streets, garages, valley views out the back. Resale demand here has historically been the steadiest in town &mdash; ask me for the numbers behind that.</p>
         <div class="fit"><b>Fits</b>Remote-salary buyers, and anyone who wants turnkey and doesn't want to renovate.</div>
       </div>
       <div class="hood">
-        <div class="hood-meta"><span class="tagline">Original townsite</span><span class="price-tag"><i>$</i>The whole range</span></div>
+        <div class="hood-meta"><span class="tagline">Original townsite</span></div>
         <h3>University &amp; Old Town</h3>
         <p>The most architecturally interesting part of the city and the most variable. Mid-century and craftsman homes on the original townsite, modern places tucked into the foothills, and dense rental housing wherever Idaho State students can walk to campus. Two doors can be a hundred thousand apart.</p>
         <div class="fit"><b>Fits</b>Character-home buyers, walkability people, investors who understand student rentals.</div>
       </div>
       <div class="hood">
-        <div class="hood-meta"><span class="tagline">West bench</span><span class="price-tag"><i>$</i>Least expensive</span></div>
+        <div class="hood-meta"><span class="tagline">West bench</span></div>
         <h3>West Pocatello</h3>
         <p>The other bench, and the value side of town. West-bench neighborhoods with real sunset views, mixed in with the starter housing stock that gets first-time buyers into the market. Condition varies block to block more than any other area &mdash; this is one to walk before you fall in love with a listing photo.</p>
         <div class="fit"><b>Fits</b>First-time buyers, house hackers, anyone whose budget is the constraint.</div>
       </div>
       <div class="hood">
-        <div class="hood-meta"><span class="tagline">North of the gap</span><span class="price-tag"><i>$</i>Lower middle</span></div>
+        <div class="hood-meta"><span class="tagline">North of the gap</span></div>
         <h3>North Pocatello</h3>
         <p>Single-family neighborhoods and mobile parks on the flatter north end, closest to the industrial corridor and the fastest run to the freeway. Practical, unpretentious, and priced accordingly. Check which way the prevailing wind runs on any given street &mdash; more on that in the honest section.</p>
         <div class="fit"><b>Fits</b>Shift workers, commuters to Chubbuck or Fort Hall, budget-first buyers.</div>
       </div>
       <div class="hood">
-        <div class="hood-meta"><span class="tagline">River &amp; hillside</span><span class="price-tag"><i>$</i>Upper middle</span></div>
+        <div class="hood-meta"><span class="tagline">River &amp; hillside</span></div>
         <h3>South Pocatello</h3>
         <p>Scenic hillside and riverside pockets heading toward the Portneuf Gap, plus rural acreage once you're past the last subdivision. Quieter, greener, and the shortest drive to Mink Creek and the ski hill. Lots get large fast out here.</p>
         <div class="fit"><b>Fits</b>Buyers who want land without leaving the city, outdoor people, horse property hunters.</div>
       </div>
       <div class="hood">
-        <div class="hood-meta"><span class="tagline">Mountain retreat</span><span class="price-tag"><i>$</i>All over the place</span></div>
+        <div class="hood-meta"><span class="tagline">Mountain retreat</span></div>
         <h3>Buckskin</h3>
         <p>Secluded mountain properties southeast of town for people who genuinely want to be away from it all. Trees, privacy, and a driveway you will think hard about every January. Not a starter area, and not a place to buy without asking about the road, the water and the power.</p>
         <div class="fit"><b>Fits</b>Privacy seekers, cabin-minded buyers, people who own a plow.</div>
       </div>
       <div class="hood">
-        <div class="hood-meta"><span class="tagline">Its own city</span><span class="price-tag"><i>$</i>Middle</span></div>
+        <div class="hood-meta"><span class="tagline">Its own city</span></div>
         <h3>Chubbuck</h3>
         <p>Technically a separate city, functionally the north end of the metro &mdash; and where most of the new construction has gone. Single-family subdivisions, townhomes and condos, mobile parks and rural acreage all inside a few square miles, with the newest retail and the shortest grocery run in the valley.</p>
         <div class="fit"><b>Fits</b>New-construction buyers, and anyone who wants flat streets and sidewalks.</div>
