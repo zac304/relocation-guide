@@ -261,6 +261,1107 @@ footer a:hover{border-bottom-color:var(--amber)}
 @media(max-width:600px){.sdlink{grid-template-columns:1fr}.sdlink em{margin-top:2px}}
 
 /* Zac's mark and brand imagery */
+img.mark{height:46px;width:auto;flex:none;display:block;border-radius:0;background:none;border:0;object-fit:contain}
+.topbar img.mark{height:42px;width:auto}
+@media(max-width:600px){.topbar img.mark{height:36px;width:auto}}
+.cta{position:relative;overflow:hidden}
+.cta-fig{position:absolute;right:16px;bottom:-4px;width:154px;height:auto;pointer-events:none;user-select:none}
+.cta.has-fig{padding-right:196px}
+@media(max-width:860px){.cta.has-fig{padding-right:36px}.cta-fig{display:none}}
+.biz-intro{display:grid;grid-template-columns:1fr auto;gap:8px 28px;align-items:center;margin-bottom:26px}
+.biz-intro p{margin:0}
+.biz-intro img{width:152px;height:auto;justify-self:end}
+@media(max-width:720px){.biz-intro{grid-template-columns:1fr}.biz-intro img{display:none}}
+.footmark{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-top:56px;padding-top:34px;border-top:1px solid var(--line)}
+.footmark .stack{width:148px;height:auto}
+.footmark .brokerage{width:176px;height:auto;background:#fff;padding:10px 14px;border-radius:4px}
+.footmark .fm-say{color:var(--ink-faint);font-size:14.5px;max-width:40ch}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<section id="gate">
+  <div class="wrap">
+    <div class="brandbar">
+      <img class="mark" src="img/zac.webp" alt="Zac Davis" width="46" height="46" decoding="async">
+      <div>
+        <div class="who">Zac Davis &middot; SilverCreek Realty Group</div>
+        <div class="where">Pocatello &middot; Chubbuck &middot; Southeast Idaho</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap gate-head">
+    <div class="gate-grid">
+      <div>
+        <div class="eyebrow">The Southeast Idaho relocation guide</div>
+        <h1 class="gate-h1">Everything I tell people who are <em>actually</em> moving here.</h1>
+        <p class="gate-sub">Not a brochure. The neighborhood-by-neighborhood breakdown, the real move timeline, the parts of living here nobody puts on a postcard &mdash; and where the locals actually eat.</p>
+
+        <div class="inside">
+          <h3>What's inside</h3>
+          <ul>
+            <li><span class="tick"></span><span><b>The neighborhood map.</b> Seven Pocatello and Chubbuck areas plus the four towns people ask me about most &mdash; what each one feels like and what it costs.</span></li>
+            <li><span class="tick"></span><span><b>The 90-day move plan.</b> With Idaho's actual deadlines: you have 30 days to swap your license and registration, and plates take about six weeks to arrive.</span></li>
+            <li><span class="tick"></span><span><b>The honest downsides.</b> Winter inversion, wages, the wind, the airport. The stuff you'd rather hear now than in February.</span></li>
+            <li><span class="tick"></span><span><b>Where to eat and what to do.</b> Season by season, from Pebble Creek to the places that don't advertise.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <form class="card form-card" id="gateForm" novalidate>
+        <h2 id="formTitle">Get the guide</h2>
+        <p class="lede" id="formLede">Free, instant, no download. Takes about twenty seconds.</p>
+
+        <div id="mainFields">
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" placeholder="First and last">
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@email.com">
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone</label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="(208) 555-0134">
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="f-from">Moving from</label>
+            <input id="f-from" name="movingFrom" type="text" placeholder="City, state">
+          </div>
+          <div class="field">
+            <label for="f-when">Timeline</label>
+            <select id="f-when" name="timeline">
+              <option value="">Select</option>
+              <option>Within 30 days</option>
+              <option>1&ndash;3 months</option>
+              <option>3&ndash;6 months</option>
+              <option>6&ndash;12 months</option>
+              <option>Just researching</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="hp" aria-hidden="true">
+          <label for="f-company">Company</label>
+          <input id="f-company" name="company" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <label class="consent">
+          <input type="checkbox" id="f-consent">
+          <span>I agree to receive recurring marketing communication from Zac Davis and SilverCreek Realty Group, including auto-dialed calls, texts, and prerecorded voice messages. Message frequency varies, message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase.</span>
+        </label>
+
+        <button class="btn" type="submit" id="submitBtn">Open the guide &rarr;</button>
+        <div class="err" id="formErr" role="alert"></div>
+        <p class="fineprint">Your info goes to me, not a lead pool.</p>
+        </div>
+
+        <div class="altline" id="altToReturn">
+          Been here before? <button type="button" class="linkish" id="showReturn">Skip the form</button>
+        </div>
+
+        <div id="returnPanel" hidden>
+          <div class="field">
+            <label for="f-return">The email you used</label>
+            <input id="f-return" type="email" autocomplete="email" placeholder="you@email.com">
+          </div>
+          <button class="btn" type="button" id="returnBtn">Open the guide &rarr;</button>
+          <div class="err" id="returnErr" role="alert"></div>
+          <div class="altline">
+            First time here? <button type="button" class="linkish" id="showFull">Get access</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="ridge" aria-hidden="true">
+    <svg viewBox="0 0 1200 150" preserveAspectRatio="none" role="presentation">
+      <path d="M0,150 L0,96 L84,72 L150,88 L232,44 L318,80 L392,58 L470,92 L560,50 L640,84 L724,62 L812,98 L900,70 L984,100 L1074,76 L1140,104 L1200,86 L1200,150 Z" fill="var(--deep)" opacity="0.18"></path>
+      <path d="M0,150 L0,122 L96,110 L188,126 L286,102 L380,124 L468,112 L566,132 L664,110 L760,128 L858,114 L950,134 L1048,116 L1136,132 L1200,120 L1200,150 Z" fill="var(--deep)" opacity="0.32"></path>
+    </svg>
+  </div>
+</section>
+
+<section id="guide">
+  <div class="topbar">
+    <div class="topbar-in">
+      <img class="mark" src="img/zac.webp" alt="Zac Davis" width="46" height="46" decoding="async">
+      <div class="tabs" role="tablist" aria-label="Guide sections">
+        <button class="tab" role="tab" aria-selected="true" data-panel="p-hoods">Neighborhoods</button>
+        <button class="tab" role="tab" aria-selected="false" data-panel="p-move">The move</button>
+        <button class="tab" role="tab" aria-selected="false" data-panel="p-fun">Eat &amp; explore</button>
+        <button class="tab" role="tab" aria-selected="false" data-panel="p-list">Bucket list</button>
+      </div>
+      <a class="news-btn" href="https://lp.constantcontactpages.com/sl/Rq5bI6d/ZacDavisBusinessCard" target="_blank" rel="noopener">Free weekly newsletter</a>
+    </div>
+  </div>
+
+  <div class="panel on wrap" id="p-hoods" role="tabpanel">
+    <div class="panel-head">
+      <div class="eyebrow">Section one</div>
+      <h2>Where people actually land</h2>
+      <p>Pocatello isn't one market &mdash; it's a valley with a bench on each side, a university in the middle, and a ring of small towns that each solve a different problem. Here's how I'd sort them if you were sitting across from me.</p>
+    </div>
+
+    <div class="market">
+      <div><div class="m-val">$346,110</div><div class="m-lab">Average Pocatello home value</div></div>
+      <div><div class="m-val">+1.3%</div><div class="m-lab">Change over the past year</div></div>
+      <div><div class="m-val">28 days</div><div class="m-lab">Typical time to go pending</div></div>
+      <p class="market-note">Zillow Home Value Index, Pocatello, as of July 31, 2026. Averages hide a lot &mdash; the bench and the flats are different markets. Text me for the live MLS numbers on any area below.</p>
+    </div>
+
+    <div class="section-label">Schools</div>
+    <p class="read" style="color:var(--ink-soft);">Pocatello and Chubbuck are Pocatello&ndash;Chubbuck School District 25; the smaller towns further out each have their own district. District 25 draws the attendance boundaries, District 25 redraws them, and District 25 is the only source worth trusting on which school serves which address &mdash; so instead of copying their map onto my page, I will send you to theirs. Put an address in and you get the real answer, current as of today.</p>
+    <div class="sdlinks">
+      <a class="sdlink" href="https://www.sd25.us/find-my-enrollment" target="_blank" rel="noopener">
+        <b>Find my enrollment &rarr;</b><em>Start here</em>
+        <span>Put an address in and the district tells you the exact schools that serve it.</span>
+      </a>
+      <a class="sdlink" href="https://experience.arcgis.com/experience/599d6b88eb5b434faf7221bd620b58f8/" target="_blank" rel="noopener">
+        <b>Elementary boundary map &rarr;</b><em>District 25</em>
+        <span>Every elementary area in the district, with the bus stops on it.</span>
+      </a>
+      <a class="sdlink" href="https://experience.arcgis.com/experience/763d7bcc22fa46f1a2efa8b50947c0c5/" target="_blank" rel="noopener">
+        <b>Middle school boundary map &rarr;</b><em>District 25</em>
+        <span>Same thing for the middle schools, bus stops included.</span>
+      </a>
+      <a class="sdlink" href="https://experience.arcgis.com/experience/9344b8aeec31445f999fe877ef587a5b/" target="_blank" rel="noopener">
+        <b>High school boundary map &rarr;</b><em>District 25</em>
+        <span>And the high schools. These open on the district's own site, so what you see is whatever they are showing today.</span>
+      </a>
+    </div>
+    <p class="read" style="color:var(--ink-faint);font-size:15px;margin-bottom:34px;">Which school is right for your kid is your call, not mine. If you want numbers to judge by, Idaho publishes a report card for every school in the state and I am glad to walk you through where to find them.</p>
+
+    <div class="section-label">Pocatello &amp; Chubbuck</div>
+    <p class="read" style="color:var(--ink-soft);margin-bottom:24px;">The line in the corner of each card is where that area sits on price against the rest of the valley &mdash; not a dollar figure, because dollar figures go stale and these do not. If you want the real number on any one of them, text me and I will pull what it is doing this week.</p>
+
+    <div class="hood-grid">
+      <div class="hood">
+        <div class="hood-meta"><span class="tagline">East bench</span><span class="price-tag"><i>$</i>Priciest</span></div>
+        <h3>Highland</h3>
+        <p>The east-bench suburbia most out-of-state buyers picture when they picture Pocatello: newer subdivisions climbing the hillside, wide streets, garages, valley views out the back. Resale demand here has historically been the steadiest in town &mdash; ask me for the numbers behind that.</p>
+        <div class="fit"><b>Fits</b>Remote-salary buyers, and anyone who wants turnkey and doesn't want to renovate.</div>
+      </div>
+      <div class="hood">
+        <div class="hood-meta"><span class="tagline">Original townsite</span><span class="price-tag"><i>$</i>The whole range</span></div>
+        <h3>University &amp; Old Town</h3>
+        <p>The most architecturally interesting part of the city and the most variable. Mid-century and craftsman homes on the original townsite, modern places tucked into the foothills, and dense rental housing wherever Idaho State students can walk to campus. Two doors can be a hundred thousand apart.</p>
+        <div class="fit"><b>Fits</b>Character-home buyers, walkability people, investors who understand student rentals.</div>
+      </div>
+      <div class="hood">
+        <div class="hood-meta"><span class="tagline">West bench</span><span class="price-tag"><i>$</i>Least expensive</span></div>
+        <h3>West Pocatello</h3>
+        <p>The other bench, and the value side of town. West-bench neighborhoods with real sunset views, mixed in with the starter housing stock that gets first-time buyers into the market. Condition varies block to block more than any other area &mdash; this is one to walk before you fall in love with a listing photo.</p>
+        <div class="fit"><b>Fits</b>First-time buyers, house hackers, anyone whose budget is the constraint.</div>
+      </div>
+      <div class="hood">
+        <div class="hood-meta"><span class="tagline">North of the gap</span><span class="price-tag"><i>$</i>Lower middle</span></div>
+        <h3>North Pocatello</h3>
+        <p>Single-family neighborhoods and mobile parks on the flatter north end, closest to the industrial corridor and the fastest run to the freeway. Practical, unpretentious, and priced accordingly. Check which way the prevailing wind runs on any given street &mdash; more on that in the honest section.</p>
+        <div class="fit"><b>Fits</b>Shift workers, commuters to Chubbuck or Fort Hall, budget-first buyers.</div>
+      </div>
+      <div class="hood">
+        <div class="hood-meta"><span class="tagline">River &amp; hillside</span><span class="price-tag"><i>$</i>Upper middle</span></div>
+        <h3>South Pocatello</h3>
+        <p>Scenic hillside and riverside pockets heading toward the Portneuf Gap, plus rural acreage once you're past the last subdivision. Quieter, greener, and the shortest drive to Mink Creek and the ski hill. Lots get large fast out here.</p>
+        <div class="fit"><b>Fits</b>Buyers who want land without leaving the city, outdoor people, horse property hunters.</div>
+      </div>
+      <div class="hood">
+        <div class="hood-meta"><span class="tagline">Mountain retreat</span><span class="price-tag"><i>$</i>All over the place</span></div>
+        <h3>Buckskin</h3>
+        <p>Secluded mountain properties southeast of town for people who genuinely want to be away from it all. Trees, privacy, and a driveway you will think hard about every January. Not a starter area, and not a place to buy without asking about the road, the water and the power.</p>
+        <div class="fit"><b>Fits</b>Privacy seekers, cabin-minded buyers, people who own a plow.</div>
+      </div>
+      <div class="hood">
+        <div class="hood-meta"><span class="tagline">Its own city</span><span class="price-tag"><i>$</i>Middle</span></div>
+        <h3>Chubbuck</h3>
+        <p>Technically a separate city, functionally the north end of the metro &mdash; and where most of the new construction has gone. Single-family subdivisions, townhomes and condos, mobile parks and rural acreage all inside a few square miles, with the newest retail and the shortest grocery run in the valley.</p>
+        <div class="fit"><b>Fits</b>New-construction buyers, and anyone who wants flat streets and sidewalks.</div>
+      </div>
+    </div>
+
+    <div class="section-label">Within an hour</div>
+    <div class="hood-grid">
+      <div class="hood">
+        <div class="hood-meta"><span class="tagline">50 min north</span></div>
+        <h3>Idaho Falls</h3>
+        <p>The bigger city on the Snake River, and the reason a lot of Southeast Idaho paychecks exist &mdash; Idaho National Laboratory buses run from all over the region. More retail, more restaurants, more flights, higher prices than Pocatello.</p>
+        <div class="fit"><b>Fits</b>INL employees, buyers who want a bigger-city feel with a Yellowstone-side location.</div>
+      </div>
+      <div class="hood">
+        <div class="hood-meta"><span class="tagline">25 min north</span></div>
+        <h3>Blackfoot</h3>
+        <p>Farm-country county seat between the two cities, cheaper than either, and a legitimate split-the-difference if one of you works in Pocatello and the other in Idaho Falls. Small-town pace, and yes, the potato museum is real.</p>
+        <div class="fit"><b>Fits</b>Two-commute households, buyers priced out of both cities.</div>
+      </div>
+      <div class="hood">
+        <div class="hood-meta"><span class="tagline">30 min west</span></div>
+        <h3>American Falls</h3>
+        <p>Reservoir town on the Snake, built around water &mdash; boating, fishing, and some of the best sunsets in the region. Small school district, small downtown, and the lowest entry prices of anywhere in this guide.</p>
+        <div class="fit"><b>Fits</b>Water people, and anyone whose commute is flexible.</div>
+      </div>
+      <div class="hood">
+        <div class="hood-meta"><span class="tagline">15&ndash;40 min southeast</span></div>
+        <h3>Inkom &amp; Lava Hot Springs</h3>
+        <p>The canyon towns. Inkom is a genuine 15-minute commute to Pocatello with a small-town elementary school; Lava is the hot springs resort town further up, where a share of the housing stock is short-term rental. Both put you at the base of the mountains.</p>
+        <div class="fit"><b>Fits</b>Short-commute rural buyers, and short-term rental investors in Lava specifically.</div>
+      </div>
+    </div>
+
+    <div class="cta has-fig">
+      <img class="cta-fig" src="img/zac.webp" alt="" aria-hidden="true" width="154" height="154" loading="lazy" decoding="async">
+      <h3>Which one is actually right for you?</h3>
+      <p>Tell me your budget, your commute and whether you need a garage in January, and I'll narrow these eleven down to two. No pressure, no drip campaign &mdash; a straight answer.</p>
+      <div class="cta-actions">
+        <a class="cta-btn" href="tel:+12082442554">Call or text 208-244-2554</a>
+        <a class="cta-btn ghost" href="mailto:zac@homesinpocatello.com?subject=Southeast%20Idaho%20relocation%20guide">Email zac@homesinpocatello.com</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel wrap" id="p-move" role="tabpanel">
+    <div class="panel-head">
+      <div class="eyebrow">Section two</div>
+      <h2>The move, and the truth</h2>
+      <p>Idaho gives new residents 30 days to become residents on paper, and most people find that out on day 45. Here's the sequence that keeps you ahead of it &mdash; followed by the things I'd want to know before I signed anything.</p>
+    </div>
+
+    <div class="bl-progress" id="moveProgress">Loading&hellip;</div>
+
+    <div class="timeline">
+      <div class="stage">
+        <div class="when">90 days out</div>
+        <h3>Decide the shape of the move</h3>
+        <ul class="checks">
+          <li><label class="chk"><input type="checkbox" data-c="pick-your-two-areas"><span><b>Pick your two areas, not your seven.</b> Narrow the list above before you shop listings, or you'll burn a trip driving in circles.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="get-pre-approved-with"><span><b>Get pre-approved with a lender who lends here.</b> Out-of-state lenders routinely misjudge rural acreage, septic, and older bench homes.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="book-a-scouting-trip"><span><b>Book a scouting trip that includes a weekday.</b> A Saturday tells you nothing about the school run or the commute.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="if-you-re-renting"><span><b>If you're renting first, start now.</b> Inventory tightens hard in August when Idaho State comes back.</span></label></li>
+        </ul>
+      </div>
+      <div class="stage">
+        <div class="when">60 days out</div>
+        <h3>Lock the housing</h3>
+        <ul class="checks">
+          <li><label class="chk"><input type="checkbox" data-c="write-the-offer-with"><span><b>Write the offer with local inspection expectations.</b> Ask specifically about radon, sewer scope on older townsite homes, and roof age &mdash; snow load is real here.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="get-quotes-from-movers"><span><b>Get quotes from movers early.</b> Southeast Idaho is a long-haul lane for most carriers; late bookings get expensive.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="confirm-internet-at-the"><span><b>Confirm internet at the exact address.</b> Service can change street to street, and it matters if you're remote.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="ask-about-the-well"><span><b>Ask about the well and water rights</b> on anything rural. This is the single most common surprise for out-of-state buyers.</span></label></li>
+        </ul>
+      </div>
+      <div class="stage">
+        <div class="when">30 days out</div>
+        <h3>Set up the utilities and the paperwork trail</h3>
+        <ul class="checks">
+          <li><label class="chk"><input type="checkbox" data-c="line-up-power-gas"><span><b>Line up power, gas, water, trash and internet</b> for the day you close, not the day you arrive.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="forward-your-mail"><span><b>Forward your mail</b> and save the USPS confirmation &mdash; it counts as a proof of Idaho residency at the DMV.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="request-school-records"><span><b>Request school records</b> and check registration windows for your district.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="price-your-car-insurance"><span><b>Price your car insurance for Idaho</b> before you land. Minimums are lower than most states, which usually means your premium drops.</span></label></li>
+        </ul>
+      </div>
+      <div class="stage">
+        <div class="when">Week one</div>
+        <h3>Become an Idahoan on paper</h3>
+        <ul class="checks">
+          <li><label class="chk"><input type="checkbox" data-c="driver-s-license-and"><span><b>Driver's license and vehicle registration: 30-day clock.</b> It starts the day you move, whether or not your old license is still valid.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="bring-the-vehicle-itself"><span><b>Bring the vehicle itself</b> to the county DMV &mdash; they do a VIN inspection on out-of-state cars.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="bring-two-different-proofs"><span><b>Bring two different proofs of Idaho residency</b> if you want the Star Card, Idaho's Real ID.</span></label></li>
+          <li><label class="chk"><input type="checkbox" data-c="register-to-vote-and"><span><b>Register to vote and update your address</b> with the IRS, your bank and your employer.</span></label></li>
+        </ul>
+        <div class="idaho-box">
+          <h4>The Idaho specifics, in one place</h4>
+          <dl>
+            <dt>Deadline</dt>
+            <dd>30 days from your move for both the driver's license and vehicle title/registration. Students at Idaho colleges and active-duty military are exempt.</dd>
+            <dt>Bring</dt>
+            <dd>Proof of lawful presence, identity, legal name, and Idaho residency &mdash; plus the current title, current registration, lienholder info, and the vehicle for VIN inspection.</dd>
+            <dt>Insurance</dt>
+            <dd>Idaho minimums are $25,000 per person for injury, $50,000 per accident, and $15,000 property damage.</dd>
+            <dt>Plates</dt>
+            <dd>Roughly six weeks to arrive by mail. You can track them in the DMV online portal.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">The honest part</div>
+    <p class="read" style="color:var(--ink-soft);margin-bottom:26px;">Every agent will tell you about the trails and the low cost of living. Here's the other column. None of it has stopped me from raising my kids here, but you should hear it before you're unpacking boxes.</p>
+
+    <div class="straight">
+      <div class="straight-row"><h4>Winter inversion</h4><p>Cold air settles in the valley for stretches of December through February and traps whatever's in it. You get grey, hazy weeks with degraded air quality while the bench and the mountains above you sit in sunshine. It's the single most common complaint from newcomers. Idaho DEQ publishes air quality readings for the valley, and I would look at a full winter of them before deciding what it means for your household.</p></div>
+      <div class="straight-row"><h4>Wages, not just prices</h4><p>Housing is cheap relative to Utah, California or Washington &mdash; and local wages reflect that. If you're bringing a remote salary, the math is excellent. If you're job-hunting locally, run your actual offer against your actual payment before you commit, not the cost-of-living index.</p></div>
+      <div class="straight-row"><h4>Getting on a plane</h4><p>Pocatello Regional is small and service is limited. Most people drive Idaho Falls for regional flights or make the roughly two-and-a-half-hour run to Salt Lake City for anything else. Factor that drive into any job that expects you to travel.</p></div>
+      <div class="straight-row"><h4>The wind and the smell</h4><p>The valley funnels wind, and on certain days with the wind in the wrong direction you'll catch industrial and agricultural odor from the north end. It isn't constant and it isn't everywhere, but it's worth standing on the street of a north-end house on a windy afternoon before you write the offer.</p></div>
+      <div class="straight-row"><h4>Retail and dining ceiling</h4><p>This is a metro of roughly 90,000 people. You will drive to Idaho Falls or Salt Lake for some shopping, some concerts and some medical specialists. The food scene is better than people expect &mdash; see the next section &mdash; but it is not Boise, and pretending otherwise would waste your time.</p></div>
+      <div class="straight-row"><h4>The student cycle</h4><p>Idaho State drives a real rental cycle. Near campus, that means August scarcity, cheap summers, and a rental market that behaves nothing like the rest of town. Great if you're investing on purpose; annoying if you're trying to rent for six months while you shop.</p></div>
+      <div class="straight-row"><h4>Older housing stock</h4><p>Big parts of the townsite and West Pocatello were built well before modern insulation, wiring and sewer lines. That's where the character is and where the value is, but budget for updates and never skip the inspection because a house shows well.</p></div>
+    </div>
+
+    <div class="cta has-fig">
+      <img class="cta-fig" src="img/zac.webp" alt="" aria-hidden="true" width="154" height="154" loading="lazy" decoding="async">
+      <h3>Want me to pressure-test your plan?</h3>
+      <p>Send me your timeline and I'll tell you where it's going to break &mdash; the DMV clock, the August rental crunch, the lender who doesn't understand acreage. It's the cheapest hour of your move.</p>
+      <div class="cta-actions">
+        <a class="cta-btn" href="tel:+12082442554">Call or text 208-244-2554</a>
+        <a class="cta-btn ghost" href="mailto:zac@homesinpocatello.com?subject=Southeast%20Idaho%20relocation%20guide">Email zac@homesinpocatello.com</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel wrap" id="p-fun" role="tabpanel">
+    <div class="panel-head">
+      <div class="eyebrow">Section three</div>
+      <h2>Your first year of weekends</h2>
+      <p>The reason people stay isn't the price per square foot. It's that the trailhead is fifteen minutes from the office and there's a hot spring an hour up the canyon. Here's what I'd put on the calendar.</p>
+    </div>
+
+    <div class="section-label">Outside</div>
+    <div class="fun-grid">
+      <div class="fun"><span class="kind">Winter</span><h4>Pebble Creek</h4><p>The local ski hill on Mount Bonneville, about half an hour southeast. Small, steep, and no lift lines &mdash; the trade most transplants from bigger resorts are happy to make.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Pebble%20Creek%20Ski%20Area%20Inkom%20ID" target="_blank" rel="noopener">Inkom · 30 min &rarr;</a></div>
+      <div class="fun"><span class="kind">Winter</span><h4>East Mink Creek Nordic Center</h4><p>Groomed cross-country skiing, snowshoeing and yurt rentals in the canyon south of town. The best-kept secret on this list.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=East%20Mink%20Creek%20Nordic%20Center%20Pocatello%20ID" target="_blank" rel="noopener">East Mink Creek · 20 min &rarr;</a></div>
+      <div class="fun"><span class="kind">Year round</span><h4>City Creek trail system</h4><p>Hiking and mountain biking that starts essentially inside the city. You can be on singletrack twelve minutes after leaving downtown.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=City%20Creek%20Trailhead%20Pocatello%20ID" target="_blank" rel="noopener">West edge of town &rarr;</a></div>
+      <div class="fun"><span class="kind">Year round</span><h4>Lava Hot Springs</h4><p>Natural mineral pools forty minutes up the canyon, open all winter. Tubing the Portneuf through town is the summer version.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Lava%20Hot%20Springs%20Foundation%20Lava%20Hot%20Springs%20ID" target="_blank" rel="noopener">Lava Hot Springs · 40 min &rarr;</a></div>
+      <div class="fun"><span class="kind">Summer</span><h4>Ross Park Aquatic Complex</h4><p>Waterslides, lazy river and diving well &mdash; the default answer to "what do we do with the kids today" from June to August.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Ross%20Park%20Aquatic%20Complex%20Pocatello%20ID" target="_blank" rel="noopener">Ross Park &rarr;</a></div>
+      <div class="fun"><span class="kind">Summer</span><h4>Edson Fichter Nature Area</h4><p>Easy riverside loop and a stocked pond on the south end. Where half of Pocatello learned to fish.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Edson%20Fichter%20Nature%20Area%20Pocatello%20ID" target="_blank" rel="noopener">South Pocatello &rarr;</a></div>
+      <div class="fun"><span class="kind">Day trip</span><h4>Massacre Rocks State Park</h4><p>Oregon Trail ruts, basalt and Snake River canyon west of town toward American Falls. Good hiking and better history.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Massacre%20Rocks%20State%20Park%20American%20Falls%20ID" target="_blank" rel="noopener">American Falls · 35 min &rarr;</a></div>
+      <div class="fun"><span class="kind">Day trip</span><h4>Yellowstone &amp; the Tetons</h4><p>You're inside a comfortable half-day of both. That proximity is genuinely part of the value of living here.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Yellowstone%20National%20Park%20West%20Entrance" target="_blank" rel="noopener">about 3 hrs northeast &rarr;</a></div>
+    </div>
+
+    <div class="section-label">Where to hike</div>
+    <p class="read" style="color:var(--ink-soft);margin-bottom:26px;">Eleven trails worth knowing, roughly easiest first. All of them are inside a half-hour drive, and the first few start close enough to town that you can do them before work.</p>
+
+    <div class="trails">
+      <div class="trail">
+        <h4>Edson Fichter loop</h4>
+        <span class="stats">FLAT &middot; ~1 MI &middot; RIVERSIDE</span>
+        <p>Barely a hike, and that's the point &mdash; it's the one you do your first weekend with a stroller or a dog. Pond, ducks, a stocked fishing hole, and a rope swing the kids will find before you do.</p>
+      </div>
+      <div class="trail">
+        <h4>City Creek</h4>
+        <span class="stats">EASY&ndash;MODERATE &middot; IN TOWN</span>
+        <p>The one everybody starts with. Trailhead minutes from downtown, forgiving grade, and wildflowers in late spring worth the trip on their own. Crowded on Saturdays, which tells you what locals think of it.</p>
+      </div>
+      <div class="trail">
+        <h4>Red Hill to the Pillars</h4>
+        <span class="stats">SHORT &middot; STEEP &middot; SUNRISE</span>
+        <p>Straight up the hill above the university. It's over quickly and it earns its reputation at either end of the day &mdash; this is the view of the valley people put on their wall. Also counts toward Petite Peaks.</p>
+      </div>
+      <div class="trail">
+        <h4>Corral Creek</h4>
+        <span class="stats">MODERATE &middot; CREEKSIDE</span>
+        <p>Follows the water, gentle for the first stretch, well maintained. A good second hike once City Creek stops feeling like a workout.</p>
+      </div>
+      <div class="trail">
+        <h4>Gibson Jack</h4>
+        <span class="stats">MODERATE &middot; SHADED</span>
+        <p>Creek the whole way and real tree cover, which makes it the August answer when everything else is baking. Keeps going if you want it to &mdash; see Elk Meadow below.</p>
+      </div>
+      <div class="trail">
+        <h4>Cusick Creek</h4>
+        <span class="stats">MODERATE</span>
+        <p>Opens in grassland and climbs into shaded forest, steady the whole way with some rocky stretches. Connects into the network heading toward Kinport.</p>
+      </div>
+      <div class="trail">
+        <h4>Kinport Peak</h4>
+        <span class="stats">MODERATE&ndash;HARD &middot; VIA CITY CREEK</span>
+        <p>Up the Sap Tree Loop to the radio towers. You'll see them from town for months before you stand next to them, and the whole valley opens up underneath you when you do.</p>
+      </div>
+      <div class="trail">
+        <h4>Chinese Peak</h4>
+        <span class="stats">2.9 MI &middot; 1,719 FT GAIN &middot; 6,791 FT</span>
+        <p>Dirt road from the gate at the top of Barton, steady grade almost the whole way, no navigation required. The last half mile faces north and holds snow into May &mdash; plan around that, not through it.</p>
+      </div>
+      <div class="trail">
+        <h4>Scout Mountain</h4>
+        <span class="stats">MODERATE&ndash;HARD &middot; MINK CREEK</span>
+        <p>Further out and quieter for it. Campsites up top if you want to make a night of it, and the kind of sunset that explains why people put up with February here.</p>
+      </div>
+      <div class="trail">
+        <h4>Elk Meadow via Gibson Jack</h4>
+        <span class="stats">12.9 MI &middot; LOOP AT THE TOP</span>
+        <p>The big day. Three rocky pitches on the way up and a winter warming hut waiting at the end. Start early, bring lunch, and tell someone where you went.</p>
+      </div>
+      <div class="trail">
+        <h4>Mountaintop Road</h4>
+        <span class="stats">~5 HRS &middot; NO SHADE</span>
+        <p>Desert floor up into pine, steep in places, and genuinely exposed once you're on the road itself. Carry more water than you think you need &mdash; this is the one that humbles people.</p>
+      </div>
+    </div>
+
+    <div class="idaho-box" style="margin-top:28px;">
+      <h4>A good excuse for your first summer: the Portneuf Peaks Club</h4>
+      <dl>
+        <dt>The three</dt>
+        <dd>Scout Mountain, Chinese Peak, and Sterling Justice Overlook &mdash; any time after May 1, at your own pace, finished before the first snow.</dd>
+        <dt>Kids' version</dt>
+        <dd>Petite Peaks: the Red Hill Pillars trail, Wiggle Worm, and any Greenway trail.</dd>
+        <dt>How it works</dt>
+        <dd>Summit photo with you actually in it, all three posted to the Healthy City USA page. There are prizes. More to the point, you'll have seen this valley from three directions before Labor Day, which is a faster way to feel at home than anything I could tell you.</dd>
+      </dl>
+    </div>
+
+    <div class="section-label">Inside, and with kids</div>
+    <div class="fun-grid">
+      <div class="fun"><span class="kind">Museums</span><h4>Idaho Museum of Natural History</h4><p>On the Idaho State campus, with rotating exhibits alongside the permanent natural history collection.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Idaho%20Museum%20of%20Natural%20History%20Pocatello%20ID" target="_blank" rel="noopener">ISU campus &rarr;</a></div>
+      <div class="fun"><span class="kind">Only here</span><h4>Museum of Clean</h4><p>Six floors devoted to the history of cleaning. It sounds like a joke and it is genuinely one of the most memorable places in the state.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Museum%20of%20Clean%20Pocatello%20ID" target="_blank" rel="noopener">Downtown &rarr;</a></div>
+      <div class="fun"><span class="kind">Animals</span><h4>Zoo Idaho</h4><p>A native-species zoo in Ross Park &mdash; grizzlies, bison, elk. Small, walkable, and built around animals that actually live here.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Zoo%20Idaho%20Pocatello%20ID" target="_blank" rel="noopener">Ross Park &rarr;</a></div>
+      <div class="fun"><span class="kind">History</span><h4>Fort Hall Replica</h4><p>Reconstruction of the 1830s trading post that put this valley on the map, plus the Bannock County Historical Museum next door.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Fort%20Hall%20Replica%20Pocatello%20ID" target="_blank" rel="noopener">Upper Ross Park &rarr;</a></div>
+      <div class="fun"><span class="kind">Arts</span><h4>Stephens Performing Arts Center</h4><p>Idaho State's concert hall brings in touring productions and hosts the local symphony &mdash; a bigger room than a town this size usually gets.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Stephens%20Performing%20Arts%20Center%20Pocatello%20ID" target="_blank" rel="noopener">ISU campus &rarr;</a></div>
+      <div class="fun"><span class="kind">Rainy day</span><h4>Old Town Pocatello</h4><p>The historic downtown: galleries, coffee, live music, the farmers market in season, and the best block of independent business in the region.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Pocatello%20ID" target="_blank" rel="noopener">Old Town &rarr;</a></div>
+    </div>
+
+        <div class="section-label">Local businesses worth knowing</div>
+    <div class="biz-intro">
+    <p class="read" style="color:var(--ink-soft);">Full disclosure: these are the businesses I partner with for my coupon book, so my newsletter subscribers get a real discount at every one of them. That's also why I can vouch for them &mdash; I know the owners. All independent, all Pocatello and Chubbuck, no chains. A couple of the restaurants further down are on it too.</p>
+      <img src="img/zac-coupon.webp" alt="" aria-hidden="true" width="152" height="151" loading="lazy" decoding="async">
+    </div>
+
+    <div class="fun-grid">
+      <div class="fun"><span class="kind">Moving in</span><h4>Sudz N&#39; Bubblz</h4><p>Move-in and move-out cleaning, which is the single most useful phone number on this page if you are relocating. Residential and commercial, licensed and insured, and they will do the deep clean before your furniture lands.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Sudz%20N%20Bubblz%20Pocatello%20ID" target="_blank" rel="noopener">Mobile &middot; serves the valley &rarr;</a></div>
+      <div class="fun"><span class="kind">Treats</span><h4>The Sodamix</h4><p>Dirty sodas and cookies out on Pole Line. Southeast Idaho runs on these and you will understand why inside a month.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Sodamix%204185%20Pole%20Line%20Rd%20Pocatello%20ID" target="_blank" rel="noopener">4185 Pole Line Rd &rarr;</a></div>
+      <div class="fun"><span class="kind">Treats</span><h4>Knots &amp; Nibbles</h4><p>Soft pretzels and frozen lemonade on Yellowstone. The lemonade is the move in July.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Knots%20and%20Nibbles%201444%20Yellowstone%20Ave%20Pocatello%20ID" target="_blank" rel="noopener">1444 Yellowstone Ave &rarr;</a></div>
+      <div class="fun"><span class="kind">Treats</span><h4>The Popcorn Shop</h4><p>Flavored popcorn by the bag on East Oak. Becomes the thing you bring to every party you get invited to.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Popcorn%20Shop%20421%20E%20Oak%20St%20Pocatello%20ID" target="_blank" rel="noopener">421 E Oak St &rarr;</a></div>
+      <div class="fun"><span class="kind">Nights out</span><h4>Deleta</h4><p>Roller skating, arcade and escape rooms under one roof on Yellowstone. The rainy-Saturday answer, and good for a date night too.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Deleta%20Skate%20Center%20520%20Yellowstone%20Ave%20Pocatello%20ID" target="_blank" rel="noopener">520 Yellowstone Ave &rarr;</a></div>
+      <div class="fun"><span class="kind">Home</span><h4>Crystal Electrical Solutions</h4><p>Licensed electrician. Worth having in your phone before you buy an older bench house and discover what is behind the wall.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Crystal%20Electrical%20Solutions%20Pocatello%20ID" target="_blank" rel="noopener">Pocatello &rarr;</a></div>
+      <div class="fun"><span class="kind">Tech</span><h4>Gem State Tech &amp; Gaming Repair</h4><p>Phone, tablet and console repair, with locations at Pine Ridge Mall and up in Chubbuck.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Gem%20State%20Tech%20and%20Gaming%20Repair%20Pocatello%20ID" target="_blank" rel="noopener">Pine Ridge Mall &amp; Chubbuck &rarr;</a></div>
+      <div class="fun"><span class="kind">Auto</span><h4>New Day Auto Detailing</h4><p>Interior and exterior detailing on North Main. A good first stop after a long drive across three states with kids in the back.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=New%20Day%20Auto%20Detailing%201704%20N%20Main%20St%20Pocatello%20ID" target="_blank" rel="noopener">1704 N Main St &rarr;</a></div>
+      <div class="fun"><span class="kind">Barber</span><h4>Wildflower Beauty &amp; Barbering</h4><p>Cuts and straight-razor shaves on West Center. Finding a barber is one of those things that quietly makes a place feel like home.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Wildflower%20Beauty%20and%20Barbering%20845%20W%20Center%20St%20Pocatello%20ID" target="_blank" rel="noopener">845 W Center St &rarr;</a></div>
+      <div class="fun"><span class="kind">Spa</span><h4>Sunsations Day Spa &amp; Tanning</h4><p>Tanning, red light and spa treatments on Flandro. February is longer here than you think it will be.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Sunsations%20Day%20Spa%20and%20Tanning%201800%20Flandro%20Dr%20Pocatello%20ID" target="_blank" rel="noopener">1800 Flandro Dr #310 &rarr;</a></div>
+      <div class="fun"><span class="kind">Pharmacy</span><h4>Shaver Compounding Pharmacy</h4><p>An independent compounding pharmacy on South 4th &mdash; they make what the big chains cannot, and they know their customers by name.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Shaver%20Pharmacy%20235%20S%204th%20Ave%20Pocatello%20ID" target="_blank" rel="noopener">235 S 4th Ave &rarr;</a></div>
+      <div class="fun"><span class="kind">Specialty care</span><h4>Beyond the Scars</h4><p>Post-op and scar care on South Main. Niche, but if you need it you will be glad it is here and not two hours away.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Beyond%20the%20Scars%201056%20S%20Main%20St%20Pocatello%20ID" target="_blank" rel="noopener">1056 S Main St &rarr;</a></div>
+      <div class="fun"><span class="kind">Shops</span><h4>The Orange and Black Store</h4><p>Bengals gear on South Main. You will own something orange and black by your second autumn here whether you plan to or not.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Orange%20and%20Black%20Store%20103%20S%20Main%20St%20Pocatello%20ID" target="_blank" rel="noopener">103 S Main St &rarr;</a></div>
+      <div class="fun"><span class="kind">Shops</span><h4>Hallmark Pocatello</h4><p>The card and gift shop on South 4th, in the same building as Shaver. Where locals go when they have forgotten something.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Hallmark%20Pocatello%20235%20S%204th%20Ave%20Pocatello%20ID" target="_blank" rel="noopener">235 S 4th Ave &rarr;</a></div>
+    </div>
+
+    <div class="section-label">Where locals actually eat</div>
+    <div class="eats">
+      <div class="eat"><div><h4>Sandpiper</h4><div class="desc">The special-occasion steakhouse. Where people go for anniversaries and closing dinners.</div><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Sandpiper%20Restaurant%20Pocatello%20ID" target="_blank" rel="noopener">Sandpiper &rarr;</a></div><span class="type">Steak &amp; seafood</span></div>
+      <div class="eat"><div><h4>Himalayan Flavor</h4><div class="desc">The highest-rated kitchen in town and the one that most surprises people who assumed a small Idaho city couldn't do it.</div><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Himalayan%20Flavor%20Pocatello%20ID" target="_blank" rel="noopener">Himalayan Flavor &rarr;</a></div><span class="type">Himalayan &amp; Indian</span></div>
+      <div class="eat"><div><h4>Jeri's Jumbo's Cafe</h4><div class="desc">Breakfast institution. Hash browns, no pretense, and a line on Saturday morning for a reason.</div><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Jeris%20Jumbos%20Cafe%20Pocatello%20ID" target="_blank" rel="noopener">Jeri's Jumbo's &rarr;</a></div><span class="type">Diner</span></div>
+      <div class="eat"><div><h4>Butter Burrs</h4><div class="desc">Longtime local sit-down spot with the kind of service that keeps three generations of the same family coming in.</div><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Butter%20Burrs%20Restaurant%20Pocatello%20ID" target="_blank" rel="noopener">Butter Burrs &rarr;</a></div><span class="type">American</span></div>
+      <div class="eat"><div><h4>Portneuf Valley Brewing</h4><div class="desc">The local brewery, in a converted building near downtown, with a kitchen worth going for on its own.</div><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Portneuf%20Valley%20Brewing%20Pocatello%20ID" target="_blank" rel="noopener">Portneuf Valley Brewing &rarr;</a></div><span class="type">Brewpub</span></div>
+      <div class="eat"><div><h4>El Herradero</h4><div class="desc">The lunch answer. Fast, cheap, consistently good Mexican.</div><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=El%20Herradero%20Pocatello%20ID" target="_blank" rel="noopener">El Herradero &rarr;</a></div><span class="type">Mexican</span></div>
+      <div class="eat"><div><h4>Cafe Tuscano</h4><div class="desc">Italian downtown, and the easiest date night in Pocatello.</div><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Cafe%20Tuscano%20Pocatello%20ID" target="_blank" rel="noopener">Cafe Tuscano &rarr;</a></div><span class="type">Italian</span></div>
+      <div class="eat"><div><h4>Jakers Bar &amp; Grill</h4><div class="desc">Reliable steak and seafood with a salad bar people are weirdly loyal to. Good for a group with mixed opinions.</div><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Jakers%20Bar%20and%20Grill%20Pocatello%20ID" target="_blank" rel="noopener">Jakers &rarr;</a></div><span class="type">Steak &amp; seafood</span></div>
+    </div>
+
+    <div class="cta">
+      <h3>Come see it on a weekday</h3>
+      <p>I'll build you a scouting itinerary around the two areas that fit your budget &mdash; the schools, the commute at the hour you'd actually drive it, and lunch somewhere off this list. Locals-only tour, no listing pressure.</p>
+      <div class="cta-actions">
+        <a class="cta-btn" href="tel:+12082442554">Call or text 208-244-2554</a>
+        <a class="cta-btn ghost" href="mailto:zac@homesinpocatello.com?subject=Southeast%20Idaho%20relocation%20guide">Email zac@homesinpocatello.com</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel wrap" id="p-list" role="tabpanel">
+    <div class="panel-head">
+      <div class="eyebrow">Section four</div>
+      <h2>The Pocatello Bucket List</h2>
+      <p>Forty-three things that'll make you a local faster than anything I can tell you. Tick them off as you go &mdash; this page remembers where you're at.</p>
+    </div>
+
+    <div class="bl-progress" id="blProgress">Loading&hellip;</div>
+
+    <div class="bl-group">
+      <h3>Get outside</h3>
+      <p class="bl-note">The actual reason people stay. Most of this is fifteen to forty minutes from your driveway.</p>
+      <div class="bl-items">
+        <label class="bl"><input type="checkbox" data-k="o1"><span>Watch the sunrise from the Pillars on Red Hill <em>Ten minutes from downtown. Worth the alarm.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Red%20Hill%20Trail%20Pocatello%20ID" target="_blank" rel="noopener">Red Hill trailhead &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o2"><span>Soak at Lava Hot Springs in February <em>Steam and falling snow at the same time.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Lava%20Hot%20Springs%20Foundation%20Lava%20Hot%20Springs%20ID" target="_blank" rel="noopener">Lava Hot Springs · 40 min &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o3"><span>Tube the Portneuf through Lava in July<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Portneuf%20River%20tubing%20Lava%20Hot%20Springs%20ID" target="_blank" rel="noopener">Lava Hot Springs &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o4"><span>Ski Pebble Creek on a weekday <em>No lift line. Ever.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Pebble%20Creek%20Ski%20Area%20Inkom%20ID" target="_blank" rel="noopener">Inkom · 30 min &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o5"><span>Cross-country ski or snowshoe at the Mink Creek Nordic Center<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=East%20Mink%20Creek%20Nordic%20Center%20Pocatello%20ID" target="_blank" rel="noopener">East Mink Creek · 20 min &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o6"><span>Mountain bike to Elk Meadow<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Gibson%20Jack%20Trailhead%20Pocatello%20ID" target="_blank" rel="noopener">Gibson Jack trailhead &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o7"><span>Camp a night on Scout Mountain<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Scout%20Mountain%20Campground%20Pocatello%20ID" target="_blank" rel="noopener">Mink Creek Rec Area &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o8"><span>Drive Buckskin Road just to see where it goes<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Buckskin%20Road%20Pocatello%20ID" target="_blank" rel="noopener">Buckskin Road &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o9"><span>Float or kayak the Portneuf<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Portneuf%20River%20Pocatello%20ID" target="_blank" rel="noopener">Portneuf River &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o10"><span>Play a round of disc golf at the Nordic Center<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=East%20Mink%20Creek%20Nordic%20Center%20Pocatello%20ID" target="_blank" rel="noopener">East Mink Creek Nordic Center &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="o11"><span>Finish the Portneuf Peaks Club <em>Three summits, one summer.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Chinese%20Peak%20Pocatello%20ID" target="_blank" rel="noopener">Scout Mtn · Chinese Peak · Sterling Justice &rarr;</a></span></label>
+      </div>
+    </div>
+
+    <div class="bl-group">
+      <h3>Eat like you live here</h3>
+      <p class="bl-note">Nobody who has been here five years has missed all of these.</p>
+      <div class="bl-items">
+        <label class="bl"><input type="checkbox" data-k="e1"><span>Drink a bottle of Reed's Dairy chocolate milk <em>The one thing the whole town agrees on.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Reeds%20Dairy%20Pocatello%20ID" target="_blank" rel="noopener">Reed's Dairy &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="e2"><span>Order a Buddy's salad<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Buddys%20Italian%20Restaurant%20Pocatello%20ID" target="_blank" rel="noopener">Buddy's &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="e3"><span>Get the taco spaghetti at the Ross Park Drive-In <em>Yes, that's the real name. Yes, it works.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Ross%20Park%20Drive%20In%20Pocatello%20ID" target="_blank" rel="noopener">Ross Park Drive-In &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="e4"><span>Eat at Bigfoot Pizza<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Bigfoot%20Pizza%20Pocatello%20ID" target="_blank" rel="noopener">Bigfoot Pizza &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="e5"><span>Work your way through the Himalayan Flavor menu<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Himalayan%20Flavor%20Pocatello%20ID" target="_blank" rel="noopener">Himalayan Flavor &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="e6"><span>Have a pint at Portneuf Valley Brewing<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Portneuf%20Valley%20Brewing%20Pocatello%20ID" target="_blank" rel="noopener">Portneuf Valley Brewing &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="e7"><span>Hit Jungle Retreat or Scoops &amp; Sliders on a hot afternoon<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Jungle%20Retreat%20Pocatello%20ID" target="_blank" rel="noopener">Jungle Retreat &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="e8"><span>Save Sandpiper for something worth celebrating<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Sandpiper%20Restaurant%20Pocatello%20ID" target="_blank" rel="noopener">Sandpiper &rarr;</a></span></label>
+      </div>
+    </div>
+
+    <div class="bl-group">
+      <h3>Weekends with kids</h3>
+      <p class="bl-note">The rotation that gets you through a long winter and a longer summer.</p>
+      <div class="bl-items">
+        <label class="bl"><input type="checkbox" data-k="k1"><span>Swim at the Ross Park Aquatic Complex<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Ross%20Park%20Aquatic%20Complex%20Pocatello%20ID" target="_blank" rel="noopener">Ross Park &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="k2"><span>Meet the grizzlies at Zoo Idaho<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Zoo%20Idaho%20Pocatello%20ID" target="_blank" rel="noopener">Ross Park &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="k3"><span>Spend an afternoon at the Museum of Clean <em>Sounds like a joke. Isn't one.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Museum%20of%20Clean%20Pocatello%20ID" target="_blank" rel="noopener">Downtown &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="k4"><span>Find the rope swing at Edson Fichter<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Edson%20Fichter%20Nature%20Area%20Pocatello%20ID" target="_blank" rel="noopener">South Pocatello &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="k5"><span>Go skating at Deleta<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Deleta%20Skate%20Center%20Pocatello%20ID" target="_blank" rel="noopener">Deleta Skate Center &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="k6"><span>Ice block down Bartz Field<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Bartz%20Field%20Pocatello%20ID" target="_blank" rel="noopener">Bartz Field &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="k7"><span>Swore Farms in October<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Swore%20Farms%20Pocatello%20ID" target="_blank" rel="noopener">Swore Farms &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="k8"><span>Rock climbing at Ross Park or the ISU Rec Center<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Ross%20Park%20Pocatello%20ID" target="_blank" rel="noopener">Ross Park &amp; the ISU Rec Center &rarr;</a></span></label>
+      </div>
+    </div>
+
+    <div class="bl-group">
+      <h3>Show up where the town shows up</h3>
+      <p class="bl-note">This is the part transplants skip, and it's the part that decides whether you make friends here.</p>
+      <div class="bl-items">
+        <label class="bl"><input type="checkbox" data-k="t1"><span>Saturday morning farmers market<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Pocatello%20Farmers%20Market%20Pocatello%20ID" target="_blank" rel="noopener">Old Town &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t2"><span>Revive at 5 downtown<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Pocatello%20ID" target="_blank" rel="noopener">Old Town &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t3"><span>First Friday Art Walk<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Pocatello%20ID" target="_blank" rel="noopener">Old Town &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t4"><span>The Eastern Idaho State Fair<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Eastern%20Idaho%20State%20Fair%20Blackfoot%20ID" target="_blank" rel="noopener">Blackfoot · 25 min &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t5"><span>The Shoshone-Bannock Indian Festival<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Fort%20Hall%20Idaho" target="_blank" rel="noopener">Fort Hall &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t6"><span>A Spud Kings or Chukars game<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Mountain%20America%20Center%20Idaho%20Falls%20ID" target="_blank" rel="noopener">Idaho Falls · 50 min &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t7"><span>Something loud at the ICCU Dome<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=ICCU%20Dome%20Pocatello%20ID" target="_blank" rel="noopener">ISU campus &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t8"><span>A concert at the Portneuf Amphitheatre<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Portneuf%20Health%20Trust%20Amphitheatre%20Pocatello%20ID" target="_blank" rel="noopener">Portneuf Wellness Complex &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t9"><span>A play at a local theatre<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Pocatello%20ID" target="_blank" rel="noopener">Old Town &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="t10"><span>A movie at the Reel Theatre<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Reel%20Theatre%20Pocatello%20ID" target="_blank" rel="noopener">Pocatello Reel Theatre &rarr;</a></span></label>
+      </div>
+    </div>
+
+    <div class="bl-group">
+      <h3>Worth the drive</h3>
+      <p class="bl-note">Day trips and long weekends. Living here means these are ordinary, not vacations.</p>
+      <div class="bl-items">
+        <label class="bl"><input type="checkbox" data-k="d1"><span>Craters of the Moon <em>Nothing else in the country looks like it.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Craters%20of%20the%20Moon%20National%20Monument%20Idaho" target="_blank" rel="noopener">Arco · about 2 hrs &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="d2"><span>Shoshone Falls at spring runoff <em>Taller than Niagara.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Shoshone%20Falls%20Twin%20Falls%20ID" target="_blank" rel="noopener">Twin Falls · about 2 hrs &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="d3"><span>Massacre Rocks and Register Rock<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Massacre%20Rocks%20State%20Park%20American%20Falls%20ID" target="_blank" rel="noopener">American Falls · 35 min &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="d4"><span>Cherry Springs or City Creek when the leaves turn<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Cherry%20Springs%20Nature%20Area%20Pocatello%20ID" target="_blank" rel="noopener">Mink Creek &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="d5"><span>Yellowstone for a long weekend<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=West%20Yellowstone%20Montana" target="_blank" rel="noopener">West entrance · about 3 hrs &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="d6"><span>The Tetons<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Grand%20Teton%20National%20Park" target="_blank" rel="noopener">Jackson · about 3 hrs &rarr;</a></span></label>
+      </div>
+    </div>
+
+    <div class="news">
+      <div>
+        <div class="eyebrow">Free, every week</div>
+        <h3>What's actually happening around here</h3>
+        <p>Local events, open houses, home value reports, and the coupon book for businesses around town &mdash; real discounts at places you'll actually go. It's the fastest way to feel plugged in, and plenty of people sign up months before they move.</p>
+      </div>
+      <a class="cta-btn" href="https://lp.constantcontactpages.com/sl/Rq5bI6d/ZacDavisBusinessCard" target="_blank" rel="noopener">Sign me up</a>
+    </div>
+
+    <div class="cta has-fig">
+      <img class="cta-fig" src="img/zac.webp" alt="" aria-hidden="true" width="154" height="154" loading="lazy" decoding="async">
+      <h3>Doing these with someone who lives here helps</h3>
+      <p>I've done every one of these, most of them more than once, and I'm happy to tell you which are worth building a weekend around and which can wait. That's a conversation, not a sales call.</p>
+      <div class="cta-actions">
+        <a class="cta-btn" href="tel:+12082442554">Call or text 208-244-2554</a>
+        <a class="cta-btn ghost" href="mailto:zac@homesinpocatello.com?subject=Southeast%20Idaho%20relocation%20guide">Email zac@homesinpocatello.com</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="footmark">
+      <img class="stack" src="img/logo.webp" alt="Let me be your #1 Realtor — Zac Davis" width="148" height="186" loading="lazy" decoding="async">
+      <img class="brokerage" src="img/silvercreek.webp" alt="Silvercreek Realty Group" width="176" height="30" loading="lazy" decoding="async">
+      <p class="fm-say">Licensed in Idaho with Silvercreek Realty Group. If this guide saved you a phone call, it did its job.</p>
+    </div>
+
+    <footer>
+      <div>Zac Davis &middot; SilverCreek Realty Group &middot; homesinpocatello.com</div>
+      <div>208-244-2554 &middot; zac@homesinpocatello.com &middot; <a href="https://lp.constantcontactpages.com/sl/Rq5bI6d/ZacDavisBusinessCard" target="_blank" rel="noopener">Weekly newsletter</a></div>
+    </footer>
+  </div>
+</section>
+
+<script>
+/* ------------------------------------------------------------------
+   SETUP: paste your Google Apps Script web app URL between the quotes.
+   It looks like:  https://script.google.com/macros/s/AKfy..../exec
+   Until you do, the guide still opens but leads are not recorded.
+------------------------------------------------------------------ */
+var LEADS_ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+
+/* ------------------------------------------------------------------
+   The gate is OFF while we work on the guide itself.
+   Flip this to true (and fill in LEADS_ENDPOINT above) to turn the
+   sign-up form back on. Nothing else has to change.
+------------------------------------------------------------------ */
+var GATE_ENABLED = false;
+
+(function(){
+  var gate = document.getElementById('gate');
+  var guide = document.getElementById('guide');
+  var form = document.getElementById('gateForm');
+  var errEl = document.getElementById('formErr');
+  var btn = document.getElementById('submitBtn');
+  var mainFields = document.getElementById('mainFields');
+  var altToReturn = document.getElementById('altToReturn');
+  var returnPanel = document.getElementById('returnPanel');
+  var returnInput = document.getElementById('f-return');
+  var returnBtn = document.getElementById('returnBtn');
+  var returnErr = document.getElementById('returnErr');
+  var formTitle = document.getElementById('formTitle');
+  var formLede = document.getElementById('formLede');
+
+  // Tag each YouTube description link like ?v=data-center so you can see
+  // which video actually produces leads.
+  var VIDEO_TAG = '';
+  try { VIDEO_TAG = new URLSearchParams(location.search).get('v') || ''; } catch (e) {}
+
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function send(fields){
+    if (LEADS_ENDPOINT.indexOf('script.google.com') === -1) {
+      console.warn('Leads endpoint not configured — submission was not recorded.');
+      return Promise.resolve();
+    }
+    fields.video = VIDEO_TAG;
+    fields.source = location.hostname + location.pathname;
+    fields.referrer = document.referrer || 'direct';
+    fields.submittedAt = new Date().toISOString();
+    return fetch(LEADS_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(fields).toString()
+    });
+  }
+
+  function unlock(){
+    gate.style.display = 'none';
+    guide.classList.add('on');
+    window.scrollTo(0, 0);
+  }
+
+  if (!GATE_ENABLED) {
+    unlock();
+  } else {
+    try { if (localStorage.getItem('lsi_unlocked') === '1') unlock(); } catch (e) {}
+  }
+
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(o){ o.setAttribute('aria-selected', String(o === t)); });
+      document.querySelectorAll('.panel').forEach(function(p){
+        p.classList.toggle('on', p.id === t.dataset.panel);
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // Bucket list. Ticks are remembered per browser; nothing leaves the page.
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.bl input'));
+  var progressEl = document.getElementById('blProgress');
+  var BL_STORE = 'lsi_bucket';
+  var ticked = {};
+  try { ticked = JSON.parse(localStorage.getItem(BL_STORE) || '{}'); } catch (e) {}
+
+  function paintProgress(){
+    if (!progressEl) return;
+    var n = 0;
+    boxes.forEach(function(b){ if (b.checked) n++; });
+    progressEl.textContent = n === 0
+      ? boxes.length + ' things to do \u2014 tick them off as you go, this page remembers'
+      : n + ' of ' + boxes.length + ' done' + (n === boxes.length ? ' \u2014 you live here now' : '');
+  }
+
+  boxes.forEach(function(b){
+    if (ticked[b.dataset.k]) b.checked = true;
+    b.addEventListener('change', function(){
+      ticked[b.dataset.k] = b.checked;
+      try { localStorage.setItem(BL_STORE, JSON.stringify(ticked)); } catch (e) {}
+      paintProgress();
+    });
+  });
+  paintProgress();
+  // A map link inside a <label> would also toggle the checkbox. Don't let it.
+  document.querySelectorAll('.bl .loc').forEach(function(a){
+    a.addEventListener('click', function(ev){ ev.stopPropagation(); });
+  });
+
+  // The move checklist. Same deal as the bucket list, separate storage.
+  var mboxes = Array.prototype.slice.call(document.querySelectorAll('.chk input'));
+  var moveEl = document.getElementById('moveProgress');
+  var MV_STORE = 'lsi_move';
+  var mticked = {};
+  try { mticked = JSON.parse(localStorage.getItem(MV_STORE) || '{}'); } catch (e) {}
+
+  function paintMove(){
+    if (!moveEl) return;
+    var n = 0;
+    mboxes.forEach(function(b){ if (b.checked) n++; });
+    moveEl.textContent = n === 0
+      ? mboxes.length + ' steps \u2014 tick them off as you go, this page remembers'
+      : n + ' of ' + mboxes.length + ' done' + (n === mboxes.length ? ' \u2014 welcome to Idaho' : '');
+  }
+
+  mboxes.forEach(function(b){
+    if (mticked[b.dataset.c]) b.checked = true;
+    b.addEventListener('change', function(){
+      mticked[b.dataset.c] = b.checked;
+      try { localStorage.setItem(MV_STORE, JSON.stringify(mticked)); } catch (e) {}
+      paintMove();
+    });
+  });
+  paintMove();
+
+  function problemWith(){
+    var name = form.name.value.trim();
+    var email = form.email.value.trim();
+    var phone = form.phone.value.trim();
+    if (name.length < 2) return 'Add your name so I know who I’m talking to.';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return 'That email address doesn’t look complete.';
+    if (phone.replace(/\D/g, '').length < 10) return 'A 10-digit phone number, please — that’s how I reach you fastest.';
+    if (!document.getElementById('f-consent').checked) return 'Check the consent box and you’re in.';
+    return '';
+  }
+
+  function opener(){
+    var done = false;
+    return function(){
+      if (done) return;
+      done = true;
+      try { localStorage.setItem('lsi_unlocked', '1'); } catch (e) {}
+      unlock();
+    };
+  }
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var problem = problemWith();
+    errEl.textContent = problem;
+    if (problem) return;
+
+    // Honeypot: real people leave this blank.
+    if (form.company.value.trim() !== '') { unlock(); return; }
+
+    btn.disabled = true;
+    btn.textContent = 'Opening…';
+
+    var open = opener();
+    setTimeout(open, 2500);   // never make a visitor wait on the network
+
+    send({
+      type: 'new lead',
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
+      movingFrom: form.movingFrom.value.trim(),
+      timeline: form.timeline.value,
+      consent: 'yes'
+    }).then(open, open);
+  });
+
+  // ---- Returning readers: they already gave you their info once. ----
+  function showPanel(isReturning){
+    mainFields.hidden = isReturning;
+    altToReturn.hidden = isReturning;
+    returnPanel.hidden = !isReturning;
+    formTitle.textContent = isReturning ? 'Welcome back' : 'Get the guide';
+    formLede.textContent = isReturning
+      ? 'Just your email — no need to fill it out again.'
+      : 'Free, instant, no download. Takes about twenty seconds.';
+    if (isReturning) returnInput.focus();
+  }
+
+  document.getElementById('showReturn').addEventListener('click', function(){ showPanel(true); });
+  document.getElementById('showFull').addEventListener('click', function(){ showPanel(false); });
+
+  returnInput.addEventListener('keydown', function(ev){
+    if (ev.key === 'Enter') { ev.preventDefault(); returnBtn.click(); }
+  });
+
+  returnBtn.addEventListener('click', function(){
+    var email = returnInput.value.trim();
+    if (!EMAIL_RE.test(email)) {
+      returnErr.textContent = 'That email address doesn’t look complete.';
+      return;
+    }
+    returnErr.textContent = '';
+    returnBtn.disabled = true;
+    returnBtn.textContent = 'Opening…';
+
+    var open = opener();
+    setTimeout(open, 2500);
+    send({ type: 'returning reader', email: email }).then(open, open);
+  });
+})();
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Living Southeast Idaho — Relocation Guide | Zac Davis</title>
+<meta name="description" content="The free Southeast Idaho relocation guide: neighborhood-by-neighborhood breakdown of Pocatello and Chubbuck, the 30-day move checklist, the honest downsides, and where locals actually eat.">
+<!-- When this moves to guide.homesinpocatello.com, add:
+     <link rel="canonical" href="https://guide.homesinpocatello.com/">
+     <meta property="og:url" content="https://guide.homesinpocatello.com/"> -->
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Living Southeast Idaho — The Relocation Guide">
+<meta property="og:description" content="Everything I tell people who are actually moving here. Neighborhoods, the move timeline, the honest downsides, and the food.">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --ground:#F3F6FA; --surface:#FFFFFF; --surface-2:#E7EDF6;
+  --ink:#101D30; --ink-soft:#44566E; --ink-faint:#71849C;
+  --line:#D4DDE9; --line-strong:#B2C1D4;
+  --amber:#9A6207; --amber-bright:#B5761A; --deep:#1D3A5C; --steel:#2F5F7E;
+  --warn-bg:#F6EEDF;
+  --shadow:0 1px 2px rgba(16,29,48,.07), 0 8px 28px -18px rgba(16,29,48,.38);
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1726; --surface:#132137; --surface-2:#1B2C46;
+    --ink:#E8EEF7; --ink-soft:#AAB9CE; --ink-faint:#7E90A9;
+    --line:#223450; --line-strong:#334A68;
+    --amber:#E9AB4D; --amber-bright:#F7C166; --deep:#8FB4D6; --steel:#84B2CF;
+    --warn-bg:#1B2537;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -20px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1726; --surface:#132137; --surface-2:#1B2C46;
+  --ink:#E8EEF7; --ink-soft:#AAB9CE; --ink-faint:#7E90A9;
+  --line:#223450; --line-strong:#334A68;
+  --amber:#E9AB4D; --amber-bright:#F7C166; --deep:#8FB4D6; --steel:#84B2CF;
+  --warn-bg:#1B2537;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -20px rgba(0,0,0,.9);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+img{max-width:100%}
+[hidden]{display:none!important}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--body); font-size:17px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:var(--display);font-weight:800;letter-spacing:-.02em;line-height:1.08;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--amber)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.read{max-width:66ch}
+
+#gate{padding:0 0 72px}
+.ridge{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.ridge svg{display:block;width:100%;height:auto}
+.gate-head{padding:56px 0 40px}
+.brandbar{display:flex;align-items:center;gap:14px;padding:20px 0;border-bottom:1px solid var(--line)}
+.mark{width:38px;height:38px;border-radius:50%;flex:none;background:var(--deep);color:var(--ground);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:15px}
+.brandbar .who{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:-.01em}
+.brandbar .where{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase}
+.gate-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
+@media(max-width:860px){.gate-grid{grid-template-columns:1fr;gap:36px}}
+.gate-h1{font-size:clamp(38px,6.2vw,62px);margin:18px 0 0}
+.gate-h1 em{font-style:normal;color:var(--amber)}
+.gate-sub{font-size:20px;color:var(--ink-soft);margin-top:20px;max-width:46ch}
+
+.inside{margin-top:36px;border-top:1px solid var(--line);padding-top:24px}
+.inside h3{font-size:13px;font-family:var(--mono);font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px}
+.inside ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.inside li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:baseline}
+.inside li b{font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:-.01em}
+.inside li span{color:var(--ink-soft);font-size:16px}
+.tick{width:9px;height:9px;border-radius:2px;background:var(--amber);transform:translateY(-1px)}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:4px;box-shadow:var(--shadow)}
+.form-card{padding:28px;position:sticky;top:24px}
+@media(max-width:860px){.form-card{position:static}}
+.form-card h2{font-size:23px;margin-bottom:6px}
+.form-card .lede{color:var(--ink-soft);font-size:15px;margin-bottom:22px}
+.field{display:grid;gap:6px;margin-bottom:14px}
+.field label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.field input,.field select{font-family:var(--body);font-size:16px;color:var(--ink);background:var(--ground);border:1px solid var(--line-strong);border-radius:3px;padding:11px 12px;width:100%}
+.field input:focus,.field select:focus{outline:2px solid var(--amber);outline-offset:1px;border-color:transparent}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:420px){.row2{grid-template-columns:1fr}}
+.consent{display:grid;grid-template-columns:auto 1fr;gap:10px;margin:18px 0 6px;align-items:start}
+.consent input{margin-top:4px;width:16px;height:16px;accent-color:var(--amber)}
+.consent span{font-size:12.5px;line-height:1.5;color:var(--ink-faint)}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
+.btn{font-family:var(--display);font-weight:600;font-size:17px;background:var(--ink);color:var(--ground);border:0;border-radius:3px;padding:14px 18px;width:100%;cursor:pointer;transition:transform .12s ease, background .12s ease}
+.btn:hover{background:var(--deep)}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.btn[disabled]{opacity:.6;cursor:progress}
+.fineprint{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);text-align:center;margin:12px 0 0;letter-spacing:.04em}
+.altline{text-align:center;margin-top:18px;padding-top:15px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-faint)}
+.linkish{background:none;border:0;padding:0;font:inherit;color:var(--amber);text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.linkish:hover{color:var(--ink)}
+.linkish:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.err{color:#B4402B;font-size:13.5px;margin-top:10px;min-height:1px}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .err{color:#F09080}}
+:root[data-theme="dark"] .err{color:#F09080}
+
+#guide{display:none}
+#guide.on{display:block}
+.topbar{position:sticky;top:0;z-index:20;background:var(--ground);border-bottom:1px solid var(--line)}
+.topbar-in{display:flex;align-items:center;gap:16px;padding:9px 24px;max-width:1080px;margin:0 auto;flex-wrap:wrap}
+.topbar .mark{width:30px;height:30px;font-size:12px}
+.tabs{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.tab{font-family:var(--display);font-weight:600;font-size:14px;background:transparent;border:1px solid transparent;color:var(--ink-soft);padding:7px 13px;border-radius:999px;cursor:pointer}
+.tab:hover{color:var(--ink);background:var(--surface-2)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.tab:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+@media(max-width:640px){.topbar-in{gap:12px;padding:10px 16px}.tabs{width:100%;margin-left:0}.tab{font-size:13px;padding:6px 11px}}
+
+.panel{display:none;padding:48px 0 96px}
+.panel.on{display:block}
+.panel-head{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:40px}
+.panel-head h2{font-size:clamp(30px,4.4vw,44px);margin-top:10px}
+.panel-head p{color:var(--ink-soft);margin-top:14px;max-width:62ch;font-size:17.5px}
+
+.hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.hood{background:var(--surface);padding:26px 24px;display:flex;flex-direction:column;gap:12px}
+.hood h3{font-size:21px}
+.hood .tagline{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--deep)}
+.hood p{color:var(--ink-soft);font-size:16px}
+.hood .fit{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line-strong);font-size:15px}
+.hood .fit b{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:4px;font-weight:500}
+.price-tag{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);white-space:nowrap;display:inline-flex;gap:5px;align-items:baseline}
+.price-tag i{font-style:normal;color:var(--ink-faint)}
+@media(max-width:420px){.price-tag{font-size:10.5px;letter-spacing:.05em}}
+.hood-meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;justify-content:space-between}
+
+.section-label{font-family:var(--display);font-weight:800;font-size:25px;letter-spacing:-.015em;color:var(--ink);margin:62px 0 22px;padding-bottom:13px;border-bottom:2px solid var(--line-strong)}
+@media(max-width:600px){.section-label{font-size:22px}}
+.section-label:first-of-type{margin-top:0}
+
+.market{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:22px 24px;background:var(--surface-2);border-left:3px solid var(--amber);margin-bottom:40px}
+@media(max-width:640px){.market{grid-template-columns:1fr;gap:16px}}
+.market .m-val{font-family:var(--display);font-weight:800;font-size:27px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.market .m-lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-top:2px}
+.market-note{grid-column:1/-1;font-size:13.5px;color:var(--ink-faint);border-top:1px solid var(--line-strong);padding-top:12px}
+
+.timeline{display:grid;border-left:2px solid var(--line-strong);margin-left:8px}
+.stage{position:relative;padding:0 0 40px 30px}
+.stage:last-child{padding-bottom:0}
+.stage::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--amber);border:3px solid var(--ground)}
+.stage .when{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:4px}
+.stage h3{font-size:22px;margin-bottom:12px}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.checks li{font-size:16.5px;line-height:1.6;color:var(--ink-soft)}
+.chk{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;cursor:pointer;padding:2px 0}
+.chk input{margin-top:6px;width:15px;height:15px;accent-color:var(--amber);cursor:pointer}
+.chk input:checked ~ span,.chk input:checked ~ span b{color:var(--ink-faint)}
+
+.checks li b{color:var(--ink);font-weight:600}
+
+.idaho-box{background:var(--warn-bg);border:1px solid var(--line-strong);padding:22px 24px;margin-top:8px;border-radius:3px}
+.idaho-box h4{font-size:17px;margin-bottom:12px}
+.idaho-box dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:15.5px}
+@media(max-width:560px){.idaho-box dl{grid-template-columns:1fr;gap:2px 0}.idaho-box dd{margin-bottom:10px}}
+.idaho-box dt{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);padding-top:4px}
+.idaho-box dd{margin:0;color:var(--ink-soft)}
+
+.straight{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.straight-row{background:var(--surface);padding:22px 24px;display:grid;grid-template-columns:minmax(150px,1fr) 2.2fr;gap:24px}
+@media(max-width:700px){.straight-row{grid-template-columns:1fr;gap:8px}}
+.straight-row h4{font-size:18px}
+.straight-row p{color:var(--ink-soft);font-size:16px}
+
+.fun-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.fun{background:var(--surface);border:1px solid var(--line);padding:20px;border-radius:3px;display:grid;gap:8px;align-content:start}
+.fun h4{font-size:20px}
+.fun .kind{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--steel)}
+.fun p{font-size:16.5px;color:var(--ink-soft)}
+
+.eats{display:grid}
+.eat{display:grid;grid-template-columns:1fr auto;gap:16px;padding:15px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.eat h4{font-size:21px}
+.eat .desc{color:var(--ink-soft);font-size:16.5px;margin-top:5px}
+.eat .type{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+
+.cta{margin-top:64px;background:var(--ink);color:var(--ground);padding:40px 36px;border-radius:4px;display:grid;gap:16px}
+:root[data-theme="dark"] .cta{background:var(--surface-2);color:var(--ink)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cta{background:var(--surface-2);color:var(--ink)}}
+.cta h3{font-size:26px}
+.cta p{opacity:.82;max-width:54ch;font-size:16.5px}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.cta-btn{font-family:var(--display);font-weight:600;font-size:16px;text-decoration:none;background:var(--amber-bright);color:#16130C;padding:12px 20px;border-radius:3px}
+.cta-btn.ghost{background:transparent;color:inherit;border:1px solid currentColor;opacity:.85}
+.cta-btn:focus-visible{outline:2px solid var(--amber-bright);outline-offset:3px}
+
+footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--ink-faint);font-size:13.5px;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
+
+/* trails */
+.trails{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.trail{background:var(--surface);padding:18px 22px;display:grid;grid-template-columns:1.25fr auto 2fr;gap:22px;align-items:baseline}
+@media(max-width:780px){.trail{grid-template-columns:1fr;gap:6px}}
+.trail h4{font-size:21px}
+.trail .stats{font-family:var(--mono);font-size:12.5px;font-weight:500;letter-spacing:.04em;color:var(--amber);white-space:nowrap;font-variant-numeric:tabular-nums}
+.trail p{color:var(--ink-soft);font-size:16.5px}
+
+/* bucket list */
+.bl-group{margin-bottom:42px}
+.bl-group h3{font-size:24px;margin-bottom:6px}
+.bl-note{color:var(--ink-soft);font-size:15.5px;margin-bottom:18px;max-width:62ch}
+.bl-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:2px}
+.bl{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;padding:9px 12px;border-radius:3px;cursor:pointer}
+.bl:hover{background:var(--surface-2)}
+.bl input{margin-top:5px;width:15px;height:15px;accent-color:var(--amber);cursor:pointer}
+.bl span{font-size:16.5px}
+.bl em{font-style:normal;color:var(--ink-faint);font-size:15px;display:block;margin-top:2px}
+.bl input:checked ~ span{color:var(--ink-faint)}
+.fun .loc,.eat .loc{display:block;margin-top:12px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.04em;color:var(--amber);text-decoration:none;width:fit-content;border-bottom:1px solid transparent}
+.fun .loc:hover,.eat .loc:hover{border-bottom-color:var(--amber)}
+.fun .loc:focus-visible,.eat .loc:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.news-btn{font-family:var(--display);font-weight:600;font-size:13.5px;text-decoration:none;background:var(--amber-bright);color:#16130C;padding:8px 15px;border-radius:999px;white-space:nowrap}
+.news-btn:hover{filter:brightness(1.08)}
+.news-btn:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+@media(max-width:860px){.news-btn{font-size:12.5px;padding:7px 12px}}
+.news{margin-top:56px;background:var(--amber);color:#16130C;border-radius:4px;padding:38px 36px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;box-shadow:var(--shadow)}
+.news .eyebrow{color:#16130C;opacity:.72}
+.news h3{color:#16130C}
+.news p{color:#16130C;opacity:.86}
+.news .cta-btn{background:#16130C;color:var(--amber-bright);font-size:17px;padding:14px 24px}
+@media(max-width:720px){.news{grid-template-columns:1fr;gap:20px}}
+.news h3{font-size:22px;margin:9px 0 10px}
+.news p{font-size:16.5px;max-width:56ch}
+.news h3{font-size:25px;margin:9px 0 11px}
+.news .cta-btn{white-space:nowrap;text-align:center}
+footer a{color:var(--amber);text-decoration:none;border-bottom:1px solid transparent}
+footer a:hover{border-bottom-color:var(--amber)}
+.bl .loc{display:block;margin-top:5px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.04em;color:var(--amber);text-decoration:none;width:fit-content;border-bottom:1px solid transparent}
+.bl .loc:hover{border-bottom-color:var(--amber)}
+.bl .loc:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.bl input:checked ~ span .loc{opacity:.55}
+.bl-progress{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);background:var(--surface-2);border-left:3px solid var(--amber);padding:13px 16px;margin-bottom:36px}
+
+/* District 25 links */
+.sdlinks{display:grid;gap:1px;background:var(--line);border:1px solid var(--line-strong);margin:20px 0 18px}
+.sdlink{background:var(--surface);padding:15px 18px;display:grid;grid-template-columns:1fr auto;gap:5px 18px;align-items:baseline;text-decoration:none}
+.sdlink:hover{background:var(--surface-2)}
+.sdlink b{font-family:var(--display);font-weight:600;font-size:17.5px;color:var(--ink)}
+.sdlink em{font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);white-space:nowrap}
+.sdlink span{grid-column:1/-1;color:var(--ink-faint);font-size:15.5px}
+@media(max-width:600px){.sdlink{grid-template-columns:1fr}.sdlink em{margin-top:2px}}
+
+/* Zac's mark and brand imagery */
 img.mark{height:46px;width:auto;flex:none;display:block}
 .topbar img.mark{height:42px}
 @media(max-width:600px){.topbar img.mark{height:36px}}
