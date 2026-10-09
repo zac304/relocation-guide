@@ -281,13 +281,32 @@ img.mark{height:46px;width:auto;flex:none;display:block;border-radius:0;backgrou
 .biz-intro p{margin:0}
 .biz-intro img{width:152px;height:auto;justify-self:end}
 @media(max-width:720px){.biz-intro{grid-template-columns:1fr}.biz-intro img{display:none}}
-.footmark{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-top:56px;padding-top:34px;border-top:1px solid var(--line)}
-.footmark .stack{width:148px;height:auto}
-.footmark .brokerage{width:176px;height:auto;background:#fff;padding:10px 14px;border-radius:4px}
-.footmark .fm-say{color:var(--ink-faint);font-size:14.5px;max-width:40ch}
+.endcap{margin-top:60px;padding-top:36px;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:34px 54px;align-items:start}
+.endcap:has(#installCard[hidden]){grid-template-columns:minmax(0,1fr)}
+@media(max-width:820px){.endcap{grid-template-columns:minmax(0,1fr);gap:30px}}
+.endcap-id{display:grid;grid-template-columns:auto 1fr;gap:0 24px;align-items:center}
+.endcap-id .stack{width:132px;height:auto;grid-row:1/3}
+.endcap-id .brokerage{width:164px;height:auto;background:#fff;padding:9px 13px;border-radius:4px;align-self:end}
+.endcap-id .fm-say{color:var(--ink-faint);font-size:14.5px;line-height:1.55;margin:12px 0 0;align-self:start;max-width:40ch}
+@media(max-width:520px){.endcap-id{grid-template-columns:minmax(0,1fr);gap:16px;justify-items:start}.endcap-id .stack{grid-row:auto}.endcap-id .fm-say{margin-top:0}}
+.install{background:var(--surface-2);border-left:3px solid var(--amber);padding:22px 24px;border-radius:3px}
+.install h4{font-size:17px;margin:0 0 8px}
+.install p{color:var(--ink-soft);font-size:14.5px;line-height:1.55;margin:0 0 14px}
+.install button{font-family:var(--display);font-weight:600;font-size:15.5px;background:var(--amber-bright);color:#16130C;border:0;padding:11px 18px;border-radius:3px;cursor:pointer}
+.install button:focus-visible{outline:2px solid var(--amber-bright);outline-offset:3px}
+.install .steps{font-size:14px;color:var(--ink-faint);margin:0}
+.install .steps b{color:var(--ink-soft)}
+.cta-email{align-self:center;font-size:16.5px;line-height:1.4}
+.cta-email a{color:inherit;font-weight:700;text-decoration:underline;text-decoration-color:var(--amber-bright);text-decoration-thickness:2px;text-underline-offset:4px}
+.cta-email a:focus-visible{outline:2px solid var(--amber-bright);outline-offset:3px}
 
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0D1726">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="SE Idaho Guide">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
 </head>
 <body>
 
@@ -552,7 +571,7 @@ img.mark{height:46px;width:auto;flex:none;display:block;border-radius:0;backgrou
       <p>Tell me your budget, your commute and whether you need a garage in January, and I'll narrow these eleven down to two. No pressure, no drip campaign &mdash; a straight answer.</p>
       <div class="cta-actions">
         <a class="cta-btn" href="tel:+12082442554">Call or text 208-244-2554</a>
-        <a class="cta-btn ghost" href="mailto:zac@homesinpocatello.com?subject=Southeast%20Idaho%20relocation%20guide">Email zac@homesinpocatello.com</a>
+        <span class="cta-email">or email <a href="mailto:zac@homesinpocatello.com?subject=Southeast%20Idaho%20relocation%20guide">zac@homesinpocatello.com</a></span>
       </div>
     </div>
   </div>
@@ -641,7 +660,7 @@ img.mark{height:46px;width:auto;flex:none;display:block;border-radius:0;backgrou
       <p>Send me your timeline and I'll tell you where it's going to break &mdash; the DMV clock, the August rental crunch, the lender who doesn't understand acreage. It's the cheapest hour of your move.</p>
       <div class="cta-actions">
         <a class="cta-btn" href="tel:+12082442554">Call or text 208-244-2554</a>
-        <a class="cta-btn ghost" href="mailto:zac@homesinpocatello.com?subject=Southeast%20Idaho%20relocation%20guide">Email zac@homesinpocatello.com</a>
+        <span class="cta-email">or email <a href="mailto:zac@homesinpocatello.com?subject=Southeast%20Idaho%20relocation%20guide">zac@homesinpocatello.com</a></span>
       </div>
     </div>
   </div>
@@ -788,7 +807,7 @@ img.mark{height:46px;width:auto;flex:none;display:block;border-radius:0;backgrou
       <p>I'll build you a scouting itinerary around the two areas that fit your budget &mdash; the schools, the commute at the hour you'd actually drive it, and lunch somewhere off this list. Locals-only tour, no listing pressure.</p>
       <div class="cta-actions">
         <a class="cta-btn" href="tel:+12082442554">Call or text 208-244-2554</a>
-        <a class="cta-btn ghost" href="mailto:zac@homesinpocatello.com?subject=Southeast%20Idaho%20relocation%20guide">Email zac@homesinpocatello.com</a>
+        <span class="cta-email">or email <a href="mailto:zac@homesinpocatello.com?subject=Southeast%20Idaho%20relocation%20guide">zac@homesinpocatello.com</a></span>
       </div>
     </div>
   </div>
@@ -895,16 +914,25 @@ img.mark{height:46px;width:auto;flex:none;display:block;border-radius:0;backgrou
       <p>I've done every one of these, most of them more than once, and I'm happy to tell you which are worth building a weekend around and which can wait. That's a conversation, not a sales call.</p>
       <div class="cta-actions">
         <a class="cta-btn" href="tel:+12082442554">Call or text 208-244-2554</a>
-        <a class="cta-btn ghost" href="mailto:zac@homesinpocatello.com?subject=Southeast%20Idaho%20relocation%20guide">Email zac@homesinpocatello.com</a>
+        <span class="cta-email">or email <a href="mailto:zac@homesinpocatello.com?subject=Southeast%20Idaho%20relocation%20guide">zac@homesinpocatello.com</a></span>
       </div>
     </div>
   </div>
 
   <div class="wrap">
-    <div class="footmark">
-      <img class="stack" src="img/logo.webp" alt="Let me be your #1 Realtor — Zac Davis" width="148" height="186" loading="lazy" decoding="async">
-      <img class="brokerage" src="img/silvercreek.webp" alt="Silvercreek Realty Group" width="176" height="30" loading="lazy" decoding="async">
-      <p class="fm-say">Licensed in Idaho with Silvercreek Realty Group. If this guide saved you a phone call, it did its job.</p>
+    <div class="endcap">
+      <div class="endcap-id">
+        <img class="stack" src="img/logo.webp" alt="Let me be your #1 Realtor — Zac Davis" width="148" height="186" loading="lazy" decoding="async">
+        <img class="brokerage" src="img/silvercreek.webp" alt="Silvercreek Realty Group" width="176" height="30" loading="lazy" decoding="async">
+        <p class="fm-say">Licensed in Idaho with Silvercreek Realty Group. If this guide saved you a phone call, it did its job.</p>
+      </div>
+
+      <div class="install" id="installCard" hidden>
+        <h4>Keep this guide on your phone</h4>
+        <p id="installBlurb">Adds it to your home screen like an app &mdash; opens full screen, no address bar, and anything you have already looked at still works without a signal.</p>
+        <button type="button" id="installBtn">Add to home screen</button>
+        <p class="steps" id="installSteps" hidden>In Safari, tap the <b>Share</b> button, then <b>Add to Home Screen</b>.</p>
+      </div>
     </div>
 
     <footer>
@@ -1127,6 +1155,57 @@ var GATE_ENABLED = false;
     setTimeout(open, 2500);
     send({ type: 'returning reader', email: email }).then(open, open);
   });
+})();
+
+/* ---------- install to home screen ---------- */
+(function () {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function () {});
+    });
+  }
+
+  var card = document.getElementById('installCard');
+  var btn = document.getElementById('installBtn');
+  var steps = document.getElementById('installSteps');
+  var blurb = document.getElementById('installBlurb');
+  if (!card || !btn) return;
+
+  var installed = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  if (installed) return;
+
+  var ua = navigator.userAgent || '';
+  var isIos = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var deferred = null;
+
+  function done() {
+    blurb.textContent = 'Installed. Look for the icon on your home screen.';
+    btn.hidden = true;
+    steps.hidden = true;
+  }
+
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    deferred = e;
+    card.hidden = false;
+  });
+
+  if (isIos) {
+    card.hidden = false;
+    btn.hidden = true;
+    steps.hidden = false;
+  }
+
+  btn.addEventListener('click', function () {
+    if (!deferred) return;
+    deferred.prompt();
+    deferred.userChoice.then(function (choice) {
+      deferred = null;
+      if (choice && choice.outcome === 'accepted') done();
+    });
+  });
+
+  window.addEventListener('appinstalled', done);
 })();
 </script>
 </body>
