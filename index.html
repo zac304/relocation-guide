@@ -152,6 +152,9 @@ a{color:inherit}
 .lad-head span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
 .lad-row .lad-p{font-family:var(--mono);font-size:13.5px;color:var(--amber);letter-spacing:.01em}
 @media(max-width:560px){.lad-row{gap:6px 10px}.lad-row span{font-size:13.5px}.lad-row .lad-p{font-size:11.5px}.lad-head span{font-size:9px;letter-spacing:.05em}}
+.hood-range{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--amber);white-space:nowrap;font-variant-numeric:tabular-nums}
+.hood-range.soft{color:var(--ink-faint);letter-spacing:.1em;text-transform:uppercase;font-size:10.5px}
+@media(max-width:420px){.hood-range{font-size:10.5px;letter-spacing:.02em}}
 .section-label{font-family:var(--display);font-weight:800;font-size:25px;letter-spacing:-.015em;color:var(--ink);margin:62px 0 22px;padding-bottom:13px;border-bottom:2px solid var(--line-strong)}
 @media(max-width:600px){.section-label{font-size:22px}}
 .section-label:first-of-type{margin-top:0}
@@ -468,47 +471,47 @@ img.mark{height:46px;width:auto;flex:none;display:block;border-radius:0;backgrou
     <p class="read" style="color:var(--ink-faint);font-size:15px;margin-bottom:34px;">Which school is right for your kid is your call, not mine. If you want numbers to judge by, Idaho publishes a report card for every school in the state and I am glad to walk you through where to find them.</p>
 
     <div class="section-label">Pocatello &amp; Chubbuck</div>
-    <p class="read" style="color:var(--ink-soft);margin-bottom:24px;">The line in the corner of each card is where that area sits on price against the rest of the valley &mdash; not a dollar figure, because dollar figures go stale and these do not. If you want the real number on any one of them, text me and I will pull what it is doing this week.</p>
+    <p class="read" style="color:var(--ink-soft);margin-bottom:24px;">The range on each card is where most current listings in that area are asking &mdash; pulled from the MLS on 9 October 2026, conventional houses only. Manufactured homes in parks are left out because they would drag every range somewhere misleading. These are a snapshot, not a rule, and there are listings above and below every one of them. Text me for what is actually on the market at your price point.</p>
 
     <div class="hood-grid">
       <div class="hood">
-        <div class="hood-meta"><span class="tagline">East bench</span></div>
+        <div class="hood-meta"><span class="tagline">East bench</span><span class="hood-range">$420k&ndash;$650k</span></div>
         <h3>Highland</h3>
         <p>The east-bench suburbia most out-of-state buyers picture when they picture Pocatello: newer subdivisions climbing the hillside, wide streets, garages, valley views out the back. Resale demand here has historically been the steadiest in town &mdash; ask me for the numbers behind that.</p>
         <div class="fit"><b>Fits</b>Remote-salary buyers, and anyone who wants turnkey and doesn't want to renovate.</div>
       </div>
       <div class="hood">
-        <div class="hood-meta"><span class="tagline">Original townsite</span></div>
-        <h3>University &amp; Old Town</h3>
-        <p>The most architecturally interesting part of the city and the most variable. Mid-century and craftsman homes on the original townsite, modern places tucked into the foothills, and dense rental housing wherever Idaho State students can walk to campus. Two doors can be a hundred thousand apart.</p>
-        <div class="fit"><b>Fits</b>Character-home buyers, walkability people, investors who understand student rentals.</div>
+        <div class="hood-meta"><span class="tagline">Around the campus</span><span class="hood-range">$240k&ndash;$340k</span></div>
+        <h3>University</h3>
+        <p>The numbered avenues around Idaho State &mdash; older homes, a good share of them cut into rentals, and the shortest walk to campus in the city. Inventory is thin here and it moves on the university&rsquo;s calendar more than the market&rsquo;s, so what is for sale in March looks nothing like August.</p>
+        <div class="fit"><b>Fits</b>Investors who understand student rentals, staff and faculty, anyone who wants to walk to work.</div>
       </div>
       <div class="hood">
-        <div class="hood-meta"><span class="tagline">West bench</span></div>
-        <h3>West Pocatello</h3>
-        <p>The other bench, and the value side of town. West-bench neighborhoods with real sunset views, mixed in with the starter housing stock that gets first-time buyers into the market. Condition varies block to block more than any other area &mdash; this is one to walk before you fall in love with a listing photo.</p>
-        <div class="fit"><b>Fits</b>First-time buyers, house hackers, anyone whose budget is the constraint.</div>
+        <div class="hood-meta"><span class="tagline">Original townsite &amp; west side</span><span class="hood-range">$200k&ndash;$340k</span></div>
+        <h3>Historic Downtown Pocatello</h3>
+        <p>The oldest part of the city and the most architecturally interesting. Craftsman and mid-century homes on the original townsite, brick storefronts a few blocks off, and the west-side streets running out toward the bench with real sunset views. It is also where the valley&rsquo;s most affordable conventional houses are. Condition varies block to block more than anywhere else in town &mdash; walk it before you fall in love with a listing photo.</p>
+        <div class="fit"><b>Fits</b>Character-home buyers, first-time buyers, walkability people, anyone whose budget is the constraint.</div>
       </div>
       <div class="hood">
-        <div class="hood-meta"><span class="tagline">North of the gap</span></div>
+        <div class="hood-meta"><span class="tagline">North of the gap</span><span class="hood-range">$300k&ndash;$460k</span></div>
         <h3>North Pocatello</h3>
         <p>Single-family neighborhoods and mobile parks on the flatter north end, closest to the industrial corridor and the fastest run to the freeway. Practical, unpretentious, and priced accordingly. Check which way the prevailing wind runs on any given street &mdash; more on that in the honest section.</p>
         <div class="fit"><b>Fits</b>Shift workers, commuters to Chubbuck or Fort Hall, budget-first buyers.</div>
       </div>
       <div class="hood">
-        <div class="hood-meta"><span class="tagline">River &amp; hillside</span></div>
+        <div class="hood-meta"><span class="tagline">River &amp; hillside</span><span class="hood-range">$425k&ndash;$900k</span></div>
         <h3>South Pocatello</h3>
         <p>Scenic hillside and riverside pockets heading toward the Portneuf Gap, plus rural acreage once you're past the last subdivision. Quieter, greener, and the shortest drive to Mink Creek and the ski hill. Lots get large fast out here.</p>
         <div class="fit"><b>Fits</b>Buyers who want land without leaving the city, outdoor people, horse property hunters.</div>
       </div>
       <div class="hood">
-        <div class="hood-meta"><span class="tagline">Mountain retreat</span></div>
+        <div class="hood-meta"><span class="tagline">Mountain retreat</span><span class="hood-range soft">Rarely listed</span></div>
         <h3>Buckskin</h3>
         <p>Secluded mountain properties southeast of town for people who genuinely want to be away from it all. Trees, privacy, and a driveway you will think hard about every January. Not a starter area, and not a place to buy without asking about the road, the water and the power.</p>
         <div class="fit"><b>Fits</b>Privacy seekers, cabin-minded buyers, people who own a plow.</div>
       </div>
       <div class="hood">
-        <div class="hood-meta"><span class="tagline">Its own city</span></div>
+        <div class="hood-meta"><span class="tagline">Its own city</span><span class="hood-range">$330k&ndash;$560k</span></div>
         <h3>Chubbuck</h3>
         <p>Technically a separate city, functionally the north end of the metro &mdash; and where most of the new construction has gone. Single-family subdivisions, townhomes and condos, mobile parks and rural acreage all inside a few square miles, with the newest retail and the shortest grocery run in the valley.</p>
         <div class="fit"><b>Fits</b>New-construction buyers, and anyone who wants flat streets and sidewalks.</div>
@@ -629,7 +632,7 @@ img.mark{height:46px;width:auto;flex:none;display:block;border-radius:0;backgrou
       <div class="straight-row"><h4>The wind and the smell</h4><p>The valley funnels wind, and on certain days with the wind in the wrong direction you'll catch industrial and agricultural odor from the north end. It isn't constant and it isn't everywhere, but it's worth standing on the street of a north-end house on a windy afternoon before you write the offer.</p></div>
       <div class="straight-row"><h4>Retail and dining ceiling</h4><p>This is a metro of roughly 90,000 people. You will drive to Idaho Falls or Salt Lake for some shopping, some concerts and some medical specialists. The food scene is better than people expect &mdash; see the next section &mdash; but it is not Boise, and pretending otherwise would waste your time.</p></div>
       <div class="straight-row"><h4>The student cycle</h4><p>Idaho State drives a real rental cycle. Near campus, that means August scarcity, cheap summers, and a rental market that behaves nothing like the rest of town. Great if you're investing on purpose; annoying if you're trying to rent for six months while you shop.</p></div>
-      <div class="straight-row"><h4>Older housing stock</h4><p>Big parts of the townsite and West Pocatello were built well before modern insulation, wiring and sewer lines. That's where the character is and where the value is, but budget for updates and never skip the inspection because a house shows well.</p></div>
+      <div class="straight-row"><h4>Older housing stock</h4><p>Big parts of the original townsite and the west side were built well before modern insulation, wiring and sewer lines. That's where the character is and where the value is, but budget for updates and never skip the inspection because a house shows well.</p></div>
     </div>
 
     <div class="cta has-fig">
