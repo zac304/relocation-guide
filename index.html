@@ -155,6 +155,14 @@ a{color:inherit}
 .hood-range{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--amber);white-space:nowrap;font-variant-numeric:tabular-nums}
 .hood-range.soft{color:var(--ink-faint);letter-spacing:.1em;text-transform:uppercase;font-size:10.5px}
 @media(max-width:420px){.hood-range{font-size:10.5px;letter-spacing:.02em}}
+.week-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:16px}
+.week-col{background:var(--surface);padding:22px 22px 24px}
+.week-col h4{font-family:var(--display);font-size:16.5px;margin:0 0 4px}
+.week-col .wk-note{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 15px}
+.week-col ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.week-col li{display:grid;gap:2px;font-size:15px;line-height:1.35}
+.week-col li b{font-weight:600;color:var(--ink)}
+.week-col li span{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;color:var(--ink-faint);line-height:1.4}
 .section-label{font-family:var(--display);font-weight:800;font-size:25px;letter-spacing:-.015em;color:var(--ink);margin:62px 0 22px;padding-bottom:13px;border-bottom:2px solid var(--line-strong)}
 @media(max-width:600px){.section-label{font-size:22px}}
 .section-label:first-of-type{margin-top:0}
@@ -785,7 +793,71 @@ img.mark{height:46px;width:auto;flex:none;display:block;border-radius:0;backgrou
       <div class="fun"><span class="kind">Rainy day</span><h4>Old Town Pocatello</h4><p>The historic downtown: galleries, coffee, live music, the farmers market in season, and the best block of independent business in the region.</p><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Town%20Pocatello%20ID" target="_blank" rel="noopener">Old Town &rarr;</a></div>
     </div>
 
-        <div class="section-label">Local businesses worth knowing</div>
+        <div class="section-label">Every week in Pocatello</div>
+    <p class="read" style="color:var(--ink-soft);margin-bottom:22px;">The things that happen whether or not anybody plans them. This is the part transplants underrate: pick two, go often enough that people know your name, and in six months you live here instead of just owning a house here. Times drift and some of it is seasonal &mdash; my weekly newsletter tracks what is actually on.</p>
+
+    <div class="week-grid">
+      <div class="week-col">
+        <h4>Weeknights out</h4>
+        <p class="wk-note">Trivia, jazz, a drink</p>
+        <ul>
+          <li><b>DJ Trivia</b><span>Wed 7&ndash;9pm &middot; The Union Taproom</span></li>
+          <li><b>DJ Trivia</b><span>Thu 8pm &middot; Charley&rsquo;s</span></li>
+          <li><b>Whiskey Flight Night</b><span>Wed from 4pm &middot; The Yellowstone</span></li>
+          <li><b>Jazz Night</b><span>Thu 6&ndash;8pm &middot; The Yellowstone</span></li>
+          <li><b>Wine Tasting Tuesday</b><span>Tue 5&ndash;7pm &middot; The Yellowstone</span></li>
+          <li><b>Roots and Boots country dancing</b><span>Wed 8pm&ndash;midnight &middot; Bannock County Veterans Memorial</span></li>
+          <li><b>Movie night</b><span>Thu&ndash;Sun &middot; Bengal Theater, ISU campus</span></li>
+        </ul>
+      </div>
+      <div class="week-col">
+        <h4>Game nights</h4>
+        <p class="wk-note">All at Gathering Games</p>
+        <ul>
+          <li><b>Friday Night Magic</b><span>Fridays</span></li>
+          <li><b>Sunday D&amp;D</b><span>Sun 5&ndash;8pm</span></li>
+          <li><b>Pok&eacute;mon Night</b><span>Tuesdays</span></li>
+        </ul>
+      </div>
+      <div class="week-col">
+        <h4>At the library</h4>
+        <p class="wk-note">Marshall Public Library</p>
+        <ul>
+          <li><b>Book Babies Storytime</b><span>Mon 11:30am</span></li>
+          <li><b>Preschool Storytime</b><span>Mon 1:30pm &middot; Tue &amp; Wed 10:15am</span></li>
+          <li><b>Toddler Storytime</b><span>Wed 11:30am</span></li>
+          <li><b>Knitters &amp; Crocheters</b><span>Wed 3:30&ndash;5pm</span></li>
+          <li><b>Teen Creative Writing</b><span>Thu 5&ndash;7pm</span></li>
+          <li><b>Book groups</b><span>Monday afternoons and evenings</span></li>
+        </ul>
+      </div>
+      <div class="week-col">
+        <h4>Drop-in fitness</h4>
+        <p class="wk-note">ISU Student Rec Center &amp; Reed Gym</p>
+        <ul>
+          <li><b>Yoga</b><span>Tue &amp; Thu noon &middot; Fri 9am</span></li>
+          <li><b>Spinning</b><span>Tue &amp; Thu noon</span></li>
+          <li><b>Zumba</b><span>Mon noon</span></li>
+          <li><b>Cycle &amp; Tone</b><span>Mon 5pm</span></li>
+          <li><b>UpBeat Barre, Pilates, Lift</b><span>Wed noon &middot; Tue 5:30pm &middot; Thu 5:30pm</span></li>
+          <li><b>Total Body Conditioning</b><span>Wed 6pm &middot; Reed Gymnasium</span></li>
+          <li><b>Aqua Fitness</b><span>Fri noon &middot; Reed Gym pool</span></li>
+          <li><b>Stand Up Paddleboard Yoga</b><span>Wed 6pm &middot; Reed Gym pool</span></li>
+          <li><b>Open Climb</b><span>Thu 5pm to dark &middot; Ross Park</span></li>
+        </ul>
+      </div>
+      <div class="week-col">
+        <h4>Weekend standbys</h4>
+        <p class="wk-note">Saturdays, mostly</p>
+        <ul>
+          <li><b>Portneuf Valley Farmers Market</b><span>Sat 9am&ndash;1pm &middot; Lookout Point, in season</span></li>
+          <li><b>Senior Activity Center bingo</b><span>Sat &middot; doors noon, games 1pm</span></li>
+          <li><b>Model Railroad Society open house</b><span>Third Saturday 10am&ndash;2pm</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-label">Local businesses worth knowing</div>
     <div class="biz-intro">
     <p class="read" style="color:var(--ink-soft);">Full disclosure: these are the businesses I partner with for my coupon book, so my newsletter subscribers get a real discount at every one of them. That's also why I can vouch for them &mdash; I know the owners. All independent, all Pocatello and Chubbuck, no chains. A couple of the restaurants further down are on it too.</p>
       <img src="img/zac-coupon.webp" alt="" aria-hidden="true" width="152" height="151" loading="lazy" decoding="async">
@@ -884,6 +956,7 @@ img.mark{height:46px;width:auto;flex:none;display:block;border-radius:0;backgrou
         <label class="bl"><input type="checkbox" data-k="k6"><span>Ice block down Bartz Field<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Bartz%20Field%20Pocatello%20ID" target="_blank" rel="noopener">Bartz Field &rarr;</a></span></label>
         <label class="bl"><input type="checkbox" data-k="k7"><span>Swore Farms in October<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Swore%20Farms%20Pocatello%20ID" target="_blank" rel="noopener">Swore Farms &rarr;</a></span></label>
         <label class="bl"><input type="checkbox" data-k="k8"><span>Rock climbing at Ross Park or the ISU Rec Center<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Ross%20Park%20Pocatello%20ID" target="_blank" rel="noopener">Ross Park &amp; the ISU Rec Center &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="k9"><span>A corn maze in October <em>Swore Farms and U-Pick Red Barn both run one, most of the month.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Swore%20Farms%20Pocatello%20ID" target="_blank" rel="noopener">Swore Farms &rarr;</a></span></label>
       </div>
     </div>
 
@@ -914,6 +987,20 @@ img.mark{height:46px;width:auto;flex:none;display:block;border-radius:0;backgrou
         <label class="bl"><input type="checkbox" data-k="d4"><span>Cherry Springs or City Creek when the leaves turn<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Cherry%20Springs%20Nature%20Area%20Pocatello%20ID" target="_blank" rel="noopener">Mink Creek &rarr;</a></span></label>
         <label class="bl"><input type="checkbox" data-k="d5"><span>Yellowstone for a long weekend<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=West%20Yellowstone%20Montana" target="_blank" rel="noopener">West entrance · about 3 hrs &rarr;</a></span></label>
         <label class="bl"><input type="checkbox" data-k="d6"><span>The Tetons<a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Grand%20Teton%20National%20Park" target="_blank" rel="noopener">Jackson · about 3 hrs &rarr;</a></span></label>
+      </div>
+    </div>
+
+    <div class="bl-group">
+      <h3>Work it into your week</h3>
+      <p class="bl-note">Standing weekly fixtures, not one-offs. The point isn&rsquo;t to tick these once &mdash; it&rsquo;s to find the one you&rsquo;d go back to on a Wednesday in February.</p>
+      <div class="bl-items">
+        <label class="bl"><input type="checkbox" data-k="w1"><span>Country dancing at Roots and Boots <em>Wednesdays, eight til midnight. No, you do not need to know how.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Bannock%20County%20Veterans%20Memorial%20Building%20Pocatello%20ID" target="_blank" rel="noopener">Vets Memorial &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="w2"><span>Win a round of DJ Trivia <em>Wednesdays at The Union Taproom, Thursdays at Charley&rsquo;s.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Union%20Taproom%20Pocatello%20ID" target="_blank" rel="noopener">The Union Taproom &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="w3"><span>Jazz night at The Yellowstone <em>Thursdays, six to eight.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Yellowstone%20Restaurant%20Pocatello%20ID" target="_blank" rel="noopener">The Yellowstone &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="w4"><span>Friday Night Magic at Gathering Games <em>Or Sunday D&amp;D, or Pok&eacute;mon night on Tuesdays.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Gathering%20Games%20Pocatello%20ID" target="_blank" rel="noopener">Gathering Games &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="w5"><span>Open climb at Ross Park <em>Thursdays, five until it gets dark. Free rock to learn on.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Ross%20Park%20Pocatello%20ID" target="_blank" rel="noopener">Ross Park &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="w6"><span>Paddleboard yoga in the Reed pool <em>Wednesday evenings. Exactly as hard as it sounds.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Reed%20Gym%20Idaho%20State%20University%20Pocatello%20ID" target="_blank" rel="noopener">Reed Gym &rarr;</a></span></label>
+        <label class="bl"><input type="checkbox" data-k="w7"><span>Model Railroad Society open house <em>Third Saturday of the month. Quietly one of the best hours in town.</em><a class="loc" href="https://www.google.com/maps/search/?api=1&amp;query=Pocatello%20Model%20Railroad%20Society%20Pocatello%20ID" target="_blank" rel="noopener">Model Railroad Society &rarr;</a></span></label>
       </div>
     </div>
 
