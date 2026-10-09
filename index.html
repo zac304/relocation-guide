@@ -159,6 +159,20 @@ a{color:inherit}
 .fun-sched li{display:grid;gap:2px;font-size:14.5px;line-height:1.35}
 .fun-sched li b{font-weight:600;color:var(--ink)}
 .fun-sched li span{font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--ink-faint);line-height:1.4}
+.calc{background:var(--surface-2);border-left:3px solid var(--amber);padding:24px 26px 26px;border-radius:3px;margin:0 0 40px}
+.calc h4{font-size:17px;margin:0 0 4px}
+.calc .calc-sub{color:var(--ink-faint);font-size:14px;margin:0 0 18px}
+.calc-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.calc-row input[type=range]{flex:1;min-width:190px;accent-color:var(--amber-bright);height:28px;cursor:pointer}
+.calc-val{font-family:var(--display);font-weight:800;font-size:27px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--ink);min-width:148px;text-align:right}
+@media(max-width:560px){.calc-val{text-align:left;min-width:0}.calc{padding:20px 18px 22px}}
+.calc-out{margin-top:20px;padding-top:18px;border-top:1px solid var(--line-strong)}
+.calc-stats{display:flex;gap:30px;flex-wrap:wrap;margin-bottom:14px}
+.calc-stat b{display:block;font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.01em;font-variant-numeric:tabular-nums;color:var(--ink)}
+.calc-stat span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.calc-note{color:var(--ink-soft);font-size:15px;line-height:1.5;margin:0}
+.calc-cta{margin:14px 0 0;font-size:14.5px;color:var(--ink-soft)}
+.calc-cta a{color:var(--amber);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .week-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:16px}
 .week-col{background:var(--surface);padding:22px 22px 24px}
 .week-col h4{font-family:var(--display);font-size:16.5px;margin:0 0 4px}
@@ -495,6 +509,16 @@ img.mark{height:46px;width:auto;flex:none;display:block;border-radius:0;backgrou
     <div class="idaho-box" style="margin-top:26px;margin-bottom:40px;">
       <h4>Before you get excited about a five&ndash;figure price</h4>
       <p style="font-size:15.5px;color:var(--ink-soft);margin:0;">Every Pocatello listing I found under $100,000 was a manufactured or mobile home in a park &mdash; usually 540 to 1,000 square feet, with lot rent owed monthly on top of the purchase price. They finance differently than a stick&ndash;built house, so talk to a lender before you fall in love with one. The least expensive conventional house I found was $139,900, and there were only eleven listings in the entire city under $200,000. That&rsquo;s why the honest number to budget is closer to $200,000.</p>
+    </div>
+
+    <div class="calc">
+      <h4>What will your budget actually get you?</h4>
+      <p class="calc-sub">Drag it. Everything below comes from what is listed in Pocatello right now.</p>
+      <div class="calc-row">
+        <input type="range" id="calcBudget" min="100000" max="1200000" step="5000" value="350000" aria-label="Your budget">
+        <output class="calc-val" id="calcVal" for="calcBudget">$350,000</output>
+      </div>
+      <div class="calc-out" id="calcOut" aria-live="polite"></div>
     </div>
 
     <div class="section-label">Schools</div>
@@ -1324,6 +1348,70 @@ var GATE_ENABLED = false;
   }
 
   window.addEventListener('appinstalled', done);
+})();
+
+/* ---------- what will your budget get you ---------- */
+(function () {
+  var slider = document.getElementById('calcBudget');
+  if (!slider) return;
+  var valEl = document.getElementById('calcVal');
+  var outEl = document.getElementById('calcOut');
+
+  var BANDS = [
+    { max: 140000, mobile: true,
+      note: 'Under about $140,000, almost everything on the market is a manufactured or mobile home in a park, with lot rent owed every month on top of the purchase price. They finance differently to a stick-built house, so talk to a lender before you fall for one.' },
+    { max: 202000, sqft: 1050, beds: '2 / 1', ppsf: 177,
+      note: 'The thin end of the conventional market. Older and smaller, and there are rarely more than about a dozen of them in the whole city at any one time.' },
+    { max: 280000, sqft: 1280, beds: '3 / 1', ppsf: 173,
+      note: 'Entry-level houses, mostly older stock closer to the middle of town.' },
+    { max: 370000, sqft: 1730, beds: '4 / 2', ppsf: 181,
+      note: 'The middle of the Pocatello market, and the widest choice you will have at any price.' },
+    { max: 480000, sqft: 2410, beds: '4 / 3', ppsf: 187,
+      note: 'Bigger and newer, a good deal of it up on the benches.' },
+    { max: 585000, sqft: 3140, beds: '5 / 3', ppsf: 172,
+      note: 'Room to spread out, mostly in the newer subdivisions.' },
+    { max: 712000, sqft: 3560, beds: '5 / 3', ppsf: 199,
+      note: 'Choice starts narrowing here. Think fewer than twenty on the market at once.' },
+    { max: 790000, sqft: 3600, beds: '4 / 3', ppsf: 208,
+      note: 'Around a dozen at any given time.' },
+    { max: 900000, sqft: 3960, beds: '5 / 3', ppsf: 225,
+      note: 'Usually single digits citywide.' },
+    { max: Infinity, sqft: 4310, beds: '4 / 4', ppsf: 277,
+      note: 'Acreage, a view, or both. Roughly a dozen listed, running up past $2 million.' }
+  ];
+
+  function money(n) { return '$' + n.toLocaleString('en-US'); }
+
+  function stat(v, label) {
+    return '<div class="calc-stat"><b>' + v + '</b><span>' + label + '</span></div>';
+  }
+
+  function paint() {
+    var n = parseInt(slider.value, 10);
+    valEl.textContent = money(n) + (n >= 1200000 ? '+' : '');
+
+    var band = BANDS[BANDS.length - 1];
+    for (var i = 0; i < BANDS.length; i++) {
+      if (n < BANDS[i].max) { band = BANDS[i]; break; }
+    }
+
+    var html = '';
+    if (!band.mobile) {
+      html += '<div class="calc-stats">'
+        + stat(band.sqft.toLocaleString('en-US'), 'Typical size, sq ft')
+        + stat(band.beds, 'Beds / baths')
+        + stat('$' + band.ppsf, 'Per square foot')
+        + '</div>';
+    }
+    html += '<p class="calc-note">' + band.note + '</p>';
+    html += '<p class="calc-cta">Want the real list at that number? '
+      + '<a href="tel:+12082442554">Text me at 208-244-2554</a> '
+      + 'and I will send what is actually on the market this week.</p>';
+    outEl.innerHTML = html;
+  }
+
+  slider.addEventListener('input', paint);
+  paint();
 })();
 </script>
 </body>
