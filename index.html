@@ -162,10 +162,25 @@ a{color:inherit}
 .calc{background:var(--surface-2);border-left:3px solid var(--amber);padding:24px 26px 26px;border-radius:3px;margin:0 0 40px}
 .calc h4{font-size:17px;margin:0 0 4px}
 .calc .calc-sub{color:var(--ink-faint);font-size:14px;margin:0 0 18px}
-.calc-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.calc-row input[type=range]{flex:1;min-width:190px;accent-color:var(--amber-bright);height:28px;cursor:pointer}
-.calc-val{font-family:var(--display);font-weight:800;font-size:27px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--ink);min-width:148px;text-align:right}
-@media(max-width:560px){.calc-val{text-align:left;min-width:0}.calc{padding:20px 18px 22px}}
+.calc-mode{display:flex;gap:8px;margin:0 0 18px;flex-wrap:wrap}
+.cm{font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;background:transparent;border:1px solid var(--line-strong);color:var(--ink-faint);padding:8px 13px;border-radius:3px;cursor:pointer}
+.cm.on{background:var(--amber-bright);border-color:var(--amber-bright);color:#16130C}
+.cm:focus-visible{outline:2px solid var(--amber-bright);outline-offset:2px}
+.calc-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:14px}
+.cf{display:flex;flex-direction:column;gap:5px;position:relative}
+.cf span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.cf input,.cf select{font-family:var(--display);font-size:17px;font-weight:600;color:var(--ink);background:var(--surface);border:1px solid var(--line-strong);border-radius:3px;padding:10px 12px;width:100%;-moz-appearance:textfield}
+.cf input::-webkit-outer-spin-button,.cf input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.cf i{position:absolute;right:12px;bottom:12px;font-style:normal;color:var(--ink-faint);font-size:14px;pointer-events:none}
+.cf input:focus-visible,.cf select:focus-visible{outline:2px solid var(--amber-bright);outline-offset:1px}
+.calc-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.calc-big{font-family:var(--display);font-weight:800;font-size:38px;letter-spacing:-.025em;font-variant-numeric:tabular-nums;color:var(--ink);line-height:1}
+.calc-big-lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.calc-break{display:grid;gap:7px;margin:0 0 18px;max-width:370px}
+.calc-break div{display:flex;justify-content:space-between;gap:16px;font-size:14.5px;color:var(--ink-soft);border-bottom:1px dotted var(--line-strong);padding-bottom:6px}
+.calc-break b{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600}
+.calc-fine{margin:18px 0 0;font-size:12.5px;color:var(--ink-faint);line-height:1.5}
+@media(max-width:560px){.calc{padding:20px 18px 22px}.calc-big{font-size:32px}}
 .calc-out{margin-top:20px;padding-top:18px;border-top:1px solid var(--line-strong)}
 .calc-stats{display:flex;gap:30px;flex-wrap:wrap;margin-bottom:14px}
 .calc-stat b{display:block;font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.01em;font-variant-numeric:tabular-nums;color:var(--ink)}
@@ -511,14 +526,26 @@ img.mark{height:46px;width:auto;flex:none;display:block;border-radius:0;backgrou
       <p style="font-size:15.5px;color:var(--ink-soft);margin:0;">Every Pocatello listing I found under $100,000 was a manufactured or mobile home in a park &mdash; usually 540 to 1,000 square feet, with lot rent owed monthly on top of the purchase price. They finance differently than a stick&ndash;built house, so talk to a lender before you fall in love with one. The least expensive conventional house I found was $139,900, and there were only eleven listings in the entire city under $200,000. That&rsquo;s why the honest number to budget is closer to $200,000.</p>
     </div>
 
-    <div class="calc">
-      <h4>What will your budget actually get you?</h4>
-      <p class="calc-sub">Drag it. Everything below comes from what is listed in Pocatello right now.</p>
-      <div class="calc-row">
-        <input type="range" id="calcBudget" min="100000" max="1200000" step="5000" value="350000" aria-label="Your budget">
-        <output class="calc-val" id="calcVal" for="calcBudget">$350,000</output>
+    <div class="calc" id="calcBox">
+      <h4>What would it actually cost you a month?</h4>
+      <p class="calc-sub">Bannock County tax rates and this week&rsquo;s going mortgage rate, already filled in. Change any of it.</p>
+
+      <div class="calc-mode" role="group" aria-label="What to start from">
+        <button type="button" class="cm on" data-mode="price">Start from a price</button>
+        <button type="button" class="cm" data-mode="pay">Start from a monthly payment</button>
       </div>
+
+      <div class="calc-fields">
+        <label class="cf" id="fPrice"><span>Home price</span><input type="text" inputmode="numeric" id="cPrice" value="350,000"></label>
+        <label class="cf" id="fPay" hidden><span>Monthly payment</span><input type="text" inputmode="numeric" id="cPay" value="2,400"></label>
+        <label class="cf"><span>Down payment</span><input type="number" id="cDown" value="10" min="0" max="100" step="0.5"><i>%</i></label>
+        <label class="cf"><span>Interest rate</span><input type="number" id="cRate" value="7.45" min="0" max="25" step="0.01"><i>%</i></label>
+        <label class="cf"><span>Loan length</span><select id="cTerm"><option value="30">30 years</option><option value="15">15 years</option></select></label>
+      </div>
+
       <div class="calc-out" id="calcOut" aria-live="polite"></div>
+
+      <p class="calc-fine">An estimate, not a quote and not a pre-approval. Property tax is figured at the Bannock County median of 0.95% of value a year and insurance at a rough 0.4% &mdash; both move with the address and with you. Mortgage insurance is added at 0.6% a year whenever the down payment is under 20%, and it comes off later. The 7.45% starting rate is the national 30-year average on 15 October 2026 and will not be your rate. Get a real number from a lender before you count on any of this.</p>
     </div>
 
     <div class="section-label">Schools</div>
@@ -1350,68 +1377,130 @@ var GATE_ENABLED = false;
   window.addEventListener('appinstalled', done);
 })();
 
-/* ---------- what will your budget get you ---------- */
+/* ---------- what would it cost you a month ---------- */
 (function () {
-  var slider = document.getElementById('calcBudget');
-  if (!slider) return;
-  var valEl = document.getElementById('calcVal');
-  var outEl = document.getElementById('calcOut');
+  var box = document.getElementById('calcBox');
+  if (!box) return;
+  var g = function (id) { return document.getElementById(id); };
+  var priceIn = g('cPrice'), payIn = g('cPay'), downIn = g('cDown'),
+      rateIn = g('cRate'), termIn = g('cTerm'), out = g('calcOut'),
+      fPrice = g('fPrice'), fPay = g('fPay');
+  var mode = 'price';
+
+  var TAX = 0.0095;  /* Bannock County median, share of value per year */
+  var INS = 0.004;   /* homeowner's insurance, rough share of value per year */
+  var PMI = 0.006;   /* mortgage insurance per year on the loan, under 20% down */
 
   var BANDS = [
     { max: 140000, mobile: true,
-      note: 'Under about $140,000, almost everything on the market is a manufactured or mobile home in a park, with lot rent owed every month on top of the purchase price. They finance differently to a stick-built house, so talk to a lender before you fall for one.' },
-    { max: 202000, sqft: 1050, beds: '2 / 1', ppsf: 177,
-      note: 'The thin end of the conventional market. Older and smaller, and there are rarely more than about a dozen of them in the whole city at any one time.' },
-    { max: 280000, sqft: 1280, beds: '3 / 1', ppsf: 173,
+      note: 'At that price almost everything listed is a manufactured or mobile home in a park, and lot rent is owed every month on top. They finance differently to a stick-built house, so talk to a lender early.' },
+    { max: 202000, sqft: 1050, beds: '2 / 1',
+      note: 'The thin end of the conventional market. Older and smaller, and rarely more than about a dozen in the city at a time.' },
+    { max: 280000, sqft: 1280, beds: '3 / 1',
       note: 'Entry-level houses, mostly older stock closer to the middle of town.' },
-    { max: 370000, sqft: 1730, beds: '4 / 2', ppsf: 181,
+    { max: 370000, sqft: 1730, beds: '4 / 2',
       note: 'The middle of the Pocatello market, and the widest choice you will have at any price.' },
-    { max: 480000, sqft: 2410, beds: '4 / 3', ppsf: 187,
+    { max: 480000, sqft: 2410, beds: '4 / 3',
       note: 'Bigger and newer, a good deal of it up on the benches.' },
-    { max: 585000, sqft: 3140, beds: '5 / 3', ppsf: 172,
+    { max: 585000, sqft: 3140, beds: '5 / 3',
       note: 'Room to spread out, mostly in the newer subdivisions.' },
-    { max: 712000, sqft: 3560, beds: '5 / 3', ppsf: 199,
+    { max: 712000, sqft: 3560, beds: '5 / 3',
       note: 'Choice starts narrowing here. Think fewer than twenty on the market at once.' },
-    { max: 790000, sqft: 3600, beds: '4 / 3', ppsf: 208,
+    { max: 790000, sqft: 3600, beds: '4 / 3',
       note: 'Around a dozen at any given time.' },
-    { max: 900000, sqft: 3960, beds: '5 / 3', ppsf: 225,
+    { max: 900000, sqft: 3960, beds: '5 / 3',
       note: 'Usually single digits citywide.' },
-    { max: Infinity, sqft: 4310, beds: '4 / 4', ppsf: 277,
+    { max: Infinity, sqft: 4310, beds: '4 / 4',
       note: 'Acreage, a view, or both. Roughly a dozen listed, running up past $2 million.' }
   ];
 
-  function money(n) { return '$' + n.toLocaleString('en-US'); }
+  function num(v) { var n = parseFloat(String(v).replace(/[^0-9.]/g, '')); return isFinite(n) ? n : 0; }
+  function group(n) { return Math.round(n).toLocaleString('en-US'); }
+  function money(n) { return '$' + group(n); }
+  function band(n) { for (var i = 0; i < BANDS.length; i++) { if (n < BANDS[i].max) return BANDS[i]; } return BANDS[BANDS.length - 1]; }
+  function row(k, v) { return '<div><span>' + k + '</span><b>' + v + '</b></div>'; }
 
-  function stat(v, label) {
-    return '<div class="calc-stat"><b>' + v + '</b><span>' + label + '</span></div>';
-  }
+  function calc() {
+    var d = Math.min(Math.max(num(downIn.value), 0), 100) / 100;
+    var r = num(rateIn.value) / 100 / 12;
+    var n = num(termIn.value) * 12;
+    if (!n) return;
+    var k = r > 0 ? r / (1 - Math.pow(1 + r, -n)) : 1 / n;
+    var pmiM = d < 0.2 ? PMI / 12 : 0;
+    var price, payment;
 
-  function paint() {
-    var n = parseInt(slider.value, 10);
-    valEl.textContent = money(n) + (n >= 1200000 ? '+' : '');
-
-    var band = BANDS[BANDS.length - 1];
-    for (var i = 0; i < BANDS.length; i++) {
-      if (n < BANDS[i].max) { band = BANDS[i]; break; }
+    if (mode === 'price') {
+      price = num(priceIn.value);
+      payment = price * (1 - d) * (k + pmiM) + price * (TAX + INS) / 12;
+    } else {
+      var want = num(payIn.value);
+      var denom = (1 - d) * (k + pmiM) + (TAX + INS) / 12;
+      price = denom > 0 ? want / denom : 0;
+      payment = want;
     }
 
-    var html = '';
-    if (!band.mobile) {
+    var loan = price * (1 - d);
+    var pi = loan * k;
+    var tax = price * TAX / 12;
+    var ins = price * INS / 12;
+    var mi = loan * pmiM;
+    var b = band(price);
+
+    var html = '<div class="calc-head">';
+    if (mode === 'price') {
+      html += '<div class="calc-big">' + money(payment) + '</div><div class="calc-big-lab">A month, all in</div>';
+    } else {
+      html += '<div class="calc-big">' + money(price) + '</div><div class="calc-big-lab">Roughly the price that fits</div>';
+    }
+    html += '</div>';
+
+    html += '<div class="calc-break">'
+      + row('Principal &amp; interest', money(pi))
+      + row('Property tax', money(tax))
+      + row('Home insurance', money(ins))
+      + (mi > 0 ? row('Mortgage insurance', money(mi)) : '')
+      + row('Cash down', money(price * d))
+      + row('Amount borrowed', money(loan))
+      + '</div>';
+
+    if (!b.mobile) {
       html += '<div class="calc-stats">'
-        + stat(band.sqft.toLocaleString('en-US'), 'Typical size, sq ft')
-        + stat(band.beds, 'Beds / baths')
-        + stat('$' + band.ppsf, 'Per square foot')
+        + '<div class="calc-stat"><b>' + group(b.sqft) + '</b><span>Typical size, sq ft</span></div>'
+        + '<div class="calc-stat"><b>' + b.beds + '</b><span>Beds / baths</span></div>'
         + '</div>';
     }
-    html += '<p class="calc-note">' + band.note + '</p>';
+    html += '<p class="calc-note">' + b.note + '</p>';
     html += '<p class="calc-cta">Want the real list at that number? '
       + '<a href="tel:+12082442554">Text me at 208-244-2554</a> '
       + 'and I will send what is actually on the market this week.</p>';
-    outEl.innerHTML = html;
+
+    out.innerHTML = html;
   }
 
-  slider.addEventListener('input', paint);
-  paint();
+  function reformat(input) {
+    var v = num(input.value);
+    if (v) input.value = group(v);
+  }
+
+  [priceIn, payIn, downIn, rateIn].forEach(function (i) {
+    i.addEventListener('input', calc);
+  });
+  [priceIn, payIn].forEach(function (i) {
+    i.addEventListener('blur', function () { reformat(i); calc(); });
+  });
+  termIn.addEventListener('change', calc);
+
+  box.querySelectorAll('.cm').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      mode = btn.getAttribute('data-mode');
+      box.querySelectorAll('.cm').forEach(function (b2) { b2.classList.toggle('on', b2 === btn); });
+      fPrice.hidden = mode !== 'price';
+      fPay.hidden = mode !== 'pay';
+      calc();
+    });
+  });
+
+  calc();
 })();
 </script>
 </body>
